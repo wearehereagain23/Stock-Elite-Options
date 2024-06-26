@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg"
+    data-sidebar-image="none" data-preloader="disable">
+
+<head>
+    <link rel="stylesheet" href="css/gwp7niJeGuym.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <meta charset="utf-8">
+    <title>Crypto Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Cryptocurrency" name="description">
+    <meta content="DNCODER" name="author">
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="CnK0hX6C7AuM.ico">
+
+    <link href="css/z9b1ihygiVQi.css" rel="stylesheet">
+
+    <!-- Layout config Js -->
+    <script src="js/LJCFtVbA2U95.js"></script>
+    <!-- Bootstrap Css -->
+    <link href="css/5FCHZcjwlPUQ.css" rel="stylesheet" type="text/css">
+    <!-- Icons Css -->
+    <link href="css/1XNBSVfrq6oB.css" rel="stylesheet" type="text/css">
+    <!-- App Css-->
+    <link href="css/1WaL2CtYjvPZ.css" rel="stylesheet" type="text/css">
+    <!-- custom Css-->
+    <link href="css/Er8WtHNN7ieM.css" rel="stylesheet" type="text/css">
+
+
+    <link rel="stylesheet" href="npm/notyf@3/notyf.min.css">
+
+
+
+
+    <script type="module">
+
+
+
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+        import { getFirestore, doc, getDoc, updateDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
+        import { getStorage, ref, deleteObject, getDownloadURL, uploadBytesResumable, uploadBytes } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-storage.js";
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
+
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDg1xZtIrcfxbx7JYB_0V-x_XGHo2Zz680",
+            authDomain: "stockeliteoptions.firebaseapp.com",
+            projectId: "stockeliteoptions",
+            storageBucket: "stockeliteoptions.appspot.com",
+            messagingSenderId: "128197292169",
+            appId: "1:128197292169:web:f33515363a83b302719658"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const storage = getStorage(app);
+
+        const auth = getAuth(app);
+
+        notyf.success('saved');
+
+
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+
+                if (user.email === 'info@stockeliteoptions.online') {
+
+                    window.location.href = "../../../../Admin/dash.html";
+                    // ...
+                } else {
+
+                    
+                        const unsub = onSnapshot(doc(db, "users", user.email), (docSnap) => {
+                            if (docSnap.data().active == 'Active') {
+
+                                document.getElementById("uss").innerHTML = docSnap.data().username;
+                                document.getElementById("usn").innerHTML = docSnap.data().username;
+                                document.getElementById("username3").value = docSnap.data().username;
+                                document.getElementById("eem").innerHTML = docSnap.data().email;
+                                document.getElementById("emailinput").value = docSnap.data().email;
+                                document.getElementById("fname").value = docSnap.data().firstName;
+                                document.getElementById("lname").value = docSnap.data().lastName;
+                                document.getElementById("phones").value = docSnap.data().phone;
+                                document.getElementById("phone2").value = docSnap.data().phone;
+                                document.getElementById("city").value = docSnap.data().city;
+                                document.getElementById("country").value = docSnap.data().country;
+                                document.getElementById("zipp").value = docSnap.data().zip;
+                                document.getElementById("about").value = docSnap.data().about;
+                                document.getElementById("accountlevel").value = docSnap.data().accountlevel;
+                                document.getElementById("active").value = docSnap.data().active;
+                                document.getElementById("wss").innerHTML = `Welcome ${docSnap.data().username} !`;
+                                document.getElementById("pss").src = !docSnap.data().image ? "./images/PNA5xEBgKAg7.jpg" : docSnap.data().image;
+                                document.getElementById("pss2").src = !docSnap.data().image ? "./images/PNA5xEBgKAg7.jpg" : docSnap.data().image;
+
+                            } else {
+                                alert(`Account Restricted... Contact our customer-care for assistance`);
+                                window.location.href = "../../../../index.html";
+                            }
+
+                        });
+
+                    
+
+                    const formDAT1 = document.getElementById('userfom');
+                    formDAT1.addEventListener('submit', event => {
+                        event.preventDefault();
+                        const formData1 = new FormData(formDAT1);
+                        let firstname = formData1.get('fname');
+                        let lastname = formData1.get('lname');
+                        let city = formData1.get('city');
+                        let zip = formData1.get('zipp');
+                        let country = formData1.get('country');
+                        let phone = formData1.get('phones');
+                        let about = formData1.get('about');
+
+                        const washingtonRefW = doc(db, "users", user.email);
+                        updateDoc(washingtonRefW, {
+                            firstName: firstname,
+                            lastName: lastname,
+                            city: city,
+                            zip: zip,
+                            country: country,
+                            phone: phone,
+                            about: about,
+
+                        }).then(() => {
+                            notyf.success('saved');
+                        })
+
+                    })
+
+                    const storageRef = ref(storage, user.email);
+
+                    document.querySelector('#profile-img-file-input').addEventListener('change', function () {
+                        notyf.success('uplading.....');
+                        const reader = new FileReader();
+                        reader.addEventListener("load", () => {
+                            fetch(reader.result)
+                                .then(res => res.blob())
+                                .then(blob => {
+                                    uploadBytes(storageRef, blob).then((snapshot) => {
+                                        getDownloadURL(storageRef)
+                                            .then((url) => {
+                                                const washingtonRef = doc(db, "users", user.email);
+                                                updateDoc(washingtonRef, {
+                                                    image: url
+                                                }).then(() => {
+                                                    notyf.success('uplading successful');
+                                                })
+                                            })
+                                    });
+                                })
+
+                        });
+                        reader.readAsDataURL(this.files[0]);
+                    })
+
+
+                }
+
+            } else {
+                window.location.href = "/../../index.html";  
+            }
+
+        });
+
+
+
+
+
+        document.getElementById('alu').addEventListener('click', () => {
+            signOut(auth).then(() => {
+                window.location.replace("/../../index.html");
+            }).catch((error) => {
+                notyf.error(error);
+            });
+
+        });
+
+    </script>
+
+</head>
+
+<body>
+
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+
+    <!-- <script src="js/1NmBNQPrKljJ.js"></script> -->
+
+    <script>
+        var notyf = new Notyf({
+            duration: 2000,
+            position: {
+                x: 'right',
+                y: 'top',
+            },
+        }); 
+    </script>
+
+    <!-- Begin page -->
+    <div id="layout-wrapper">
+
+        <header id="page-topbar">
+            <div class="layout-width">
+                <div class="navbar-header">
+                    <div class="d-flex">
+                        <!-- LOGO -->
+                        <div class="navbar-brand-box horizontal-logo">
+                            <a href="" class="logo logo-dark">
+                                <span class="logo-sm">
+                                    <img src="images/5Zg91bMOqhhy.png" alt="" height="22">
+                                </span>
+                                <span class="logo-lg">
+                                    <img src="images/rmQ4Z4AEohMI.png" alt="" height="17">
+                                </span>
+                            </a>
+
+                            <a href="" class="logo logo-light">
+                                <span class="logo-sm">
+                                    <img src="images/5Zg91bMOqhhy.png" alt="" height="22">
+                                </span>
+                                <span class="logo-lg">
+                                    <img src="images/g49x7pALfSnY.png" alt="" height="40">
+                                </span>
+                            </a>
+                        </div>
+
+                        <button type="button"
+                            class="btn btn-sm px-3 fs-16 header-item vertical-menu-btn topnav-hamburger"
+                            id="topnav-hamburger-icon">
+                            <span class="hamburger-icon">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </span>
+                        </button>
+
+                        <!-- App Search-->
+
+                    </div>
+
+                    <div class="d-flex align-items-center">
+                        <div id="google_translate_element"> </div>
+                        <div class="ms-1 header-item d-sm-flex">
+                            <button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle"
+                                data-toggle="fullscreen">
+                                <i class="fa-solid fa-expand"></i>
+                            </button>
+                        </div>
+
+                        <div class="ms-1 header-item d-sm-flex">
+                            <button type="button"
+                                class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle light-dark-mode">
+                                <i class="fa-regular fa-moon"></i>
+                            </button>
+                        </div>
+
+
+
+                        <div class="dropdown ms-sm-3 header-item topbar-user">
+                            <button type="button" class="btn" id="page-header-user-dropdown" data-bs-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <span class="d-flex align-items-center">
+                                    <img class="rounded-circle header-profile-user" id="pss"
+                                        src="images/PNA5xEBgKAg7.jpg" alt="Header Avatar">
+                                    <span class="text-start ms-xl-2">
+                                        <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text"
+                                            id="uss"></span>
+                                        <span class="d-none d-xl-block ms-1 fs-12 user-name-sub-text">Account
+                                            Holder</span>
+                                    </span>
+                                </span>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <!-- item-->
+                                <h6 class="dropdown-header" id="wss"></h6>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- removeNotificationModal -->
+        <div id="removeNotificationModal" class="modal fade zoomIn" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                            id="NotificationModalbtn-close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mt-2 text-center">
+                            <lord-icon src="https://cdn.lordicon.com/gsqxdxog.json" trigger="loop"
+                                colors="primary:#f7b84b,secondary:#f06548" style="width:100px;height:100px"></lord-icon>
+                            <div class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
+                                <h4>Are you sure ?</h4>
+                                <p class="text-muted mx-4 mb-0">Are you sure you want to remove this Notification ?</p>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
+                            <button type="button" class="btn w-sm btn-light" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn w-sm btn-danger" id="delete-notification">Yes, Delete
+                                It!</button>
+                        </div>
+                    </div>
+
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+        <!-- ========== App Menu ========== -->
+        <div class="app-menu navbar-menu">
+            <!-- LOGO -->
+            <div class="navbar-brand-box">
+                <!-- Dark Logo-->
+                <a href="" class="logo logo-dark">
+                    <span class="logo-sm">
+                        <img src="images/5Zg91bMOqhhy.png" alt="" height="22">
+                    </span>
+                    <span class="logo-lg">
+                        <img src="images/rmQ4Z4AEohMI.png" alt="" height="17">
+                    </span>
+                </a>
+                <!-- Light Logo-->
+                <a href="" class="logo logo-light">
+                    <span class="logo-sm">
+                        <img src="images/5Zg91bMOqhhy.png" alt="" height="22">
+                    </span>
+                    <span class="logo-lg">
+                        <img src="images/g49x7pALfSnY.png" alt="" height="40">
+                    </span>
+                </a>
+                <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover"
+                    id="vertical-hover">
+                    <i class="ri-record-circle-line"></i>
+                </button>
+            </div>
+
+            <div id="scrollbar">
+                <div class="container-fluid">
+
+                    <div id="two-column-menu">
+                    </div>
+                    <ul class="navbar-nav" id="navbar-nav">
+                        <li class="menu-title"><span data-key="t-menu">Menu</span></li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="../index.html">
+                                <i class="fa-solid fa-gauge"></i>
+                                <span data-key="t-dashboards">Market</span>
+                            </a>
+                        </li> <!-- end Dashboard Menu -->
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="../deposit/index.html">
+                                <i class="fa-brands fa-btc"></i> <span data-key="t-dashboards">Deposit</span>
+                            </a>
+                        </li> <!-- end Deposit Menu -->
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="../withdraw/index.html">
+                                <i class="fa-solid fa-money-bill-transfer"></i> <span
+                                    data-key="t-dashboards">Withdraw</span>
+                            </a>
+                        </li> <!-- end Deposit Menu -->
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="../history/index.html">
+                                <i class="fa-solid fa-clock"></i> <span data-key="t-dashboards">Transactions</span>
+                            </a>
+                        </li> <!-- end Transaction Menu -->
+
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="../tradehistory/index.html">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-hourglass-bottom" viewBox="0 0 16 16">
+                                    <path
+                                        d="M2 1.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-1v1a4.5 4.5 0 0 1-2.557 4.06c-.29.139-.443.377-.443.59v.7c0 .213.154.451.443.59A4.5 4.5 0 0 1 12.5 13v1h1a.5.5 0 0 1 0 1h-11a.5.5 0 1 1 0-1h1v-1a4.5 4.5 0 0 1 2.557-4.06c.29-.139.443-.377.443-.59v-.7c0-.213-.154-.451-.443-.59A4.5 4.5 0 0 1 3.5 3V2h-1a.5.5 0 0 1-.5-.5m2.5.5v1a3.5 3.5 0 0 0 1.989 3.158c.533.256 1.011.791 1.011 1.491v.702s.18.149.5.149.5-.15.5-.15v-.7c0-.701.478-1.236 1.011-1.492A3.5 3.5 0 0 0 11.5 3V2z" />
+                                </svg>
+                                <span data-key="t-dashboards">Trade History</span>
+                            </a>
+                        </li> <!-- end Transaction Menu -->
+
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="../password/index.html">
+                                <i class="fa-brands fa-slack"></i> <span data-key="t-dashboards">Change Password</span>
+                            </a>
+                        </li> <!-- end Transaction Menu -->
+
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="../profile/index.html">
+                                <i class="fa-regular fa-address-card"></i> <span data-key="t-dashboards">Profile</span>
+                            </a>
+
+
+                            <!-- end Transaction Menu -->
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="../faq/index.html">
+                                <i class="fa-solid fa-person-circle-question"></i> <span
+                                    data-key="t-dashboards">FAQs</span>
+                            </a>
+                        </li> <!-- end Transaction Menu -->
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="">
+                                <i class="fa-solid fa-lock"></i> <span data-key="t-dashboards">Lock Screen</span>
+                            </a>
+                        </li> <!-- end Transaction Menu -->
+                        <li id="alu" class="nav-item">
+                            <a class="nav-link menu-link" href="">
+                                <i class="fa-solid fa-arrow-right-from-bracket"></i> <span
+                                    data-key="t-dashboards">Logout</span>
+                            </a>
+                        </li> <!-- end Transaction Menu -->
+
+
+
+
+                    </ul>
+                </div>
+                <!-- Sidebar -->
+            </div>
+
+            <div class="sidebar-background"></div>
+        </div>
+        <!-- Left Sidebar End -->
+        <!-- Vertical Overlay-->
+        <div class="vertical-overlay"></div>
+
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
+        <div class="main-content">
+
+            <div class="page-content">
+                <div class="container-fluid">
+
+                    <div class="position-relative mx-n4 mt-n4">
+                        <div class="profile-wid-bg profile-setting-img">
+                            <img src="images/YbS4TToj5apK.jpg" class="profile-wid-img" alt="">
+                            <div class="overlay-content">
+                                <div class="text-end p-3">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xxl-3">
+                            <div class="card mt-n5">
+                                <div class="card-body p-4">
+                                    <div class="text-center">
+                                        <div class="profile-user position-relative d-inline-block mx-auto  mb-4">
+                                            <img id="pss2" src="images/PNA5xEBgKAg7.jpg"
+                                                class="rounded-circle avatar-xl img-thumbnail user-profile-image"
+                                                alt="user-profile-image">
+                                            <div class="avatar-xs p-0 rounded-circle profile-photo-edit">
+                                                <input id="profile-img-file-input" type="file"
+                                                    class="profile-img-file-input">
+                                                <label for="profile-img-file-input"
+                                                    class="profile-photo-edit avatar-xs">
+                                                    <span class="avatar-title rounded-circle bg-light text-body">
+                                                        <i class="fa-solid fa-camera"></i>
+                                                    </span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <h5 class="fs-16 mb-1" id="usn"></h5>
+                                        <p class="text-muted mb-0" id="eem"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end card-->
+
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center mb-4">
+                                        <div class="flex-grow-1">
+                                            <h5 class="card-title mb-0">Profile</h5>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 d-flex">
+                                        <div class="avatar-xs d-block flex-shrink-0 me-3">
+                                            <span class="avatar-title rounded-circle fs-16 bg-body text-body">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <input type="text" readonly value="" class="form-control" id="username3"
+                                            placeholder="Username">
+                                    </div>
+                                    <div class="mb-3 d-flex">
+                                        <div class="avatar-xs d-block flex-shrink-0 me-3">
+                                            <span class="avatar-title rounded-circle fs-16 bg-primary">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    fill="currentColor" class="bi bi-graph-up-arrow"
+                                                    viewBox="0 0 16 16">
+                                                    <path fill-rule="evenodd"
+                                                        d="M0 0h1v15h15v1H0zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5" />
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <input type="text" readonly value="" class="form-control" id="accountlevel"
+                                            placeholder="Level">
+                                    </div>
+                                    <div class="mb-3 d-flex">
+                                        <div class="avatar-xs d-block flex-shrink-0 me-3">
+                                            <span class="avatar-title rounded-circle fs-16 bg-success">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    fill="currentColor" class="bi bi-clipboard-pulse"
+                                                    viewBox="0 0 16 16">
+                                                    <path fill-rule="evenodd"
+                                                        d="M10 1.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5zm-5 0A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5v1A1.5 1.5 0 0 1 9.5 4h-3A1.5 1.5 0 0 1 5 2.5zm-2 0h1v1H3a1 1 0 0 0-1 1V14a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V3.5a1 1 0 0 0-1-1h-1v-1h1a2 2 0 0 1 2 2V14a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3.5a2 2 0 0 1 2-2m6.979 3.856a.5.5 0 0 0-.968.04L7.92 10.49l-.94-3.135a.5.5 0 0 0-.895-.133L4.232 10H3.5a.5.5 0 0 0 0 1h1a.5.5 0 0 0 .416-.223l1.41-2.115 1.195 3.982a.5.5 0 0 0 .968-.04L9.58 7.51l.94 3.135A.5.5 0 0 0 11 11h1.5a.5.5 0 0 0 0-1h-1.128z" />
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <input type="text" readonly value="" class="form-control" id="active"
+                                            placeholder="Status">
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="avatar-xs d-block flex-shrink-0 me-3">
+                                            <span class="avatar-title rounded-circle fs-16 bg-danger">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    fill="currentColor" class="bi bi-telephone-fill"
+                                                    viewBox="0 0 16 16">
+                                                    <path fill-rule="evenodd"
+                                                        d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z" />
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <input type="text" readonly value="" class="form-control" id="phone2"
+                                            placeholder="Phone Number">
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end card-->
+                        </div>
+                        <!--end col-->
+                        <div class="col-xxl-9">
+                            <div class="card mt-xxl-n5">
+                                <div class="card-header">
+                                    <ul class="nav nav-tabs-custom rounded card-header-tabs border-bottom-0"
+                                        role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" data-bs-toggle="tab" href="#personalDetails"
+                                                role="tab">
+                                                <i class="fas fa-home"></i> Personal Details
+                                            </a>
+                                        </li>
+
+                                        <li class="nav-item">
+                                            <a class="nav-link" data-bs-toggle="tab" href="#privacy" role="tab">
+                                                <i class="far fa-envelope"></i> Privacy Policy
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="card-body p-4">
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="personalDetails" role="tabpanel">
+                                            <form id="userfom">
+                                                <div class="row">
+                                                    <input name="username" value="mqs" hidden="">
+                                                    <div class="col-lg-6">
+                                                        <div class="mb-3">
+                                                            <label for="firstnameInput" class="form-label">First
+                                                                Name</label>
+                                                            <input type="text" class="form-control" name="fname"
+                                                                id="fname" value="" placeholder="Enter your firstname">
+                                                        </div>
+                                                    </div>
+                                                    <!--end col-->
+                                                    <div class="col-lg-6">
+                                                        <div class="mb-3">
+                                                            <label for="lastnameInput" class="form-label">Last
+                                                                Name</label>
+                                                            <input type="text" class="form-control" name="lname"
+                                                                id="lname" value="" placeholder="Enter your lastname">
+                                                        </div>
+                                                    </div>
+                                                    <!--end col-->
+                                                    <div class="col-lg-6">
+                                                        <div class="mb-3">
+                                                            <label for="phonenumberInput" class="form-label">Phone
+                                                                Number</label>
+                                                            <input type="text" class="form-control" name="phones"
+                                                                id="phones" value=""
+                                                                placeholder="Enter your phone number">
+                                                        </div>
+                                                    </div>
+                                                    <!--end col-->
+                                                    <div class="col-lg-6">
+                                                        <div class="mb-3">
+                                                            <label for="emailInput" class="form-label">Email
+                                                                Address</label>
+                                                            <input readonly="" class="form-control" name="email"
+                                                                value="" id="emailinput" placeholder="Enter your email">
+                                                        </div>
+                                                    </div>
+                                                    <!--end col-->
+
+                                                    <!--end col-->
+                                                    <div class="col-lg-4">
+                                                        <div class="mb-3">
+                                                            <label for="cityInput" class="form-label">City</label>
+                                                            <input type="text" name="city" class="form-control"
+                                                                id="city" value="" placeholder="City">
+                                                        </div>
+                                                    </div>
+                                                    <!--end col-->
+                                                    <div class="col-lg-4">
+                                                        <div class="mb-3">
+                                                            <label for="countryInput" class="form-label">Country</label>
+                                                            <input type="text" name="country" class="form-control"
+                                                                value="" id="country" placeholder="Country">
+                                                        </div>
+                                                    </div>
+                                                    <!--end col-->
+                                                    <div class="col-lg-4">
+                                                        <div class="mb-3">
+                                                            <label for="zipcodeInput" class="form-label">Zip
+                                                                Code</label>
+                                                            <input type="text" name="zipp" class="form-control"
+                                                                id="zipp" minlength="5" value="" maxlength="6"
+                                                                placeholder="Enter zipcode">
+                                                        </div>
+                                                    </div>
+                                                    <!--end col-->
+                                                    <div class="col-lg-12">
+                                                        <div class="mb-3 pb-2">
+                                                            <label for="exampleFormControlTextarea"
+                                                                class="form-label">About</label>
+                                                            <textarea class="form-control" name="about" id="about"
+                                                                value="" placeholder="Enter your description"
+                                                                rows="3"></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <!--end col-->
+
+                                                    <span id="show_message"></span>
+                                                    <div class="col-lg-12">
+                                                        <div class="hstack gap-2 justify-content-end">
+                                                            <input name="submit" type="submit" value="Update"
+                                                                class="btn btn-primary">
+                                                        </div>
+                                                    </div>
+                                                    <!--end col-->
+                                                </div>
+                                                <!--end row-->
+                                            </form>
+                                        </div>
+                                        <!--end tab-pane-->
+
+
+
+
+
+                                        <!--end tab-pane-->
+
+                                        <!--end tab-pane-->
+                                        <div class="tab-pane" id="privacy" role="tabpanel">
+                                            <div class="mb-4 pb-2">
+                                                <h5 class="card-title text-decoration-underline mb-3">Security:</h5>
+                                                <div class="d-flex flex-column flex-sm-row mb-4 mb-sm-0">
+                                                    <div class="flex-grow-1">
+                                                        <h6 class="fs-14 mb-1">Two-factor Authentication</h6>
+                                                        <p class="text-muted">Two-factor authentication is an enhanced
+                                                            security meansur. Once enabled, you'll be required to give
+                                                            two types of identification when you log into Google
+                                                            Authentication and SMS are Supported.</p>
+                                                    </div>
+                                                    <div class="flex-shrink-0 ms-sm-3">
+                                                        <a href="javascript:void(0);"
+                                                            class="btn btn-sm btn-primary">Enable Two-facor
+                                                            Authentication</a>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex flex-column flex-sm-row mb-4 mb-sm-0 mt-2">
+                                                    <div class="flex-grow-1">
+                                                        <h6 class="fs-14 mb-1">Secondary Verification</h6>
+                                                        <p class="text-muted">The first factor is a password and the
+                                                            second commonly includes a text with a code sent to your
+                                                            smartphone, or biometrics using your fingerprint, face, or
+                                                            retina.</p>
+                                                    </div>
+                                                    <div class="flex-shrink-0 ms-sm-3">
+                                                        <a href="javascript:void(0);" class="btn btn-sm btn-primary">Set
+                                                            up secondary method</a>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex flex-column flex-sm-row mb-4 mb-sm-0 mt-2">
+                                                    <div class="flex-grow-1">
+                                                        <h6 class="fs-14 mb-1">Backup Codes</h6>
+                                                        <p class="text-muted mb-sm-0">A backup code is automatically
+                                                            generated for you when you turn on two-factor authentication
+                                                            through your iOS or Android Twitter app. You can also
+                                                            generate a backup code on twitter.com.</p>
+                                                    </div>
+                                                    <div class="flex-shrink-0 ms-sm-3">
+                                                        <a href="javascript:void(0);"
+                                                            class="btn btn-sm btn-primary">Generate backup codes</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <h5 class="card-title text-decoration-underline mb-3">Application
+                                                    Notifications:</h5>
+                                                <ul class="list-unstyled mb-0">
+                                                    <li class="d-flex">
+                                                        <div class="flex-grow-1">
+                                                            <label for="directMessage"
+                                                                class="form-check-label fs-14">Direct messages</label>
+                                                            <p class="text-muted">Messages from people you follow</p>
+                                                        </div>
+                                                        <div class="flex-shrink-0">
+                                                            <div class="form-check form-switch">
+                                                                <input class="form-check-input" type="checkbox"
+                                                                    role="switch" id="directMessage" checked="">
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="d-flex mt-2">
+                                                        <div class="flex-grow-1">
+                                                            <label class="form-check-label fs-14"
+                                                                for="desktopNotification">
+                                                                Show desktop notifications
+                                                            </label>
+                                                            <p class="text-muted">Choose the option you want as your
+                                                                default setting. Block a site: Next to "Not allowed to
+                                                                send notifications," click Add.</p>
+                                                        </div>
+                                                        <div class="flex-shrink-0">
+                                                            <div class="form-check form-switch">
+                                                                <input class="form-check-input" type="checkbox"
+                                                                    role="switch" id="desktopNotification" checked="">
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="d-flex mt-2">
+                                                        <div class="flex-grow-1">
+                                                            <label class="form-check-label fs-14"
+                                                                for="emailNotification">
+                                                                Show email notifications
+                                                            </label>
+                                                            <p class="text-muted"> Under Settings, choose Notifications.
+                                                                Under Select an account, choose the account to enable
+                                                                notifications for. </p>
+                                                        </div>
+                                                        <div class="flex-shrink-0">
+                                                            <div class="form-check form-switch">
+                                                                <input class="form-check-input" type="checkbox"
+                                                                    role="switch" id="emailNotification">
+                                                            </div>
+                                                        </div>
+                                                    </li>
+
+                                                </ul>
+                                            </div>
+                                            <div>
+                                                <h5 class="card-title text-decoration-underline mb-3">Delete This
+                                                    Account:</h5>
+                                                <p class="text-muted">Go to the Data &amp; Privacy section of your
+                                                    profile Account. Scroll to "Your data &amp; privacy options." Delete
+                                                    your Profile Account. Follow the instructions to delete your account
+                                                    :</p>
+                                                <div>
+                                                    <input type="password" class="form-control" id="passwordInput"
+                                                        placeholder="Enter your password" value="make@321654987"
+                                                        style="max-width: 265px;">
+                                                </div>
+                                                <div class="hstack gap-2 mt-3">
+                                                    <a href="javascript:void(0);" class="btn btn-soft-danger">Close
+                                                        &amp; Delete This Account</a>
+                                                    <a href="javascript:void(0);" class="btn btn-light">Cancel</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--end tab-pane-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--end col-->
+                    </div>
+                    <!--end row-->
+
+                </div>
+                <!-- container-fluid -->
+            </div><!-- End Page-content -->
+
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            ©
+                            <script>document.write(new Date().getFullYear())</script> Stock Elite Options
+                        </div>
+                    </div>
+                </div>
+        </div>
+        </footer>
+    </div>
+    <!-- end main content-->
+
+    </div>
+    <!-- END layout-wrapper -->
+
+
+
+    <!--start back-to-top-->
+    <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
+        <i class="fa-solid fa-up-long"></i>
+    </button>
+    <!--end back-to-top-->
+
+    <!--preloader-->
+    <div id="preloader">
+        <div id="status">
+            <div class="spinner-border text-primary avatar-sm" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="js/7HZVw1bIs174.js"></script>
+    <script src="js/kXBtDDYlcmqx.js"></script>
+    <script src="js/EdclmtgUphRB.js"></script>
+    <script src="js/V3WfYGa7VXmJ.js"></script>
+    <script src="js/HS4jSpW9ETvS.js"></script>
+    <script src="js/AZbYw66DuNcd.js"></script>
+
+    <!-- profile-setting init js -->
+    <script src="js/iEbk0ydhaPWe.js"></script>
+
+    <!-- App js -->
+    <script src="js/ZLu8KT2icuGW.js"></script>
+
+    <script src="js/EjH6MTOJs4dc.js" async=""></script>
+
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en'
+            }, 'google_translate_element');
+        }
+
+    </script>
+
+    <script type="text/javascript"
+        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    </div>
+
+
+
+    <style>
+        #google_translate_element {
+            color: transparent;
+        }
+
+        #google_translate_element a {
+            display: none;
+        }
+
+        .goog-te-banner-frame.skiptranslate {
+            display: none !important;
+        }
+
+        body>.skiptranslate {
+            display: none;
+        }
+    </style>
+
+</body>
+
+</html>

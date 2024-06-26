@@ -1,0 +1,473 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+
+    <link rel="stylesheet" href="css/2v3U94Y71xsB.css">
+    <link rel="stylesheet" href="js/1xY9fJNfFj4n.js">
+    <link rel="stylesheet" href="js/S92BsU5Bu7RL.js">
+    <link rel="stylesheet" href="css/NuiTXnR9VqH7.css">
+    <link rel="stylesheet" href="">
+   
+
+    <script>
+        
+        document.addEventListener("DOMContentLoaded", function(event) {
+   
+   const showNavbar = (toggleId, navId, bodyId, headerId) =>{
+   const toggle = document.getElementById(toggleId),
+   nav = document.getElementById(navId),
+   bodypd = document.getElementById(bodyId),
+   headerpd = document.getElementById(headerId)
+   
+   // Validate that all variables exist
+   if(toggle && nav && bodypd && headerpd){
+   toggle.addEventListener('click', ()=>{
+   // show navbar
+   nav.classList.toggle('show')
+   // change icon
+   toggle.classList.toggle('bx-x')
+   // add padding to body
+   bodypd.classList.toggle('body-pd')
+   // add padding to header
+   headerpd.classList.toggle('body-pd')
+   })
+   }
+   }
+   
+   showNavbar('header-toggle','nav-bar','body-pd','header')
+   
+   /*===== LINK ACTIVE =====*/
+   const linkColor = document.querySelectorAll('.nav_link')
+   
+   function colorLink(){
+   if(linkColor){
+   linkColor.forEach(l=> l.classList.remove('active'))
+   this.classList.add('active')
+   }
+   }
+   linkColor.forEach(l=> l.addEventListener('click', colorLink))
+   
+    // Your code to run since DOM is loaded and ready
+   });
+
+    </script>
+
+<link rel="stylesheet" href="npm/notyf@3/notyf.min.css">
+
+ <script type="module">
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+import { getFirestore, doc, setDoc, getDoc, query, onSnapshot, collection , orderBy, where} from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
+import {  getAuth, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
+
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyDg1xZtIrcfxbx7JYB_0V-x_XGHo2Zz680",
+            authDomain: "stockeliteoptions.firebaseapp.com",
+            projectId: "stockeliteoptions",
+            storageBucket: "stockeliteoptions.appspot.com",
+            messagingSenderId: "128197292169",
+            appId: "1:128197292169:web:f33515363a83b302719658"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const auth = getAuth(app);
+
+
+
+onAuthStateChanged(auth, (user) => {
+            if(user.email === 'info@stockeliteoptions.online'){
+    
+                  // GETTING THE DATA FROM FIREBASE
+
+                  const citiesRef = collection(db, "users");
+                  const q = query(citiesRef);
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+         
+            const FI = `
+              <tr >
+                <td >${doc.data().username}</td>
+                <td > ${doc.data().email} </td> 
+                <td >${doc.data().createdAt} </td>
+                <td > <a href="./in/withdrawedit.html?i=${doc.id}">EDIT USER</a> </td>  
+                
+              
+               
+             </tr> `
+             
+              document.getElementById("cvcx").insertAdjacentHTML('beforeend', FI); 
+        })         
+      });
+
+            
+              getDoc(doc(db, "users", user.email)).then(docSnap => {
+            if (docSnap.exists()) {
+                document.getElementById("xxpol").innerHTML = docSnap.data().balance ;
+            }
+
+            });
+        
+      
+    
+             
+        
+    
+        }else{
+                    window.location.replace("../index.html");
+                }
+    
+            });
+    
+       
+    
+  
+    
+    
+    document.getElementById('logout').addEventListener('click', ()=>{
+        signOut(auth).then(() => {
+                window.location.replace("../index.html");
+              }).catch((error) => {
+                notyf.error(error);
+              });
+       
+    });
+    </script>
+
+</head>
+
+<body id="body-pd">
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+
+    <script>
+      var notyf = new Notyf({
+        duration: 2000,
+        position: {
+          x: 'right',
+          y: 'top',
+        },
+      });
+  
+    </script>
+   
+    <header class="header" id="header">
+        <div class="header_toggle"> <i class="bx bx-menu" id="header-toggle"></i> </div>
+        <!-- <div class=""> <h5>Balance: ₦<span id="xxpol">0</span></h5> </div> -->
+    </header>
+    <div class="l-navbar" id="nav-bar">
+        <nav class="nav">
+            <div> <a href="#" class="nav_logo"> <img class="mgsize" src="images/yJM5rgb5qzsZ.png"> </a>
+            <div class="nav_list"> <a href="./dash.html" class="nav_link "> <i class="bx bx-grid-alt nav_icon"></i>
+                    <span class="nav_name">Dashboard</span> </a> 
+
+                    <a href="transaction.html" class="nav_link"> 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-bitcoin" viewBox="0 0 16 16">
+                            <path d="M5.5 13v1.25c0 .138.112.25.25.25h1a.25.25 0 0 0 .25-.25V13h.5v1.25c0 .138.112.25.25.25h1a.25.25 0 0 0 .25-.25V13h.084c1.992 0 3.416-1.033 3.416-2.82 0-1.502-1.007-2.323-2.186-2.44v-.088c.97-.242 1.683-.974 1.683-2.19C11.997 3.93 10.847 3 9.092 3H9V1.75a.25.25 0 0 0-.25-.25h-1a.25.25 0 0 0-.25.25V3h-.573V1.75a.25.25 0 0 0-.25-.25H5.75a.25.25 0 0 0-.25.25V3l-1.998.011a.25.25 0 0 0-.25.25v.989c0 .137.11.25.248.25l.755-.005a.75.75 0 0 1 .745.75v5.505a.75.75 0 0 1-.75.75l-.748.011a.25.25 0 0 0-.25.25v1c0 .138.112.25.25.25zm1.427-8.513h1.719c.906 0 1.438.498 1.438 1.312 0 .871-.575 1.362-1.877 1.362h-1.28zm0 4.051h1.84c1.137 0 1.756.58 1.756 1.524 0 .953-.626 1.45-2.158 1.45H6.927z"></path>
+                          </svg>
+                        <span class="nav_name">Transactions</span> </a>
+
+
+                        <a href="deposit.html" class="nav_link"> 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cloud-download-fill" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 0a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 4.095 0 5.555 0 7.318 0 9.366 1.708 11 3.781 11H7.5V5.5a.5.5 0 0 1 1 0V11h4.188C14.502 11 16 9.57 16 7.773c0-1.636-1.242-2.969-2.834-3.194C12.923 1.999 10.69 0 8 0m-.354 15.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 14.293V11h-1v3.293l-2.146-2.147a.5.5 0 0 0-.708.708z"></path>
+                          </svg>
+                        <span class="nav_name">Deposit</span> </a> 
+
+                            <a href="withdraws.html" class="nav_link active">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send-check" viewBox="0 0 16 16">
+                                <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855a.75.75 0 0 0-.124 1.329l4.995 3.178 1.531 2.406a.5.5 0 0 0 .844-.536L6.637 10.07l7.494-7.494-1.895 4.738a.5.5 0 1 0 .928.372zm-2.54 1.183L5.93 9.363 1.591 6.602z"></path>
+                                <path d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0m-1.993-1.679a.5.5 0 0 0-.686.172l-1.17 1.95-.547-.547a.5.5 0 0 0-.708.708l.774.773a.75.75 0 0 0 1.174-.144l1.335-2.226a.5.5 0 0 0-.172-.686"></path>
+                              </svg>
+                            <span class="nav_name">Withdraws</span> </a> 
+                        
+                        <a href="history.html" class="nav_link"> 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock-history" viewBox="0 0 16 16">
+                        <path d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022zm2.004.45a7 7 0 0 0-.985-.299l.219-.976q.576.129 1.126.342zm1.37.71a7 7 0 0 0-.439-.27l.493-.87a8 8 0 0 1 .979.654l-.615.789a7 7 0 0 0-.418-.302zm1.834 1.79a7 7 0 0 0-.653-.796l.724-.69q.406.429.747.91zm.744 1.352a7 7 0 0 0-.214-.468l.893-.45a8 8 0 0 1 .45 1.088l-.95.313a7 7 0 0 0-.179-.483m.53 2.507a7 7 0 0 0-.1-1.025l.985-.17q.1.58.116 1.17zm-.131 1.538q.05-.254.081-.51l.993.123a8 8 0 0 1-.23 1.155l-.964-.267q.069-.247.12-.501m-.952 2.379q.276-.436.486-.908l.914.405q-.24.54-.555 1.038zm-.964 1.205q.183-.183.35-.378l.758.653a8 8 0 0 1-.401.432z"></path>
+                        <path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0z"></path>
+                        <path d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5"></path>
+                      </svg>
+                    <span class="nav_name">History</span> </a>  
+
+
+                    <a href="tradehistory.html" class="nav_link"> 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bank" viewBox="0 0 16 16">
+                            <path d="m8 0 6.61 3h.89a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v7a.5.5 0 0 1 .485.38l.5 2a.498.498 0 0 1-.485.62H.5a.498.498 0 0 1-.485-.62l.5-2A.5.5 0 0 1 1 13V6H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 3h.89zM3.777 3h8.447L8 1zM2 6v7h1V6zm2 0v7h2.5V6zm3.5 0v7h1V6zm2 0v7H12V6zM13 6v7h1V6zm2-1V4H1v1zm-.39 9H1.39l-.25 1h13.72z"/>
+                          </svg>
+                        <span class="nav_name">Trade History</span> </a>  
+
+
+                        <a href="Mailer.html" class="nav_link"> 
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left-quote" viewBox="0 0 16 16">
+                                <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+                                <path d="M7.066 4.76A1.665 1.665 0 0 0 4 5.668a1.667 1.667 0 0 0 2.561 1.406c-.131.389-.375.804-.777 1.22a.417.417 0 1 0 .6.58c1.486-1.54 1.293-3.214.682-4.112zm4 0A1.665 1.665 0 0 0 8 5.668a1.667 1.667 0 0 0 2.561 1.406c-.131.389-.375.804-.777 1.22a.417.417 0 1 0 .6.58c1.486-1.54 1.293-3.214.682-4.112z"/>
+                              </svg>
+                            <span class="nav_name">Mailer</span> </a>  
+                        
+                        <a href="in/address.html" class="nav_link "> 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-wallet-fill" viewBox="0 0 16 16">
+                            <path d="M1.5 2A1.5 1.5 0 0 0 0 3.5v2h6a.5.5 0 0 1 .5.5c0 .253.08.644.306.958.207.288.557.542 1.194.542s.987-.254 1.194-.542C9.42 6.644 9.5 6.253 9.5 6a.5.5 0 0 1 .5-.5h6v-2A1.5 1.5 0 0 0 14.5 2z"></path>
+                            <path d="M16 6.5h-5.551a2.7 2.7 0 0 1-.443 1.042C9.613 8.088 8.963 8.5 8 8.5s-1.613-.412-2.006-.958A2.7 2.7 0 0 1 5.551 6.5H0v6A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5z"></path>
+                          </svg>
+                        <span class="nav_name">Address</span> </a> 
+            </div>
+        </div> <a id="logout" href="#" class="nav_link"> <i class="bx bx-log-out nav_icon"></i> <span class="nav_name">SignOut</span> </a>
+    </nav>
+    </div>
+    <!--Container Main start-->
+    <div class="height-100 bg-light">
+        <h4 style="font-family: 'Courier New', Courier, monospace ;">Withdrawals</h4>
+
+        <table> 
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Created At</th>
+                     <th>View </th>
+                  </tr>
+            </thead>
+            
+        
+            <thead id="cvcx">
+                <tr>
+                    
+
+                </tr>
+            </thead>
+       
+          
+           
+          </table>
+    </div>
+    <!--Container Main end-->
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
+
+        :root {
+            --header-height: 3rem;
+            --nav-width: 68px;
+            --first-color: #442302;
+            --first-color-light: #AFA5D9;
+            --white-color: #F7F6FB;
+            --body-font: 'Nunito', sans-serif;
+            --normal-font-size: 1rem;
+            --z-fixed: 100
+        }
+
+        *,
+        ::before,
+        ::after {
+            box-sizing: border-box
+        }
+
+        body {
+            position: relative;
+            margin: var(--header-height) 0 0 0;
+            padding: 0 1rem;
+            font-family: var(--body-font);
+            font-size: var(--normal-font-size);
+            transition: .5s
+        }
+
+        a {
+            text-decoration: none
+        }
+
+        .header {
+            width: 100%;
+            height: var(--header-height);
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 1rem;
+            background-color: var(--white-color);
+            z-index: var(--z-fixed);
+            transition: .5s
+        }
+
+        .header_toggle {
+            color: var(--first-color);
+            font-size: 1.5rem;
+            cursor: pointer
+        }
+
+        .header_img {
+            width: 35px;
+            height: 35px;
+            display: flex;
+            justify-content: center;
+            border-radius: 50%;
+            overflow: hidden
+        }
+
+        .header_img img {
+            width: 40px
+        }
+
+        .l-navbar {
+            position: fixed;
+            top: 0;
+            left: -30%;
+            width: var(--nav-width);
+            height: 100vh;
+            background-color: var(--first-color);
+            padding: .5rem 1rem 0 0;
+            transition: .5s;
+            z-index: var(--z-fixed)
+        }
+
+        .nav {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden
+        }
+
+        .nav_logo,
+        .nav_link {
+            display: grid;
+            grid-template-columns: max-content max-content;
+            align-items: center;
+            column-gap: 1rem;
+            padding: .5rem 0 .5rem 1.5rem
+        }
+
+        .nav_logo {
+            margin-bottom: 2rem
+        }
+
+        .nav_logo-icon {
+            font-size: 1.25rem;
+            color: var(--white-color)
+        }
+
+        .nav_logo-name {
+            color: var(--white-color);
+            font-weight: 700
+        }
+
+        .nav_link {
+            position: relative;
+            color: var(--first-color-light);
+            margin-bottom: 1.5rem;
+            transition: .3s
+        }
+
+        .nav_link:hover {
+            color: var(--white-color)
+        }
+
+        .nav_icon {
+            font-size: 1.25rem
+        }
+
+        .show {
+            left: 0
+        }
+
+        .body-pd {
+            padding-left: calc(var(--nav-width) + 1rem)
+        }
+
+        .active {
+            color: var(--white-color)
+        }
+
+        .active::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 2px;
+            height: 32px;
+            background-color: var(--white-color)
+        }
+
+        .height-100 {
+            height: 100vh
+        }
+
+        @media screen and (min-width: 768px) {
+            body {
+                margin: calc(var(--header-height) + 1rem) 0 0 0;
+                padding-left: calc(var(--nav-width) + 2rem)
+            }
+
+            .header {
+                height: calc(var(--header-height) + 1rem);
+                padding: 0 2rem 0 calc(var(--nav-width) + 2rem)
+            }
+
+            .header_img {
+                width: 40px;
+                height: 40px
+            }
+
+            .header_img img {
+                width: 45px
+            }
+
+            .l-navbar {
+                left: 0;
+                padding: 1rem 1rem 0 0
+            }
+
+            .show {
+                width: calc(var(--nav-width) + 156px)
+            }
+
+            .body-pd {
+                padding-left: calc(var(--nav-width) + 188px)
+            }
+        }
+
+        .mgsize{
+            width: 15%;
+        }
+        @media screen and (max-width:992px) {
+    .mgsize{
+      width: 13%;
+
+    }
+  }
+
+
+  /* TABLE CSS */
+
+  table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.butt{
+    /* background-color: transparent; */
+    width: 100%;
+    border: 0px;
+    color: green;
+}
+
+    </style>
+
+
+
+</body></html>

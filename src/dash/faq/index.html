@@ -1,0 +1,651 @@
+<!DOCTYPE html><html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable"><head>
+
+    <meta charset="utf-8">
+    <title>Crypto Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Cryptocurrency" name="description">
+    <meta content="DNCODER" name="author">
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="Sqa4XFSwqwVQ.ico">
+    <link rel="stylesheet" href="css/ZLZ2o8BE8TBr.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link href="css/y8lHaoCH4YHC.css" rel="stylesheet">
+
+    <!-- Layout config Js -->
+    <script src="js/Q7O1VePHUTJn.js"></script>
+    <!-- Bootstrap Css -->
+    <link href="css/A42tIajZ4lW9.css" rel="stylesheet" type="text/css">
+    <!-- Icons Css -->
+    <link href="css/sr5Zl2k6IGb3.css" rel="stylesheet" type="text/css">
+    <!-- App Css-->
+    <link href="css/ax1tEd0BuihL.css" rel="stylesheet" type="text/css">
+    <!-- custom Css-->
+    <link href="css/Qg8bn4UULyDZ.css" rel="stylesheet" type="text/css">
+    
+    <script src="js/tFPLe7gjGEza.js"></script>
+    <link rel="stylesheet" href="npm/notyf@3/notyf.min.css">
+
+    <script type="module">
+
+
+
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+        import { getFirestore, doc, setDoc, getDoc, query, onSnapshot, collection , orderBy} from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
+        import {  getAuth, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
+    
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDg1xZtIrcfxbx7JYB_0V-x_XGHo2Zz680",
+            authDomain: "stockeliteoptions.firebaseapp.com",
+            projectId: "stockeliteoptions",
+            storageBucket: "stockeliteoptions.appspot.com",
+            messagingSenderId: "128197292169",
+            appId: "1:128197292169:web:f33515363a83b302719658"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const auth = getAuth(app);
+    
+    
+    
+    
+        onAuthStateChanged(auth, (user) => {
+            if(user){
+            if (user.email === 'info@stockeliteoptions.online') {
+    
+            window.location.href = "../../admin/dash.html";
+            // ...
+            }else{
+
+                $(document).ready(function(){
+                const USDollar = new Intl.NumberFormat('en-US', {
+                    style: 'currency',
+                    currency: 'USD',
+                    })
+            
+              getDoc(doc(db, "users", user.email)).then(docSnap => {
+            if (docSnap.data().active == 'Active') {
+                document.getElementById("uss").innerHTML =  docSnap.data().username; 
+                document.getElementById("wss").innerHTML =  `Welcome ${docSnap.data().username} !`; 
+                document.getElementById("pss").src = !docSnap.data().image? "./images/mrFE7WGiBulA.jpg": docSnap.data().image;
+            
+            } else {
+            alert(`Account Restricted... Contact our customer-care for assistance`);
+            window.location.href = "../index.html";
+            }
+            });
+        
+        });
+    
+             
+            }
+    
+            }else{
+                window.location.href = "../../index.html";  
+            }
+    
+            });
+    
+       
+  
+    
+    
+    document.getElementById('alu').addEventListener('click', ()=>{
+        signOut(auth).then(() => {
+                window.location.replace("../../index.html");
+              }).catch((error) => {
+                notyf.error(error);
+              });
+       
+    });
+     
+    </script>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+
+    <script>
+      var notyf = new Notyf({
+        duration: 2000,
+        position: {
+          x: 'right',
+          y: 'top',
+        },
+      });
+  
+    </script>
+
+    <!-- Begin page -->
+    <div id="layout-wrapper">
+
+        <header id="page-topbar">
+    <div class="layout-width">
+        <div class="navbar-header">
+            <div class="d-flex">
+                <!-- LOGO -->
+                <div class="navbar-brand-box horizontal-logo">
+                    <a href="" class="logo logo-dark">
+                        <span class="logo-sm">
+                            <img src="images/c6NjFYH12cP2.png" alt="" height="22">
+                        </span>
+                        <span class="logo-lg">
+                            <img src="images/e49t3QgLMsUB.png" alt="" height="17">
+                        </span>
+                    </a>
+
+                    <a href="" class="logo logo-light">
+                        <span class="logo-sm">
+                            <img src="images/c6NjFYH12cP2.png" alt="" height="22">
+                        </span>
+                        <span class="logo-lg">
+                            <img src="images/1mlLoUVCvhQw.png" alt="" height="40">
+                        </span>
+                    </a>
+                </div>
+
+                <button type="button" class="btn btn-sm px-3 fs-16 header-item vertical-menu-btn topnav-hamburger" id="topnav-hamburger-icon">
+                    <span class="hamburger-icon">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                </button>
+
+                <!-- App Search-->
+                
+            </div>
+
+            <div class="d-flex align-items-center">
+
+                <div id="google_translate_element"> </div>
+                
+                <div class="ms-1 header-item d-sm-flex">
+                    <button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle" data-toggle="fullscreen">
+                        <i class="fa-solid fa-expand"></i> 
+                    </button>
+                </div>
+
+                <div class="ms-1 header-item d-sm-flex">
+                    <button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle light-dark-mode">
+                        <i class="fa-regular fa-moon"></i> 
+                    </button>
+                </div>
+
+
+                <div class="dropdown ms-sm-3 header-item topbar-user">
+                    <button type="button" class="btn" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="d-flex align-items-center">
+                            <img class="rounded-circle header-profile-user" id="pss" src="images/mrFE7WGiBulA.jpg" alt="Header Avatar">
+                            <span class="text-start ms-xl-2">
+                                <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text" id="uss"></span>
+                                <span class="d-none d-xl-block ms-1 fs-12 user-name-sub-text">Account Holder</span>
+                            </span>
+                        </span>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-end">
+                        <!-- item-->
+                        <h6 class="dropdown-header" id="wss"></h6>
+                      
+                </div>
+            </div>
+        </div>
+    </div>
+</div></header>
+
+<!-- removeNotificationModal -->
+<div id="removeNotificationModal" class="modal fade zoomIn" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="NotificationModalbtn-close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mt-2 text-center">
+                    <lord-icon src="https://cdn.lordicon.com/gsqxdxog.json" trigger="loop" colors="primary:#f7b84b,secondary:#f06548" style="width:100px;height:100px"></lord-icon>
+                    <div class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
+                        <h4>Are you sure ?</h4>
+                        <p class="text-muted mx-4 mb-0">Are you sure you want to remove this Notification ?</p>
+                    </div>
+                </div>
+                <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
+                    <button type="button" class="btn w-sm btn-light" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn w-sm btn-danger" id="delete-notification">Yes, Delete It!</button>
+                </div>
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+        <!-- ========== App Menu ========== -->
+        <div class="app-menu navbar-menu">
+            <!-- LOGO -->
+            <div class="navbar-brand-box">
+                <!-- Dark Logo-->
+                <a href="" class="logo logo-dark">
+                    <span class="logo-sm">
+                        <img src="images/c6NjFYH12cP2.png" alt="" height="22">
+                    </span>
+                    <span class="logo-lg">
+                        <img src="images/e49t3QgLMsUB.png" alt="" height="17">
+                    </span>
+                </a>
+                <!-- Light Logo-->
+                <a href="" class="logo logo-light">
+                    <span class="logo-sm">
+                        <img src="images/c6NjFYH12cP2.png" alt="" height="22">
+                    </span>
+                    <span class="logo-lg">
+                        <img src="images/1mlLoUVCvhQw.png" alt="" height="40">
+                    </span>
+                </a>
+                <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover" id="vertical-hover">
+                    <i class="ri-record-circle-line"></i>
+                </button>
+            </div>
+
+            <div id="scrollbar">
+                <div class="container-fluid">
+
+                    <div id="two-column-menu">
+                    </div>
+                    <ul class="navbar-nav" id="navbar-nav">
+                        <li class="menu-title"><span data-key="t-menu">Menu</span></li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="../index.html">
+                                <i class="fa-solid fa-gauge"></i>
+                                <span data-key="t-dashboards">Market</span>
+                            </a>
+                        </li> <!-- end Dashboard Menu -->
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="../deposit/index.html">
+                                <i class="fa-brands fa-btc"></i> <span data-key="t-dashboards">Deposit</span>
+                            </a>
+                        </li> <!-- end Deposit Menu -->
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="../withdraw/index.html">
+                                <i class="fa-solid fa-money-bill-transfer"></i> <span data-key="t-dashboards">Withdraw</span>
+                            </a>
+                        </li> <!-- end Deposit Menu -->
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="../history/index.html">
+                                <i class="fa-solid fa-clock"></i>   <span data-key="t-dashboards">Transactions</span>
+                            </a>
+                        </li> <!-- end Transaction Menu -->
+
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="../tradehistory/index.html">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hourglass-bottom" viewBox="0 0 16 16">
+                                    <path d="M2 1.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-1v1a4.5 4.5 0 0 1-2.557 4.06c-.29.139-.443.377-.443.59v.7c0 .213.154.451.443.59A4.5 4.5 0 0 1 12.5 13v1h1a.5.5 0 0 1 0 1h-11a.5.5 0 1 1 0-1h1v-1a4.5 4.5 0 0 1 2.557-4.06c.29-.139.443-.377.443-.59v-.7c0-.213-.154-.451-.443-.59A4.5 4.5 0 0 1 3.5 3V2h-1a.5.5 0 0 1-.5-.5m2.5.5v1a3.5 3.5 0 0 0 1.989 3.158c.533.256 1.011.791 1.011 1.491v.702s.18.149.5.149.5-.15.5-.15v-.7c0-.701.478-1.236 1.011-1.492A3.5 3.5 0 0 0 11.5 3V2z"/>
+                                  </svg>
+                                <span data-key="t-dashboards">Trade History</span>
+                            </a>
+                        </li> <!-- end Transaction Menu -->
+
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="../password/index.html">
+                                <i class="fa-brands fa-slack"></i>   <span data-key="t-dashboards">Change Password</span>
+                            </a>
+                        </li> <!-- end Transaction Menu -->
+                                                        
+                        <li class="nav-item">
+                        <a class="nav-link menu-link" href="../profile/index.html">
+                            <i class="fa-regular fa-address-card"></i> <span data-key="t-dashboards">Profile</span>
+                        </a>
+                      
+                        <!-- end Transaction Menu -->
+                        </li><li class="nav-item">
+                            <a class="nav-link menu-link" href="../faq/index.html">
+                                <i class="fa-solid fa-person-circle-question"></i> <span data-key="t-dashboards">FAQs</span>
+                            </a>
+                        </li> <!-- end Transaction Menu -->
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="">
+                                <i class="fa-solid fa-lock"></i> <span data-key="t-dashboards">Lock Screen</span>
+                            </a>
+                        </li> <!-- end Transaction Menu -->
+                        <li id="alu" class="nav-item">
+                            <a class="nav-link menu-link" href="">
+                                <i class="fa-solid fa-up-long"></i> <span data-key="t-dashboards">Logout</span>
+                            </a>
+                        </li> <!-- end Transaction Menu -->
+                        
+
+                        
+
+                    </ul>
+                </div>
+                <!-- Sidebar -->
+            </div>
+
+            <div class="sidebar-background"></div>
+        </div>
+        <!-- Left Sidebar End -->
+        <!-- Vertical Overlay-->
+        <div class="vertical-overlay"></div>
+
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
+                <div class="main-content">
+
+            <div class="page-content">
+                <div class="container-fluid">
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card rounded-0 bg-success-subtle mx-n4 mt-n4 border-top">
+                                <div class="px-4">
+                                    <div class="row">
+                                        <div class="col-xxl-5 align-self-center">
+                                            <div class="py-4">
+                                                <h4 class="display-6 coming-soon-text">Frequently asked questions</h4>
+                                                <p class="text-success fs-15 mt-3">If you can not find answer to your question in our FAQ, you can always contact us or email us. We will answer you shortly!</p>
+                                                <div class="hstack flex-wrap gap-2">
+                                                    <a href="mailto:info@stockeliteoptions.online" type="button" class="btn btn-primary btn-label rounded-pill"> <i class="fa-solid fa-envelope"></i> Email Us</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xxl-3 ms-auto">
+                                            <div class="mb-n5 pb-1 faq-img d-none d-xxl-block">
+                                                <img src="images/cHiGhULtRHRb.png" alt="" class="img-fluid">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- end card body -->
+                            </div>
+                            <!-- end card -->
+
+                            <div class="row justify-content-evenly mb-4">
+                                <div class="col-lg-4">
+                                    <div class="mt-3">
+                                        <div class="d-flex align-items-center mb-2">
+                                            <div class="flex-shrink-0 me-1">
+                                                <i class="ri-question-line fs-24 align-middle text-success me-1"></i>
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <h5 class="fs-16 mb-0 fw-semibold">General Questions</h5>
+                                            </div>
+                                        </div>
+
+                                        <div class="accordion accordion-border-box" id="genques-accordion">
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="genques-headingOne">
+                                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#genques-collapseOne" aria-expanded="true" aria-controls="genques-collapseOne">
+                                                        What is cryptocurrency?
+                                                        </button>
+                                                </h2>
+                                                <div id="genques-collapseOne" class="accordion-collapse collapse show" aria-labelledby="genques-headingOne" data-bs-parent="#genques-accordion">
+                                                    <div class="accordion-body">
+                                                        Cryptocurrency is a digital or virtual form of currency that uses cryptography for security. It operates on a decentralized ledger called blockchain and can be used for various purposes, including as a medium of exchange and investment.
+                                                        </div>
+                                                </div>
+                                            </div>
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="genques-headingTwo">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#genques-collapseTwo" aria-expanded="false" aria-controls="genques-collapseTwo">
+                                                        How do I buy cryptocurrencies?
+                                                        </button>
+                                                </h2>
+                                                <div id="genques-collapseTwo" class="accordion-collapse collapse" aria-labelledby="genques-headingTwo" data-bs-parent="#genques-accordion">
+                                                    <div class="accordion-body">
+                                                       You can buy cryptocurrencies on cryptocurrency exchanges using fiat money or other cryptocurrencies. You'll need to create an account, complete KYC (Know Your Customer) verification, and then you can purchase cryptocurrencies using the available payment methods.
+                                                </div>
+                                                </div>
+                                            </div>
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="genques-headingThree">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#genques-collapseThree" aria-expanded="false" aria-controls="genques-collapseThree">
+                                                    Is cryptocurrency trading risky?
+                                                    </button>
+                                                </h2>
+                                                <div id="genques-collapseThree" class="accordion-collapse collapse" aria-labelledby="genques-headingThree" data-bs-parent="#genques-accordion">
+                                                    <div class="accordion-body">
+                                                    However, cryptocurrency trading is inherently risky. Prices can be extremely volatile, but, trading with us, your trading and profit earning is guaranteed.
+                                                </div>
+                                                </div>
+                                            </div>
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="genques-headingFour">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#genques-collapseFour" aria-expanded="false" aria-controls="genques-collapseFour">
+                                                    Do I need to pay taxes on my crypto gains?
+                                                    </button>
+                                                </h2>
+                                                <div id="genques-collapseFour" class="accordion-collapse collapse" aria-labelledby="genques-headingFour" data-bs-parent="#genques-accordion">
+                                                    <div class="accordion-body">
+                                                    Tax regulations regarding cryptocurrency vary by country. In many places, you are required to report and pay taxes on gains from crypto trading and investments. Consult a tax professional to understand your specific tax obligations.
+                                                 </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--end accordion-->
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4">
+                                    <div class="mt-3">
+                                        <div class="d-flex align-items-center mb-2">
+                                            <div class="flex-shrink-0 me-1">
+                                                <i class="ri-user-settings-line fs-24 align-middle text-success me-1"></i>
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <h5 class="fs-16 mb-0 fw-semibold">Manage Account</h5>
+                                            </div>
+                                        </div>
+
+                                        <div class="accordion accordion-border-box" id="manageaccount-accordion">
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="manageaccount-headingOne">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#manageaccount-collapseOne" aria-expanded="false" aria-controls="manageaccount-collapseOne">
+                                                    How do I create a trading account?
+                                                    </button>
+                                                </h2>
+                                                <div id="manageaccount-collapseOne" class="accordion-collapse collapse" aria-labelledby="manageaccount-headingOne" data-bs-parent="#manageaccount-accordion">
+                                                    <div class="accordion-body">
+                                                    To create a trading account, you usually need to sign up. You'll provide personal information, complete KYC verification, and set up security features.
+                                                </div>
+                                                </div>
+                                            </div>
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="manageaccount-headingTwo">
+                                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#manageaccount-collapseTwo" aria-expanded="true" aria-controls="manageaccount-collapseTwo">
+                                                    What is KYC verification for a crypto account?
+                                                    </button>
+                                                </h2>
+                                                <div id="manageaccount-collapseTwo" class="accordion-collapse collapse show" aria-labelledby="manageaccount-headingTwo" data-bs-parent="#manageaccount-accordion">
+                                                    <div class="accordion-body">
+                                                    KYC (Know Your Customer) verification is a process where you provide personal information and documents to verify your identity. Exchanges and wallets often require this to comply with regulatory requirements.
+                                                  </div>
+                                                </div>
+                                            </div>
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="manageaccount-headingThree">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#manageaccount-collapseThree" aria-expanded="false" aria-controls="manageaccount-collapseThree">
+                                                    Can I have multiple crypto accounts?
+                                                    </button>
+                                                </h2>
+                                                <div id="manageaccount-collapseThree" class="accordion-collapse collapse" aria-labelledby="manageaccount-headingThree" data-bs-parent="#manageaccount-accordion">
+                                                    <div class="accordion-body">
+                                                    Yes, you can have multiple crypto accounts on different exchanges or wallets to diversify your holdings or use different services.
+                                                </div>
+                                                </div>
+                                            </div>
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="manageaccount-headingFour">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#manageaccount-collapseFour" aria-expanded="false" aria-controls="manageaccount-collapseFour">
+                                                    How can I secure my crypto account?
+                                                    </button>
+                                                </h2>
+                                                <div id="manageaccount-collapseFour" class="accordion-collapse collapse" aria-labelledby="manageaccount-headingFour" data-bs-parent="#manageaccount-accordion">
+                                                    <div class="accordion-body">
+                                                    To secure your crypto account, enable two-factor authentication (2FA), use strong and unique passwords, store your private keys securely (e.g., in a hardware wallet), and be cautious of phishing attempts.
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--end accordion-->
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4">
+                                    <div class="mt-3">
+                                        <div class="d-flex align-items-center mb-2">
+                                            <div class="flex-shrink-0 me-1">
+                                                <i class="ri-shield-keyhole-line fs-24 align-middle text-success me-1"></i>
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <h5 class="fs-16 mb-0 fw-semibold">Privacy &amp; Security</h5>
+                                            </div>
+                                        </div>
+
+                                        <div class="accordion accordion-border-box" id="privacy-accordion">
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="privacy-headingOne">
+                                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#privacy-collapseOne" aria-expanded="true" aria-controls="privacy-collapseOne">
+                                                    How can I protect the security of my cryptocurrency holdings?
+                                                    </button>
+                                                </h2>
+                                                <div id="privacy-collapseOne" class="accordion-collapse collapse show" aria-labelledby="privacy-headingOne" data-bs-parent="#privacy-accordion">
+                                                    <div class="accordion-body">
+                                                    To protect your cryptocurrency, use secure and reputable wallets, enable two-factor authentication (2FA), regularly update software, and keep your private keys offline (e.g., in hardware wallets).
+                                                </div>
+                                                </div>
+                                            </div>
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="privacy-headingTwo">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#privacy-collapseTwo" aria-expanded="false" aria-controls="privacy-collapseTwo">
+                                                    What is a private key, and why is it important for security?
+                                                    </button>
+                                                </h2>
+                                                <div id="privacy-collapseTwo" class="accordion-collapse collapse" aria-labelledby="privacy-headingTwo" data-bs-parent="#privacy-accordion">
+                                                    <div class="accordion-body">
+                                                    A private key is a cryptographic key that allows you to access and control your cryptocurrency holdings. It must be kept secret and secure, as anyone with access to it can access your funds.
+                                                </div>
+                                                </div>
+                                            </div>
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="privacy-headingThree">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#privacy-collapseThree" aria-expanded="false" aria-controls="privacy-collapseThree">
+                                                    What is two-factor authentication (2FA), and why should I use it?
+                                                    </button>
+                                                </h2>
+                                                <div id="privacy-collapseThree" class="accordion-collapse collapse" aria-labelledby="privacy-headingThree" data-bs-parent="#privacy-accordion">
+                                                    <div class="accordion-body">
+                                                    2FA is an additional security layer that requires a second form of verification, such as a one-time code sent to your phone. It adds an extra barrier against unauthorized access to your accounts.
+                                                </div>
+                                                </div>
+                                            </div>
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="privacy-headingFour">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#privacy-collapseFour" aria-expanded="false" aria-controls="privacy-collapseFour">
+                                                    What is a public address, and how is it different from a private key?
+                                                    </button>
+                                                </h2>
+                                                <div id="privacy-collapseFour" class="accordion-collapse collapse" aria-labelledby="privacy-headingFour" data-bs-parent="#privacy-accordion">
+                                                    <div class="accordion-body">
+                                                    A public address is a cryptographic key used to receive cryptocurrency. It's safe to share this with others. In contrast, a private key is secret and used to access and manage your crypto funds.
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--end accordion-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--end col-->
+                    </div>
+                    <!--end row-->
+
+                </div>
+                <!-- container-fluid -->
+            </div>
+            <!-- End Page-content -->
+
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            © <script>document.write(new Date().getFullYear())</script> Stock Elite Options</div>
+                       
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <!-- end main content-->
+
+    </div>
+    <!-- END layout-wrapper -->
+
+
+
+    <!--start back-to-top-->
+    <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
+        <i class="fa-solid fa-up-long"></i>
+    </button>
+    <!--end back-to-top-->
+
+    <!--preloader-->
+    <div id="preloader">
+        <div id="status">
+            <div class="spinner-border text-primary avatar-sm" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="js/0Ma28lMlOoDT.js"></script>
+    <script src="js/dfZcM1N9WcmM.js"></script>
+    <script src="js/KBsMp7H8cjVr.js"></script>
+    <script src="js/OZo8v9k2PFXa.js"></script>
+    <script src="js/mnC2xE6YODxz.js"></script>
+    <script src="js/moDUaN4r7uju.js"></script>
+
+    <!-- App js -->
+    <script src="js/PY2VGh7ZUXkA.js"></script>
+
+    <script src="js/3xh83pybpRtq.js" async=""></script>
+
+
+    <script>
+        function googleTranslateElementInit() {
+          new google.translate.TranslateElement({
+            pageLanguage: 'en'
+          }, 'google_translate_element');
+        }
+
+      </script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    </div>
+
+
+
+    <style>
+      #google_translate_element {
+        color: transparent;
+      }
+      #google_translate_element a {
+        display: none;
+      }
+      
+      .goog-te-banner-frame.skiptranslate {
+          display: none !important;
+          }
+      
+          body > .skiptranslate {
+          display: none;
+      }
+                </style>
+
+
+
+</body></html>

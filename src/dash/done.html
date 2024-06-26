@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Done</title>
+</head>
+<body>
+    <dialog class="DIG" open="" id="myDialog">
+
+        <img class="immg" src="./done.png" alt="">
+        <p>Deposit sent successfully</p>
+        <button class="cc" style=" margin-right: 5%; border: 0px; border-radius: 10px; color: white;" id="ccz">Done </button>
+
+
+    
+        <style>
+            .immg{
+                width: 50%;
+            }
+            .DIG{
+                border: 0px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                margin-top: 15%;
+            }
+
+            .cc{
+                background-color: rgb(29, 82, 5);
+                padding-left: 8%;
+                padding-right: 8%;
+                padding-top: 4%;
+                padding-bottom: 4%;
+            }
+            .cc:hover{
+                background-color: rgb(1, 51, 10);
+            }
+
+        </style>
+        <!-- <a href="./deposit/index.html"></a> -->
+        <script>
+
+            document.getElementById("ccz").addEventListener('click', ()=>{
+                window.location.href="./deposit/index.html"
+            })
+            const dialog = document.getElementById("myDialog"); 
+            
+            function showDialog() { 
+              dialog.show(); 
+            } 
+            
+            function closeDialog() { 
+              dialog.close(); 
+            } 
+            </script>
+    </dialog>
+</body>
+</html>

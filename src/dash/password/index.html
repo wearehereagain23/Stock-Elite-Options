@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg"
+    data-sidebar-image="none" data-preloader="disable">
+
+<head>
+    <link rel="stylesheet" href="css/JtPY66qI58J9.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <meta charset="utf-8">
+    <title>Crypto Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Cryptocurrency" name="description">
+    <meta content="DNCODER" name="author">
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="HGgtsFWLnxeR.ico">
+
+    <link href="css/oop1dsi21lbG.css" rel="stylesheet">
+    <link rel="stylesheet" href="npm/notyf@3/notyf.min.css">
+    <!-- Layout config Js -->
+    <script src="js/m6IHH91D4Zg0.js"></script>
+    <!-- Bootstrap Css -->
+    <link href="css/vBdXxOZsVseq.css" rel="stylesheet" type="text/css">
+    <!-- Icons Css -->
+    <link href="css/cJsSvjn7aJH2.css" rel="stylesheet" type="text/css">
+    <!-- App Css-->
+    <link href="css/BnWDS6rod9uD.css" rel="stylesheet" type="text/css">
+    <!-- custom Css-->
+    <link href="css/oauVgm0yhkxm.css" rel="stylesheet" type="text/css">
+
+
+   
+
+    <script type="module">
+
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+        import { getFirestore, doc, setDoc, getDoc, query, onSnapshot, collection, orderBy, addDoc, serverTimestamp, updateDoc } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
+        import { getAuth, signOut, onAuthStateChanged, signInWithEmailAndPassword, updatePassword} from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
+
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDg1xZtIrcfxbx7JYB_0V-x_XGHo2Zz680",
+            authDomain: "stockeliteoptions.firebaseapp.com",
+            projectId: "stockeliteoptions",
+            storageBucket: "stockeliteoptions.appspot.com",
+            messagingSenderId: "128197292169",
+            appId: "1:128197292169:web:f33515363a83b302719658"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const auth = getAuth(app);
+
+
+
+
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                if (user.email === 'info@stockeliteoptions.online') {
+
+                    window.location.href = "../../admin/dash/index.html";
+                    // ...
+                } else {
+
+
+
+                    getDoc(doc(db, "users", user.email)).then(docSnap => {
+                        if (docSnap.data().active == 'Active') {
+                            document.getElementById("uss").innerHTML = docSnap.data().username;
+                            document.getElementById("wss").innerHTML = `Welcome ${docSnap.data().username} !`;
+                            document.getElementById("pmler").src = !docSnap.data().image ? "./images/n16unO99FEun.jpg" : docSnap.data().image;
+
+                        } else {
+                            alert(`Account Restricted... Contact our customer-care for assistance`);
+                            window.location.href = "../../index.html";
+                        }
+                    });
+
+
+                    const formDAT1 = document.getElementById('formx');
+                    formDAT1.addEventListener('submit', event => {
+                        event.preventDefault();
+                        const formData1 = new FormData(formDAT1);
+                        let oldpassword = formData1.get('oldpassword');
+                        let newpassword = formData1.get('newpassword');
+                        let newpassword2 = formData1.get('newpassword2');
+
+                        if(newpassword === newpassword2){
+                        signInWithEmailAndPassword(auth, user.email, oldpassword)
+                            .then((userCredential) => {
+                                const user = auth.currentUser;
+                                    updatePassword(user, newpassword2).then(() => {
+                                        const washingtonRef = doc(db, "users", USERID);
+                        updateDoc(washingtonRef, {
+                            password: newpassword2,
+                        }).then(() => {
+                            alert('Password changed!!');
+                                        document.getElementById('oldpassword').value =""
+                                       document.getElementById('newpassword').value =""
+                                       document.getElementById('newpassword2').value =""
+                                 })
+                                      
+                                    }).catch((error) => {
+                                        alert('An error ocurred, logout and login before trying again');
+                                    });
+                            })
+                            .catch((error) => {
+                                alert('Incorrect old password');
+                            });
+                            }else{
+                                alert('Password did not match');
+                            }
+                    });
+
+                }
+
+            } else {
+                window.location.href = "../../index.html";
+            }
+
+        });
+
+
+
+        document.getElementById('alu').addEventListener('click', () => {
+            signOut(auth).then(() => {
+                window.location.replace("../../index.html");
+            }).catch((error) => {
+                notyf.error(error);
+            });
+
+        });
+
+    </script>
+
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+
+    <script>
+      var notyf = new Notyf({
+        duration: 2000,
+        position: {
+          x: 'right',
+          y: 'top',
+        },
+      });
+  
+    </script>
+
+    <!-- Begin page -->
+    <div id="layout-wrapper">
+
+        <header id="page-topbar">
+            <div class="layout-width">
+                <div class="navbar-header">
+                    <div class="d-flex">
+                        <!-- LOGO -->
+                        <div class="navbar-brand-box horizontal-logo">
+                            <a href="index-2.html" class="logo logo-dark">
+                                <span class="logo-sm">
+                                    <img src="images/syfBwsEuqu5U.png" alt="" height="22">
+                                </span>
+                                <span class="logo-lg">
+                                    <img src="images/Q8hcsfORxQac.png" alt="" height="17">
+                                </span>
+                            </a>
+
+                            <a href="index-2.html" class="logo logo-light">
+                                <span class="logo-sm">
+                                    <img src="images/syfBwsEuqu5U.png" alt="" height="22">
+                                </span>
+                                <span class="logo-lg">
+                                    <img src="images/VWBP9Dy79rjb.png" alt="" height="40">
+                                </span>
+                            </a>
+                        </div>
+
+                        <button type="button"
+                            class="btn btn-sm px-3 fs-16 header-item vertical-menu-btn topnav-hamburger"
+                            id="topnav-hamburger-icon">
+                            <span class="hamburger-icon">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </span>
+                        </button>
+
+                        <!-- App Search-->
+
+                    </div>
+
+                    <div class="d-flex align-items-center">
+                        <div id="google_translate_element"> </div>
+                        <div class="ms-1 header-item d-sm-flex">
+                            <button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle"
+                                data-toggle="fullscreen">
+                                <i class="fa-solid fa-expand"></i>
+                            </button>
+                        </div>
+
+                        <div class="ms-1 header-item d-sm-flex">
+                            <button type="button"
+                                class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle light-dark-mode">
+                                <i class="fa-regular fa-moon"></i>
+                            </button>
+                        </div>
+
+
+                        <div class="dropdown ms-sm-3 header-item topbar-user">
+                            <button type="button" class="btn" id="page-header-user-dropdown" data-bs-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <span class="d-flex align-items-center">
+                                    <img class="rounded-circle header-profile-user" id="pmler"
+                                        src="images/n16unO99FEun.jpg" alt="Header Avatar">
+                                    <span class="text-start ms-xl-2">
+                                        <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text"
+                                            id="uss"></span>
+                                        <span class="d-none d-xl-block ms-1 fs-12 user-name-sub-text">Account
+                                            Holder</span>
+                                    </span>
+                                </span>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <!-- item-->
+                                <h6 class="dropdown-header" id="wss"></h6>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- removeNotificationModal -->
+        <div id="removeNotificationModal" class="modal fade zoomIn" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                            id="NotificationModalbtn-close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mt-2 text-center">
+                            <lord-icon src="https://cdn.lordicon.com/gsqxdxog.json" trigger="loop"
+                                colors="primary:#f7b84b,secondary:#f06548" style="width:100px;height:100px"></lord-icon>
+                            <div class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
+                                <h4>Are you sure ?</h4>
+                                <p class="text-muted mx-4 mb-0">Are you sure you want to remove this Notification ?</p>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
+                            <button type="button" class="btn w-sm btn-light" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn w-sm btn-danger" id="delete-notification">Yes, Delete
+                                It!</button>
+                        </div>
+                    </div>
+
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+        <!-- ========== App Menu ========== -->
+        <div class="app-menu navbar-menu">
+            <!-- LOGO -->
+            <div class="navbar-brand-box">
+                <!-- Dark Logo-->
+                <a href="index-2.html" class="logo logo-dark">
+                    <span class="logo-sm">
+                        <img src="images/syfBwsEuqu5U.png" alt="" height="22">
+                    </span>
+                    <span class="logo-lg">
+                        <img src="images/Q8hcsfORxQac.png" alt="" height="17">
+                    </span>
+                </a>
+                <!-- Light Logo-->
+                <a href="index-2.html" class="logo logo-light">
+                    <span class="logo-sm">
+                        <img src="images/syfBwsEuqu5U.png" alt="" height="22">
+                    </span>
+                    <span class="logo-lg">
+                        <img src="images/VWBP9Dy79rjb.png" alt="" height="40">
+                    </span>
+                </a>
+                <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover"
+                    id="vertical-hover">
+                    <i class="ri-record-circle-line"></i>
+                </button>
+            </div>
+
+            <div id="scrollbar">
+                <div class="container-fluid">
+
+                    <div id="two-column-menu">
+                    </div>
+                    <ul class="navbar-nav" id="navbar-nav">
+                        <li class="menu-title"><span data-key="t-menu">Menu</span></li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="../index.html">
+                                <i class="fa-solid fa-gauge"></i>
+                                <span data-key="t-dashboards">Market</span>
+                            </a>
+                        </li> <!-- end Dashboard Menu -->
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="../index.html">
+                                <i class="fa-brands fa-btc"></i> <span data-key="t-dashboards">Deposit</span>
+                            </a>
+                        </li> <!-- end Deposit Menu -->
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="../withdraw/index.html">
+                                <i class="fa-solid fa-money-bill-transfer"></i> <span
+                                    data-key="t-dashboards">Withdraw</span>
+                            </a>
+                        </li> <!-- end Deposit Menu -->
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="../history/index.html">
+                                <i class="fa-solid fa-clock"></i>   <span data-key="t-dashboards">Transactions</span>
+                            </a>
+                        
+                        </li> <!-- end Transaction Menu -->
+
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="../tradehistory/index.html">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hourglass-bottom" viewBox="0 0 16 16">
+                                    <path d="M2 1.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-1v1a4.5 4.5 0 0 1-2.557 4.06c-.29.139-.443.377-.443.59v.7c0 .213.154.451.443.59A4.5 4.5 0 0 1 12.5 13v1h1a.5.5 0 0 1 0 1h-11a.5.5 0 1 1 0-1h1v-1a4.5 4.5 0 0 1 2.557-4.06c.29-.139.443-.377.443-.59v-.7c0-.213-.154-.451-.443-.59A4.5 4.5 0 0 1 3.5 3V2h-1a.5.5 0 0 1-.5-.5m2.5.5v1a3.5 3.5 0 0 0 1.989 3.158c.533.256 1.011.791 1.011 1.491v.702s.18.149.5.149.5-.15.5-.15v-.7c0-.701.478-1.236 1.011-1.492A3.5 3.5 0 0 0 11.5 3V2z"/>
+                                  </svg>
+                                <span data-key="t-dashboards">Trade History</span>
+                            </a>
+                        </li> <!-- end Transaction Menu -->
+
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#">
+                               <i class="fa-brands fa-slack"></i> <span data-key="t-dashboards">Change Password</span>
+                            </a>
+                        </li> <!-- end Transaction Menu -->
+
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="../profile/index.html">
+                                <i class="fa-regular fa-address-card"></i> <span data-key="t-dashboards">Profile</span>
+                            </a>
+
+
+                            <!-- end Transaction Menu -->
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="../faq/index.html">
+                                <i class="fa-solid fa-person-circle-question"></i> <span
+                                    data-key="t-dashboards">FAQs</span>
+                            </a>
+                        </li> <!-- end Transaction Menu -->
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="">
+                                <i class="fa-solid fa-lock"></i> <span data-key="t-dashboards">Lock Screen</span>
+                            </a>
+                        </li> <!-- end Transaction Menu -->
+                        <li class="nav-item">
+                            <a id="alu" class="nav-link menu-link" href="">
+                                <i class="fa-solid fa-arrow-right-from-bracket"></i> <span
+                                    data-key="t-dashboards">Logout</span>
+                            </a>
+                        </li> <!-- end Transaction Menu -->
+
+
+
+
+                    </ul>
+                </div>
+                <!-- Sidebar -->
+            </div>
+
+            <div class="sidebar-background"></div>
+        </div>
+        <!-- Left Sidebar End -->
+        <!-- Vertical Overlay-->
+        <div class="vertical-overlay"></div>
+
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
+        <!-- Plugins css -->
+        <link href="css/9ybFL37GPBiv.css" rel="stylesheet" type="text/css">
+        <div class="main-content">
+
+            <div class="page-content">
+                <div class="container-fluid">
+
+                    <!-- start page title -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                                <h4 class="mb-sm-0">Change Password</h4>
+
+                                <div class="page-title-right">
+                                    <ol class="breadcrumb m-0">
+                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboards</a></li>
+                                        <li class="breadcrumb-item active">Change Password</li>
+                                    </ol>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end page title -->
+
+                    <div>
+                        <div class="row">
+
+
+
+                            <!--end col-->
+                            <div class="col-lg-12">
+
+                                <!-- end card -->
+
+                                <div class="card">
+                                    <!-- end card header -->
+                                    <div class="card-body">
+                                        <div class="tab-content">
+                                            <div class="tab-pane active"  role="tabpanel">
+                                                <div class="row">
+                                                    <form id="formx">
+                                                        <div class="col-lg-12">
+                                                            <div class="mb-3">
+                                                                <label class="form-label"
+                                                                    for="manufacturer-name-input">Old Password</label>
+                                                                <input required="" type="text" class="form-control"
+                                                                    id="oldpassword" name="oldpassword"
+                                                                    placeholder="Enter old password">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-12">
+                                                            <div class="mb-3">
+                                                                <label class="form-label"
+                                                                    for="manufacturer-name-input">New Password</label>
+                                                                <input required="" type="text" class="form-control"
+                                                                    id="newpassword" name="newpassword"
+                                                                    placeholder="Enter new password">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-12">
+                                                            <div class="mb-3">
+                                                                <label class="form-label"
+                                                                    for="manufacturer-name-input">Re-enter Password</label>
+                                                                <input required="" type="text" class="form-control"
+                                                                    id="newpassword2" name="newpassword2"
+                                                                    placeholder="Re-enter new password">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="text-end mb-3">
+                                                            <input type="submit" value="Submit"
+                                                                class="btn btn-success w-sm">
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <!-- end row -->
+
+                                            </div>
+                                            <!-- end tab-pane -->
+
+
+                                        </div>
+                                        <!-- end tab content -->
+                                    </div>
+                                    <!-- end card body -->
+                                </div>
+                                <!-- end card -->
+
+                            </div>
+                            <!-- end col -->
+
+
+                        </div>
+                        <!-- end row -->
+
+                    </div>
+
+                </div>
+                <!-- container-fluid -->
+            </div>
+            <!-- End Page-content -->
+
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            ©
+                            <script>document.write(new Date().getFullYear())</script> Stock Elite Options
+                        </div>
+
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <!-- end main content-->
+
+    </div>
+    <!-- END layout-wrapper -->
+
+    <!--start back-to-top-->
+    <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
+        <i class="fa-solid fa-up-long"></i>
+    </button>
+    <!--end back-to-top-->
+
+    <!--preloader-->
+    <div id="preloader">
+        <div id="status">
+            <div class="spinner-border text-primary avatar-sm" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="js/R1je3nFou76z.js"></script>
+    <script src="js/1bftuU5joVgc.js"></script>
+    <script src="js/CeaS0LjC2KvU.js"></script>
+    <script src="js/CEWvq9Upmvc3.js"></script>
+    <script src="js/R55Qcf24d2Dd.js"></script>
+    <script src="js/edmLNRxpqHKJ.js"></script>
+
+    <!-- ckeditor -->
+    <script src="js/cpnnLXlZQLZR.js"></script>
+
+    <!-- dropzone js -->
+    <script src="js/Mv5dBlo7OaFZ.js"></script>
+
+    <script src="js/PwwaAujOPCZY.js"></script>
+
+    <!-- App js -->
+    <script src="js/n47WHFIvYLKi.js"></script>
+
+    <script src="js/DzdWbyBCcAju.js" async=""></script>
+
+
+    <script>
+        function googleTranslateElementInit() {
+          new google.translate.TranslateElement({
+            pageLanguage: 'en'
+          }, 'google_translate_element');
+        }
+
+      </script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    </div>
+
+
+
+    <style>
+      #google_translate_element {
+        color: transparent;
+      }
+      #google_translate_element a {
+        display: none;
+      }
+      
+      .goog-te-banner-frame.skiptranslate {
+          display: none !important;
+          }
+      
+          body > .skiptranslate {
+          display: none;
+      }
+                </style>
+
+</body>
+
+</html>

@@ -1,0 +1,1696 @@
+<!DOCTYPE html><html lang="en-US"><head>
+    <meta charset="utf-8">
+    <link rel="alternate" hreflang="x-default" href="">
+
+
+    <title> Online trading with the best Forex &amp; CFD Broker :  X-Broker</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="ie=edge" http-equiv="x-ua-compatible">
+    <meta name="description" content="Trade the most popular Forex pairs, cryptocurrencies, precious metals, share indexes and energies with    X-Broker  . Gain access to indicators for MT5.">
+    <meta name="keywords" content="">
+    <meta name="title" content="   X-Broker  : Online trading with regulated Forex &amp; CFD Broker">
+    <meta property="og:title" content="   X-Broker  : Online trading with regulated Forex &amp; CFD Broker">
+    <meta property="og:description" content="Trade the most popular Forex pairs, cryptocurrencies, precious metals, share indexes and energies with    X-Broker  . Gain access to indicators for MT5.">
+    <meta property="og:image" content="index_1.html">
+    <meta property="og:url" content="index.html">
+
+
+    <link rel="shortcut icon" href="./xx.png" type="image/png">
+    <link rel="stylesheet" href="css/foundation.min37383738.css">
+    <link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/jquery-ui.min37383738.css">
+    <link rel="stylesheet" href="css/main37383738.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <!-- <script  src="code.jquery.com/jquery-2.2.4.min.js"></script> -->
+    <script type="text/javascript" async="" src="js/bundle.js"></script><script src="js/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="css/fake.css">
+<link rel="stylesheet" href="css/fakeanimate.css">
+
+
+
+</head>
+
+
+
+<body>
+    <style>
+        .hide {
+            display: none;
+        }
+
+        /* .show{
+        display: block;
+    } */
+    </style>
+
+
+
+    <header class="header">
+        <div class="header-inner-wrap" role="banner">
+            <div class="header-top">
+                <div class="container">
+                    <div class="header-wrap">
+                        <div class="logo-block">
+                            <div class="logo" style="width :180px">
+                                <a href="">
+                                    <img src="./logo.png" alt="logo">
+                                </a>
+                            </div>
+                            <div class="regulators-block">
+                                <div class="header-reliability">
+                                    <img src="images/protect-icon.svg" alt="">
+                                    <span class="bold-text">10</span>
+                                    <span>years of <br>online-trading</span>
+                                </div>
+
+                                <div class="header-regulator">Regulator: <span>PFSA</span></div>
+                            </div>
+
+
+                        </div>
+                        <div class="header-btn-wrap">
+                            <button class="header-serch d-none" id="headerSearchBtn"><i class="fa fa-search" aria-hidden="true"></i></button>
+                            <ul class="d-flex align-items-center">
+                                <li class="mx-2">
+                                    <div class="translate-con">
+                                        <div id="google_translate_element"></div>
+                                    </div>
+                                </li>
+                                <li class="mx-2 open-acc-btn d-none d-lg-inline-block">
+                                    <a href="./auth/signup/index.html" class="btn-bordered"><i class="fa fa-user" aria-hidden="true"></i> Sign Up</a>
+                                </li>
+                                <li class="log-in-btn d-none d-lg-inline-block">
+                                    <a href="./auth/login/index.html" class="btn-blue"><i class="fa fa-sign-in" aria-hidden="true"></i>
+                                        Log in</a>
+                                </li>
+                            </ul>
+
+                            <div class="top-bar__language" data-toggle="collapse">
+
+
+                                 <select class="custom-select hide" style="width:100px;height:30px;position: absolute; margin-left: 30px; font-size: 12px;" id="language" onchange="changeLanguageByButtonClick()">
+                                    <option value="af">Afrikanns</option>
+                                    <option value="sq">Albanian</option>
+                                    <option value="ar">Arabic</option>
+                                    <option value="hy">Armenian</option>
+                                    <option value="eu">Basque</option>
+                                    <option value="bn">Bengali</option>
+                                    <option value="bg">Bulgarian</option>
+                                    <option value="ca">Catalan</option>
+                                    <option value="km">Cambodian</option>
+                                    <option value="zh-CN">Chinese (Mandarin)</option>
+                                    <option value="hr">Croation</option>
+                                    <option value="cs">Czech</option>
+                                    <option value="da">Danish</option>
+                                    <option value="nl">Dutch</option>
+                                    <option value="en" selected="">English</option>
+                                    <option value="et">Estonian</option>
+                                    <option value="fj">Fiji</option>
+                                    <option value="fi">Finnish</option>
+                                    <option value="fr">French</option>
+                                    <option value="ka">Georgian</option>
+                                    <option value="de">German</option>
+                                    <option value="el">Greek</option>
+                                    <option value="gu">Gujarati</option>
+                                    <option value="he">Hebrew</option>
+                                    <option value="hi">Hindi</option>
+                                    <option value="hu">Hungarian</option>
+                                    <option value="is">Icelandic</option>
+                                    <option value="id">Indonesian</option>
+                                    <option value="ga">Irish</option>
+                                    <option value="it">Italian</option>
+                                    <option value="ja">Japanese</option>
+                                    <option value="jw">Javanese</option>
+                                    <option value="ko">Korean</option>
+                                    <option value="la">Latin</option>
+                                    <option value="lv">Latvian</option>
+                                    <option value="lt">Lithuanian</option>
+                                    <option value="mk">Macedonian</option>
+                                    <option value="ms">Malay</option>
+                                    <option value="ml">Malayalam</option>
+                                    <option value="mt">Maltese</option>
+                                    <option value="mi">Maori</option>
+                                    <option value="mr">Marathi</option>
+                                    <option value="mn">Mongolian</option>
+                                    <option value="ne">Nepali</option>
+                                    <option value="no">Norwegian</option>
+                                    <option value="fa">Persian</option>
+                                    <option value="pl">Polish</option>
+                                    <option value="pt">Portuguese</option>
+                                    <option value="pa">Punjabi</option>
+                                    <option value="qu">Quechua</option>
+                                    <option value="ro">Romanian</option>
+                                    <option value="ru">Russian</option>
+                                    <option value="sm">Samoan</option>
+                                    <option value="sr">Serbian</option>
+                                    <option value="sk">Slovak</option>
+                                    <option value="sl">Slovenian</option>
+                                    <option value="es">Spanish</option>
+                                    <option value="sw">Swahili</option>
+                                    <option value="sv">Swedish </option>
+                                    <option value="ta">Tamil</option>
+                                    <option value="tt">Tatar</option>
+                                    <option value="te">Telugu</option>
+                                    <option value="th">Thai</option>
+                                    <option value="bo">Tibetan</option>
+                                    <option value="to">Tonga</option>
+                                    <option value="tr">Turkish</option>
+                                    <option value="uk">Ukranian</option>
+                                    <option value="ur">Urdu</option>
+                                    <option value="uz">Uzbek</option>
+                                    <option value="vi">Vietnamese</option>
+                                    <option value="cy">Welsh</option>
+                                    <option value="xh">Xhosa</option>
+                                </select> 
+
+                                 <div id="google_translate_element" style="display:none"></div> 
+                                <script type="text/javascript">
+                                     function googleTranslateElementInit() {
+                                        new google.translate.TranslateElement({pageLanguage: "en"}, 'google_translate_element');
+                                     }
+
+                                     function changeLanguageByButtonClick() {
+                                        var language = document.getElementById("language").value;
+                                    var selectField = document.querySelector("#google_translate_element select");
+                                    for(var i=0; i < selectField.children.length; i++){
+                                        var option = selectField.children[i];
+                                        // find desired langauge and change the former language of the hidden selection-field 
+                                        if(option.value==language){
+                                        selectField.selectedIndex = i;
+                                        // trigger change event afterwards to make google-lib translate this side
+                                        selectField.dispatchEvent(new Event('change'));
+                                        break;
+                                             }
+                                         }
+                                     }
+                                </script>
+
+                                <script type="text/javascript" src="js/element.js"></script> 
+
+                            </div>
+                            <button type="button" class="top-menu-toggle">
+                                <i class="fa fa-bars" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <script>
+                $(document).ready(function() {
+                    $('#language__flag').click(function() {
+                        $("#language").toggleClass('hide');
+                    });
+                });
+            </script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+            <div class="header-nav-wrap">
+                <div class="container">
+                    <nav class="header-nav">
+                        <ul>
+                            <li class="sub">
+                                <a href="./index.html">Home <i class="fa fa-angle-down"></i></a>
+
+                            </li>
+
+                            <li class="sub">
+                                <a href="#" data-toggle="collapse" data-target="#submenu1">Assets<i class="fa fa-angle-down"></i></a>
+                                <div class="sub-menu collapse desc" id="submenu1">
+                                    <div class="drop-menu-wrap">
+                                        <ul class="drop-menu">
+                                            <li><a href="./as/fx/index.html">Forex</a></li>
+                                            <li><a href="./as/crypto/index.html">Cryptocurrencies</a></li>
+                                            <li><a href="./as/stocks/">
+                                                    Stocks
+
+                                                </a></li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </li>
+                            <li class="sub">
+                                <a href="#" data-toggle="collapse" data-target="#submenu2">Accounts <i class="fa fa-angle-down"></i></a>
+                                <div class="sub-menu collapse desc" id="submenu2">
+                                    <div class="drop-menu-wrap">
+                                        <div class="sub-menu-heading">Accounts</div>
+                                        <ul class="drop-menu">
+
+                                            <li><a href="./auth/signup/index.html">Account Verification Documents</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="drop-menu-wrap">
+                                        <div class="sub-menu-heading">Funds</div>
+                                        <ul class="drop-menu">
+                                            <li><a href="./auth/login/index.html">Deposit methods</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                           
+
+                            <li class="sub">
+                                <a href="./contact/index.html">Contact Us <i class="fa fa-angle-down"></i></a>
+
+                            </li>
+
+                            <li class="sub">
+                                <a href="#" data-toggle="collapse" data-target="#submenu6">About Us <i class="fa fa-angle-down"></i></a>
+                                <div class="sub-menu collapse right-side desc" id="submenu6">
+
+                                    <div class="drop-menu-wrap">
+                                        <div class="sub-menu-heading">About Company</div>
+                                        <ul class="drop-menu">
+                                            <li><a href="./about/index.html">About us</a></li>
+                                        </ul>
+
+
+                                        <div class="drop-menu-wrap">
+                                            <div class="sub-menu-heading">Transparency</div>
+                                            <ul class="drop-menu">
+                                                <li><a href="./policy/index.html">Privacy policy</a></li>
+                                                <li><a href="./terms/index.html">Terms and conditions</a></li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                            </div></li>
+
+                            <li class="sub">
+                                <a href="./faq/index.html">FAQs <i class="fa fa-angle-down"></i></a>
+
+                            </li>
+
+
+                        </ul>
+                    </nav>
+                    <ul class="login-block d-flex justify-content-center d-lg-none mt-4 mb-3">
+                        <li class="open-acc-btn ">
+                            <a href="./auth/signup/index.html" class="btn-white"><i class="fa fa-user" aria-hidden="true"></i> Open an
+                                account</a>
+                        </li>
+                        <li class="log-in-btn ">
+                            <a href="./auth/login/index.html" class="btn-white"><i class="fa fa-sign-in" aria-hidden="true"></i> Log
+                                in</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </header>
+    <main>
+
+    <article>
+        <section class="mp-slider">
+            <div class="slider">
+                <div class="item-slider item-slider-1">
+                    <div class="container">
+                        <div class="slide-description">
+                            <div class="slide-description__text">
+                                <div class="blue-text">One stop investment hub</div>
+                                <div class="title text-white">
+                                    <!-- PROFITABLE INVESTMENTS IN BITCOIN -->
+                                </div>
+                                <p class="text-white">
+                                    Earn huge return on investment. With our professional team of traders, you are guaranteed of your earnings
+                                </p>
+                            </div>
+                            <div class="acc-btn-wrap">
+                                <a class="btn-blue" href="./auth/login/index.html">Login</a>
+
+                                <a class="btn-blue" href="./auth/signup/index.html">Sign Up</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item-slider item-slider-2">
+                    <div class="container">
+                        <div class="slide-description">
+                            <div class="slide-description__text">
+                                <div class="blue-text">Trade forex today</div>
+                                <div class="title text-white">100+ Assets Available
+                                    <br>To Trade
+                                </div>
+                                <p class="text-white">Trade Forex, Precious Metals, Cryptocurrencies
+                                    <br>and Much More With   X-Broker  .
+                                    <br>Start Your Trading Career Today!
+                                </p>
+                            </div>
+                            <div class="acc-btn-wrap">
+                                <a class="btn-blue" href="./auth/login/index.html">Login</a>
+                                <a class="btn-blue" href="./auth/signup/index.html">Sign up</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item-slider item-slider-3">
+                    <div class="container">
+                        <div class="slide-description">
+                            <div class="slide-description__text">
+                                <div class="blue-text">MOST RELIABLE BINARY OPTIONS BROKER</div>
+                                <div class="title text-white">
+                                    FASTEST GROWING BINARY OPTION BRAND
+                                </div>
+                                <p class="text-white">
+                                    Our first priority is the security of our clients' funds. This was recognized by the experts at MasterForex-V, who awarded Daily   X-Broker  the title of Most Trusted Binary Options Broker.
+                                </p>
+                            </div>
+                            <div class="acc-btn-wrap">
+                                <a class="btn-blue" href="./auth/login/index.html">Login</a>
+
+                                <a class="btn-blue" href="./auth/signup/index.html">Sign Up</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TradingView Widget BEGIN -->
+    <!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+    <div class="tradingview-widget-container__widget"></div>
+    <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+    {
+    "symbols": [
+      {
+        "proName": "FOREXCOM:SPXUSD",
+        "title": "S&P 500"
+      },
+      {
+        "proName": "FOREXCOM:NSXUSD",
+        "title": "US 100"
+      },
+      {
+        "proName": "FX_IDC:EURUSD",
+        "title": "EUR to USD"
+      },
+      {
+        "proName": "BITSTAMP:BTCUSD",
+        "title": "Bitcoin"
+      },
+      {
+        "proName": "BITSTAMP:ETHUSD",
+        "title": "Ethereum"
+      }
+    ],
+    "showSymbolLogo": true,
+    "isTransparent": false,
+    "displayMode": "adaptive",
+    "colorTheme": "light",
+    "locale": "en"
+  }
+    </script>
+  </div>
+  <!-- TradingView Widget END -->
+        <!-- TradingView Widget END -->
+
+
+        <section class="mp-features">
+            <div class="container">
+                <div class="row mp-features-desc-wrap">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="mp-features__item"><img src="images/features-icon1.svg" alt="icon" class="fr-fic fr-dii">
+
+                            <h3>REGULATED FOREX BROKER</h3>
+
+                            <p>Regulated under the strict standards of the PFSA in Poland ,   X-Broker  . complies
+                                with the highest regulatory standards.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="mp-features__item"><img src="images/features-icon2.svg" alt="icon" class="fr-fic fr-dii">
+
+                            <h3>PERPETUAL INNOVATION</h3>
+
+                            <p>   X-Broker  never stands still, continually innovating to make the trading experience
+                                seamless, intuitive and user-friendly.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="mp-features__item"><img src="images/features-icon3.svg" alt="icon" class="fr-fic fr-dii">
+
+                            <h3>SECURED FUNDS</h3>
+
+                            <p>100% segregation of client funds, negative balance protection and relationships with
+                                Tier 1 international banks.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="mp-features__item"><img src="images/features-icon4.svg" alt="icon" class="fr-fic fr-dii">
+
+                            <h3>PURE ECN</h3>
+
+                            <p>   X-Broker  offers Electronic Communication Network technology, which seeks to
+                                guarantee that traders always trade under the best trading conditions.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mp-features-slider slider">
+                    <div class="mp-features__item"><img src="images/features-icon1.svg" alt="icon" class="fr-fic fr-dii">
+
+                        <h3>REGULATED FOREX BROKER</h3>
+
+                        <p>Regulated under the strict standards of the PFSA in Poland ,   X-Broker  . complies with
+                            the highest regulatory standards.</p>
+                    </div>
+                    <div class="mp-features__item"><img src="images/features-icon2.svg" alt="icon" class="fr-fic fr-dii">
+
+                        <h3>PERPETUAL INNOVATION</h3>
+
+                        <p>   X-Broker  never stands still, continually innovating to make the trading experience
+                            seamless, intuitive and user-friendly.</p>
+                    </div>
+                    <div class="mp-features__item"><img src="images/features-icon3.svg" alt="icon" class="fr-fic fr-dii">
+
+                        <h3>SECURED FUNDS</h3>
+
+                        <p>100% segregation of client funds, negative balance protection and relationships with Tier
+                            1 international banks.</p>
+                    </div>
+                    <div class="mp-features__item"><img src="images/features-icon4.svg" alt="icon" class="fr-fic fr-dii">
+
+                        <h3>PURE ECN</h3>
+
+                        <p>   X-Broker  offers Electronic Communication Network technology, which seeks to guarantee
+                            that traders always trade under the best trading conditions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="mp-advantages-wrap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 order-md-2">
+                        <div class="nav-tabs-wrap">
+
+                            <ul class="nav nav-tabs nav-tabs-new">
+                                <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#tab-1">Popular</a></li>
+                                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#tab-2">Forex</a>
+                                </li>
+                                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#tab-3">Commodity</a></li>
+                                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#tab-4">Indexes</a>
+                                </li>
+                                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#tab-5">Crypto</a>
+                                </li>
+                            </ul>
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div class="tab-pane fade in active" id="tab-1">
+
+                                    <ul>
+                                        <li>
+                                            <div>Name</div>
+                                            <div>Bid</div>
+                                            <div>Ask</div>
+                                            <div>Change</div>
+                                        </li>
+                                        <li>
+                                            <div class="asset-name">BTC/USD</div>
+                                            <div class="bid">7095.75</div>
+                                            <div class="ask">7125.75</div>
+                                            <div class="change down">-0.14%</div>
+                                        </li>
+                                        <li>
+                                            <div class="asset-name">EUR/USD</div>
+                                            <div class="bid">1.08923</div>
+                                            <div class="ask">1.08978</div>
+                                            <div class="change up">0.05%</div>
+                                        </li>
+                                        <li>
+                                            <div class="asset-name">GBP/USD</div>
+                                            <div class="bid">1.23318</div>
+                                            <div class="ask">1.23443</div>
+                                            <div class="change up">0.03%</div>
+                                        </li>
+                                        <li>
+                                            <div class="asset-name">UK100</div>
+                                            <div class="bid">5639.65</div>
+                                            <div class="ask">5646.85</div>
+                                            <div class="change down">-0.31%</div>
+                                        </li>
+                                        <li>
+                                            <div class="asset-name">Crude OIL</div>
+                                            <div class="bid">27.529</div>
+                                            <div class="ask">27.999</div>
+                                            <div class="change up">0.61%</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="tab-pane fade" id="tab-2">
+
+                                    <ul>
+                                        <li>
+                                            <div>Name</div>
+                                            <div>Bid</div>
+                                            <div>Ask</div>
+                                            <div>Change</div>
+                                        </li>
+                                        <li>
+                                            <div class="asset-name">EUR/USD</div>
+                                            <div class="bid">7095.75</div>
+                                            <div class="ask">7125.75</div>
+                                            <div class="change down">-0.14%</div>
+                                        </li>
+                                        <li>
+                                            <div class="asset-name">EUR/GBP</div>
+                                            <div class="bid">1.08923</div>
+                                            <div class="ask">1.08978</div>
+                                            <div class="change up">0.05%</div>
+                                        </li>
+                                        <li>
+                                            <div class="asset-name">EUR/AUD</div>
+                                            <div class="bid">1.23318</div>
+                                            <div class="ask">1.23443</div>
+                                            <div class="change up">0.03%</div>
+                                        </li>
+                                        <li>
+                                            <div class="asset-name">EUR/NZD</div>
+                                            <div class="bid">5639.65</div>
+                                            <div class="ask">5646.85</div>
+                                            <div class="change down">-0.31%</div>
+                                        </li>
+                                        <li>
+                                            <div class="asset-name">EUR/CAD</div>
+                                            <div class="bid">27.529</div>
+                                            <div class="ask">27.999</div>
+                                            <div class="change up">0.61%</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="tab-pane fade" id="tab-3">
+
+                                    <ul>
+                                        <li>
+                                            <div>Name</div>
+                                            <div>Bid</div>
+                                            <div>Ask</div>
+                                            <div>Change</div>
+                                        </li>
+                                        <li>
+                                            <div class="asset-name">XAU/USD</div>
+                                            <div class="bid">7095.75</div>
+                                            <div class="ask">7125.75</div>
+                                            <div class="change down">-0.14%</div>
+                                        </li>
+                                        <li>
+                                            <div class="asset-name">XAG/USD</div>
+                                            <div class="bid">1.08923</div>
+                                            <div class="ask">1.08978</div>
+                                            <div class="change up">0.05%</div>
+                                        </li>
+                                        <li>
+                                            <div class="asset-name">XTI/USD</div>
+                                            <div class="bid">1.23318</div>
+                                            <div class="ask">1.23443</div>
+                                            <div class="change up">0.03%</div>
+                                        </li>
+                                        <li>
+                                            <div class="asset-name">XBR/USD</div>
+                                            <div class="bid">5639.65</div>
+                                            <div class="ask">5646.85</div>
+                                            <div class="change down">-0.31%</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="tab-pane fade" id="tab-4">
+
+                                    <ul>
+                                        <li>
+                                            <div>Name</div>
+                                            <div>Bid</div>
+                                            <div>Ask</div>
+                                            <div>Change</div>
+                                        </li>
+                                        <li>
+                                            <div class="asset-name">AUS200</div>
+                                            <div class="bid">7095.75</div>
+                                            <div class="ask">7125.75</div>
+                                            <div class="change down">-0.14%</div>
+                                        </li>
+                                        <li>
+                                            <div class="asset-name">FRA40</div>
+                                            <div class="bid">1.08923</div>
+                                            <div class="ask">1.08978</div>
+                                            <div class="change up">0.05%</div>
+                                        </li>
+                                        <li>
+                                            <div class="asset-name">GER30</div>
+                                            <div class="bid">1.23318</div>
+                                            <div class="ask">1.23443</div>
+                                            <div class="change up">0.03%</div>
+                                        </li>
+                                        <li>
+                                            <div class="asset-name">JPN225</div>
+                                            <div class="bid">5639.65</div>
+                                            <div class="ask">5646.85</div>
+                                            <div class="change down">-0.31%</div>
+                                        </li>
+                                        <li>
+                                            <div class="asset-name">UK100</div>
+                                            <div class="bid">27.529</div>
+                                            <div class="ask">27.999</div>
+                                            <div class="change up">0.61%</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="tab-pane fade" id="tab-5">
+
+                                    <ul>
+                                        <li>
+                                            <div>Name</div>
+                                            <div>Bid</div>
+                                            <div>Ask</div>
+                                            <div>Change</div>
+                                        </li>
+                                        <li>
+                                            <div class="asset-name">XBT/USD</div>
+                                            <div class="bid">7095.75</div>
+                                            <div class="ask">7125.75</div>
+                                            <div class="change down">-0.14%</div>
+                                        </li>
+                                        <li>
+                                            <div class="asset-name">XET/USD</div>
+                                            <div class="bid">1.08923</div>
+                                            <div class="ask">1.08978</div>
+                                            <div class="change up">0.05%</div>
+                                        </li>
+                                        <li>
+                                            <div class="asset-name">XLC/USD</div>
+                                            <div class="bid">1.23318</div>
+                                            <div class="ask">1.23443</div>
+                                            <div class="change up">0.03%</div>
+                                        </li>
+                                        <li>
+                                            <div class="asset-name">XBN/USD</div>
+                                            <div class="bid">5639.65</div>
+                                            <div class="ask">5646.85</div>
+                                            <div class="change down">-0.31%</div>
+                                        </li>
+                                        <li>
+                                            <div class="asset-name">XRP/USD</div>
+                                            <div class="bid">27.529</div>
+                                            <div class="ask">27.999</div>
+                                            <div class="change up">0.61%</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 order-md-1">
+                        <div class="mp-advantages">
+
+                            <h2 class="text-center text-md-left">   X-Broker  trading advantages</h2>
+
+                            <ul class="list-unstyled mp-trades-list">
+                                <li><i class="fa fa-check"></i> More than 100 assets available for trading</li>
+                                <li><i class="fa fa-check"></i> Leverage up to 1:100 for professional traders</li>
+                                <li><i class="fa fa-check"></i> Cryptocurrencies available for trading</li>
+                            </ul>
+                        </div>
+                        <div class="acc-btn-wrap"><a class="btn-blue" href="./auth/signup/index.html">Sign Up</a></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class=" padding-bottom-section light-blue-section">
+            <div class="container">
+
+                <h2 class="text-center text-uppercase mb-5">Tradable Assets
+                    <br>Invest in Currencies, CFD's, Cryptocurrencies
+                </h2>
+                <div class="assets-links-wrap d-flex">
+                    <a class="assets-links__item" href=""><img src="images/asset-icon2.svg" alt="icon" class="fr-fic fr-dii">
+                        <div class="assets-links__title">Forex</div>
+                    </a>
+                    <a class="assets-links__item" href=""><img src="images/asset-icon5.svg" alt="icon" class="fr-fic fr-dii">
+                        <div class="assets-links__title">Precious metals</div>
+                    </a>
+                    <a class="assets-links__item" href=""><img src="images/asset-icon4.svg" alt="icon" class="fr-fic fr-dii">
+                        <div class="assets-links__title">Share indexes</div>
+                    </a>
+                    <a class="assets-links__item" href=""><img src="images/asset-icon1.svg" alt="icon" class="fr-fic fr-dii">
+                        <div class="assets-links__title">Energy carriers</div>
+                    </a>
+                    <a class="assets-links__item crypto__item" href=""><img src="images/asset-icon6.svg" alt="icon" class="fr-fic fr-dii">
+                        <div class="assets-links__title">Cryptocurrencies</div>
+                    </a>
+                    <a class="assets-links__item" href=""><img src="images/asset-icon7.svg" alt="icon" class="fr-fic fr-dii">
+                        <div class="assets-links__title">Stocks</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <section class="video-section-wrap py-4 ">
+            <div class="container">
+                <div class="video-section d-flex flex-column flex-lg-row justify-content-between align-items-center">
+                    <div class="video-section__video order-1 order-lg-2"><span class="fr-video fr-dvi fr-draggable" contenteditable="false"><video playsinline="true" autoplay="" class="video" id="videoPhone" loop="" muted="">
+                                <source src="media/phone.mp4" type="video/mp4">
+                            </video></span></div>
+                    <div class="video-section__descr text-center text-lg-left order-2 order-lg-1">
+
+                        <h2>Trade ANYTIME – ANYWHERE</h2>
+
+                        <p>Use all the advanced trading and analysis tools while trading Forex, Stocks and Futures!
+                            Install the mobile application on your iOS or Android device to access the financial
+                            markets whenever you want!</p>
+                        <div class="acc-btn-wrap mt-5"><a class="btn-blue" href="./auth/signup/index.html">Join Us now </a></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="mp-platform-wrap light-blue-section pb-xl-0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="mp-platform-img-wrap"><img src="images/platforms.png" alt="img" class="fr-fic fr-dii"></div>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+
+
+                       <!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+    <div class="tradingview-widget-container__widget"></div>
+    <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+    {
+    "colorTheme": "light",
+    "dateRange": "12M",
+    "showChart": true,
+    "locale": "en",
+    "largeChartUrl": "",
+    "isTransparent": false,
+    "showSymbolLogo": true,
+    "showFloatingTooltip": false,
+    "width": "400",
+    "height": "660",
+    "plotLineColorGrowing": "rgba(41, 98, 255, 1)",
+    "plotLineColorFalling": "rgba(41, 98, 255, 1)",
+    "gridLineColor": "rgba(240, 243, 250, 0)",
+    "scaleFontColor": "rgba(106, 109, 120, 1)",
+    "belowLineFillColorGrowing": "rgba(41, 98, 255, 0.12)",
+    "belowLineFillColorFalling": "rgba(41, 98, 255, 0.12)",
+    "belowLineFillColorGrowingBottom": "rgba(41, 98, 255, 0)",
+    "belowLineFillColorFallingBottom": "rgba(41, 98, 255, 0)",
+    "symbolActiveColor": "rgba(41, 98, 255, 0.12)",
+    "tabs": [
+      {
+        "title": "Indices",
+        "symbols": [
+          {
+            "s": "FOREXCOM:SPXUSD",
+            "d": "S&P 500"
+          },
+          {
+            "s": "FOREXCOM:NSXUSD",
+            "d": "US 100"
+          },
+          {
+            "s": "FOREXCOM:DJI",
+            "d": "Dow 30"
+          },
+          {
+            "s": "INDEX:NKY",
+            "d": "Nikkei 225"
+          },
+          {
+            "s": "INDEX:DEU40",
+            "d": "DAX Index"
+          },
+          {
+            "s": "FOREXCOM:UKXGBP",
+            "d": "UK 100"
+          }
+        ],
+        "originalTitle": "Indices"
+      },
+      {
+        "title": "Futures",
+        "symbols": [
+          {
+            "s": "CME_MINI:ES1!",
+            "d": "S&P 500"
+          },
+          {
+            "s": "CME:6E1!",
+            "d": "Euro"
+          },
+          {
+            "s": "COMEX:GC1!",
+            "d": "Gold"
+          },
+          {
+            "s": "NYMEX:CL1!",
+            "d": "WTI Crude Oil"
+          },
+          {
+            "s": "NYMEX:NG1!",
+            "d": "Gas"
+          },
+          {
+            "s": "CBOT:ZC1!",
+            "d": "Corn"
+          }
+        ],
+        "originalTitle": "Futures"
+      },
+      {
+        "title": "Bonds",
+        "symbols": [
+          {
+            "s": "CBOT:ZB1!",
+            "d": "T-Bond"
+          },
+          {
+            "s": "CBOT:UB1!",
+            "d": "Ultra T-Bond"
+          },
+          {
+            "s": "EUREX:FGBL1!",
+            "d": "Euro Bund"
+          },
+          {
+            "s": "EUREX:FBTP1!",
+            "d": "Euro BTP"
+          },
+          {
+            "s": "EUREX:FGBM1!",
+            "d": "Euro BOBL"
+          }
+        ],
+        "originalTitle": "Bonds"
+      },
+      {
+        "title": "Forex",
+        "symbols": [
+          {
+            "s": "FX:EURUSD",
+            "d": "EUR to USD"
+          },
+          {
+            "s": "FX:GBPUSD",
+            "d": "GBP to USD"
+          },
+          {
+            "s": "FX:USDJPY",
+            "d": "USD to JPY"
+          },
+          {
+            "s": "FX:USDCHF",
+            "d": "USD to CHF"
+          },
+          {
+            "s": "FX:AUDUSD",
+            "d": "AUD to USD"
+          },
+          {
+            "s": "FX:USDCAD",
+            "d": "USD to CAD"
+          }
+        ],
+        "originalTitle": "Forex"
+      }
+    ]
+  }
+    </script>
+  </div>
+  <!-- TradingView Widget END -->
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="mp-features mp-four-steps pt-5">
+            <div class="container">
+                <div class="row ">
+                    <div class="col-md-12">
+
+                        <h2 class="text-center mb-4">FOUR STEPS TO START TRADING</h2>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="mp-features__item"><img src="images/step-icon1.svg" alt="icon" class="fr-fic fr-dii">
+
+                            <h3>1. Registration</h3>
+
+                            <p>Open your own live trading account after registration</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="mp-features__item"><img src="images/step-icon2.svg" alt="icon" class="fr-fic fr-dii">
+
+                            <h3>2. Verify</h3>
+
+                            <p>Upload your documents to activate your account</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="mp-features__item"><img src="images/step-icon3.svg" alt="icon" class="fr-fic fr-dii">
+
+                            <h3>3. Fund</h3>
+
+                            <p>Log in to your account and make a deposit</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="mp-features__item"><img src="images/step-icon4.svg" alt="icon" class="fr-fic fr-dii">
+
+                            <h3>4. Trade</h3>
+
+                            <p>Start trading over 100 basic trading tools with the most reliable forex trading
+                                broker</p>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="acc-btn-wrap mt-4"><a class="btn-blue" href="./auth/signup/index.html">Sign Up</a></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section class="mp-seo-text">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+
+                        <h1 class="mb-4 text-center text-md-left">Online trading with regulated Forex &amp; CFD
+                            Broker</h1>
+
+                        <p>   X-Broker  offers forex and CFD contracts with honor winning exchanges, tight spreads,
+                            quality executions, and 24-hour live support.   X-Broker  is one of the most reliable
+                            investment broker and one of the leaders in the Forex showcase that joins dealers
+                            everywhere throughout the world.   X-Broker  gives its customers an excellent
+                            administration and security, which is significant nowadays, especially when you are
+                            working with an online CFD broker. We offer multi-utilitarian Metatrader platform,
+                            instruction and a tremendous assortment of trading assets.</p>
+
+                        <p>Traders are purchasers and merchants of the benefits on the Forex advertise. Their
+                            fundamental objective is to make the right forecasts in changes in the cost of the
+                            advantage they exchange. FX broker clients base their choice on various strategies and
+                            methodologies.</p>
+
+                        <p>In case you're new in exchanging – we advise you to have a go at exchanging on the
+                            financial market on the demo account, without putting your own cash at risk. Here you
+                            can test all highlights of the stage, see increasingly about the market and build up
+                            your own methodology.</p>
+
+                        <p class="mb-3">After you open an account in our organization, you can download the
+                            exchanging terminal, check the statements and open your trades. We offer stages of
+                            exchange for both for PC and cell phones. It will make your Forex trading as helpful as
+                            it can be.   X-Broker  regulated forex broker, which also allows clients to make online
+                            CFD trading comfortably right from home.</p><img src="images/seo-img11.jpg" alt="img" class="d-none d-md-block mt-3 fr-fic fr-dii">
+                    </div>
+                    <div class="col-md-6"><img src="images/seo-img22.jpg" alt="img" class="d-none d-md-block mb-4 fr-fic fr-dii">
+
+                        <p>Today, the outside trade market is a standout amongst the most fluid. Its day by day
+                            turnover is in the billions of US dollars. You can exchange at home simply as anyplace
+                            around the globe. All you need – is access to the Internet, a PC (workstation or cell
+                            phone) and a downloaded exchanging terminal; everything else you will get from forex
+                            online broker -   X-Broker  .</p>
+
+                        <p>On the page “Education and analytics“, you'll find the fundamental information to set
+                            yourself up for genuine exchanging on a standout amongst the most fluid markets. Here
+                            you can discover helpful materials about exchanging, advertise investigation, capital
+                            and risk management, and Forex exchanging psychology. To figure out how to exchange, you
+                            don't have to go anywhere; the whole instructive course is accessible on the web. In
+                            addition – we give a possibility for both self-educations with the assistance of
+                            electronic books, videos, articles, and the help of the expert merchants on online
+                            classes. You can, likewise, consummate your aptitudes on the demo account. To sharpen
+                            your exchanging abilities, you can likewise utilize free logical data, distributed on
+                            our site. Learn the most recent news, work with a financial timetable, and use
+                            investigations of the leading specialists of the best currency trading broker -
+                              X-Broker  .</p>
+
+                        <p>A great foreign exchange broker is   X-Broker  , we have excellent trading conditions, as
+                            well as instant execution of transactions and quick payments in the way that is
+                            convenient for you.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mp-features mp-four-steps pt-5">
+            <div class="container">
+                <div class="row ">
+                    <div class="col-md-12">
+                        <h2 class="text-center mb-4">  X-Broker  Awards and Achievement</h2>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class=""><img src="images/certificate.jpg" alt="icon" class="fr-fic fr-dii">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class=""><img src="images/4-1.png" alt="icon" class="fr-fic fr-dii">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class=""><img src="images/award-1.png" alt="icon" class="fr-fic fr-dii">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class=""><img src="images/award-2.png" alt="icon" class="fr-fic fr-dii">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class=""><img src="images/award-3.png" alt="icon" class="fr-fic fr-dii">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class=""><img src="images/award-4.png" alt="icon" class="fr-fic fr-dii">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- plans start here -->
+        <section class="mp-features mp-protection">
+            <div class="container">
+                <div class="row ">
+                    <div class="col-md-12">
+                        <h2 class="text-center mb-5 text-uppercase">Our Plans</h2>
+                    </div>
+                                                <div class=" col-sm-4">
+                                <div class="mp-features__item bg-light-blue p-5 mb-4 mb-lg-0 w-100 text-center">
+                                    <h3 class="text-transform-none"> Start Plan </h3>
+                                    <h2 class="text-transform-none"> 15% ROI </h2>
+
+                                    <p> <i class="fa fa-check-circle"></i>
+                                        <strong>Minimum: </strong> $ 500                                    </p>
+                                    <p> <i class="fa fa-check-circle"></i>
+                                        <strong>Maximum: </strong> $ 1,499                                    </p>
+
+                                    <p> <i class="fa fa-check-circle"></i>
+                                        <strong>Trading Duration: </strong> 3 Days                                    </p>
+
+                                    <p> <i class="fa fa-check-circle"></i>
+                                        <strong>Info: </strong> for beginners                                     </p>
+
+                                    <br>
+                                    <a href="./auth/signup/index.html"><button type="button" class="btn btn-primary"> <i class="fa fa-user-plus"></i>�&nbsp; Sign up </button> </a>
+
+                                </div>
+                            </div>
+                                                    <div class=" col-sm-4">
+                                <div class="mp-features__item bg-light-blue p-5 mb-4 mb-lg-0 w-100 text-center">
+                                    <h3 class="text-transform-none"> Silver Plan </h3>
+                                    <h2 class="text-transform-none"> 60% ROI </h2>
+
+                                    <p> <i class="fa fa-check-circle"></i>
+                                        <strong>Minimum: </strong> $ 1,500                                    </p>
+                                    <p> <i class="fa fa-check-circle"></i>
+                                        <strong>Maximum: </strong> $ 4, 499                                    </p>
+
+                                    <p> <i class="fa fa-check-circle"></i>
+                                        <strong>Trading Duration: </strong> 6 days                                    </p>
+
+                                    <p> <i class="fa fa-check-circle"></i>
+                                        <strong>Info: </strong> Intermediate Traders                                     </p>
+
+                                    <br>
+                                    <a href="./auth/signup/index.html"><button type="button" class="btn btn-primary"> <i class="fa fa-user-plus"></i>�&nbsp; Sign up </button> </a>
+
+                                </div>
+                            </div>
+                                                    <div class=" col-sm-4">
+                                <div class="mp-features__item bg-light-blue p-5 mb-4 mb-lg-0 w-100 text-center">
+                                    <h3 class="text-transform-none"> Gold Plan </h3>
+                                    <h2 class="text-transform-none"> 75% ROI </h2>
+
+                                    <p> <i class="fa fa-check-circle"></i>
+                                        <strong>Minimum: </strong> $ 5,000                                    </p>
+                                    <p> <i class="fa fa-check-circle"></i>
+                                        <strong>Maximum: </strong> $ 9,999                                    </p>
+
+                                    <p> <i class="fa fa-check-circle"></i>
+                                        <strong>Trading Duration: </strong> 5 Days                                    </p>
+
+                                    <p> <i class="fa fa-check-circle"></i>
+                                        <strong>Info: </strong> High yield investment Traders                                    </p>
+
+                                    <br>
+                                    <a href="./auth/signup/index.html"><button type="button" class="btn btn-primary"> <i class="fa fa-user-plus"></i>�&nbsp; Sign up </button> </a>
+
+                                </div>
+                            </div>
+                                                    <div class=" col-sm-4">
+                                <div class="mp-features__item bg-light-blue p-5 mb-4 mb-lg-0 w-100 text-center">
+                                    <h3 class="text-transform-none"> Platinum Plan </h3>
+                                    <h2 class="text-transform-none"> 120% ROI </h2>
+
+                                    <p> <i class="fa fa-check-circle"></i>
+                                        <strong>Minimum: </strong> $10, 000                                    </p>
+                                    <p> <i class="fa fa-check-circle"></i>
+                                        <strong>Maximum: </strong> $100,000                                    </p>
+
+                                    <p> <i class="fa fa-check-circle"></i>
+                                        <strong>Trading Duration: </strong> 3 Days                                    </p>
+
+                                    <p> <i class="fa fa-check-circle"></i>
+                                        <strong>Info: </strong> for Whales Traders                                     </p>
+
+                                    <br>
+                                    <a href="./auth/signup/index.html"><button type="button" class="btn btn-primary"> <i class="fa fa-user-plus"></i>�&nbsp; Sign up </button> </a>
+
+                                </div>
+                            </div>
+                                                            </div>
+            </div>
+            
+        </section>
+        <!-- plans ends here -->
+
+        <br>
+        <br>
+        <br>
+
+
+
+
+
+        
+
+
+        <!-- ============================================================================================================================ -->
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-forex-cross-rates.js" async="">
+            {
+                "width": "100%",
+                "height": "400",
+                "colorTheme": "light",
+                "currencies": [
+                    "EUR",
+                    "USD",
+                    "JPY",
+                    "GBP",
+                    "CHF",
+                    "AUD",
+                    "CAD",
+                    "NZD",
+                    "CNY"
+                ],
+                "locale": "en"
+            }
+        </script>
+        
+        <!-- TradingView Widget END -->
+
+        <!-- ============================================================================================================================ -->
+
+
+
+        <section class="mp-features mp-protection">
+            <div class="container">
+                <div class="row ">
+                    <div class="col-md-12">
+                        <h2 class="text-center mb-5 text-uppercase">Client Protection</h2>
+                    </div>
+                    <div class=" col-lg-4">
+                        <div class="mp-features__item text-center text-md-left mb-5 mb-lg-0"><img src="images/protection-icon1.svg" alt="icon" class="fr-fic fr-dii">
+
+                            <h3 class="text-uppercase">Investor Compensation Scheme</h3>
+
+                            <p>   X-Broker  contributes to the Maltese Investor Compensation Scheme, which serves as a
+                                limited safety net for certain classes of investors in the event of a participant,
+                                such as   X-Broker  , becoming insolvent.</p>
+                        </div>
+                    </div>
+                    <div class=" col-lg-4">
+                        <div class="mp-features__item text-center text-md-left mb-5 mb-lg-0"><img src="images/protection-icon2.svg" alt="icon" class="fr-fic fr-dii">
+
+                            <h3 class="text-uppercase">Regulation</h3>
+
+                            <p>   X-Broker  clients are dealing with an EU authorised and regulated firm and hence,
+                                benefit from the protections provided by EU regulation.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="mp-features__item text-center text-md-left "><img src="images/protection-icon3.svg" alt="icon" class="fr-fic fr-dii">
+
+                            <h3 class="text-uppercase">NEGATIVE BALANCE PROTECTION</h3>
+
+                            <p>   X-Broker  .com, at its own expense, provides clients with the benefit of Negative
+                                Balance Protection. Consequently, client account balances will never become
+                                negative.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <br>
+        <br>
+        <p class="text-center"> Our Clients </p>
+        <h2 class="text-center mb-5 text-uppercase">Testimonials</h2>
+        <style>
+            .mp_quote {
+                color: #405189;
+            }
+
+            .test_quote {
+                padding: 5px;
+            }
+
+            .mt--5 {
+                margin-top: -4px
+            }
+
+            .single-item>ul {
+                bottom: 0px !important;
+            }
+        </style>
+
+
+
+        <section class="container single-item">
+                                <div class="mp_test">
+                        <h3 class="text-center"> Dogunfx </h3>
+                        <p class="text-center">
+                            <i class="fa fa-quote-left mp_quote"></i>
+                            <span class="p-3">this is my testimony</span>
+                            <i class="fa fa-quote-right mp_quote"></i>
+                        </p>
+                    </div>
+                            
+        </section>
+
+        <section>
+            <h2 class="text-center mb-5 text-uppercase">Testimonials</h2>
+
+            <div class="row">
+                <div class="col-sm">
+                    <div class="embed-responsive embed-responsive-4by3">
+                        <video controls="" class="embed-responsive-item" src="media/1.mp4"></video>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="embed-responsive embed-responsive-4by3">
+                        <video controls="" class="embed-responsive-item" src="media/2.mp4"></video>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="embed-responsive embed-responsive-4by3">
+                        <video controls="" class="embed-responsive-item" src="media/3.mp4"></video>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="embed-responsive embed-responsive-4by3">
+                        <video controls="" class="embed-responsive-item" src="media/4.mp4"></video>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </article>
+</main>
+
+<footer id="footer">
+    <div class="container">
+
+        <div class="footer-logo-wrap row">
+            <div class="col-xl-3">
+                <a href="" class="logo-footer">
+                    <img src="./logo.png" alt="logo" style="width:  150px">
+                </a>
+            </div>
+            <div class="col-xl-9">
+                <div class="footer-contact-wrap">
+                    <div class="footer-contact__item">
+                        <img src="images/contact-icon2.svg" alt="contact-icon">
+                        <span>+44 7529 705722</span>
+                    </div>
+
+                    <div class="footer-contact__item">
+                        <img src="images/contact-icon3.svg" alt="contact-icon">
+                        <span><a href="#"><span class="__cf_email__">info@stockeliteoptions.online </span></a></span>
+                    </div>
+
+                    <div class="footer-contact__item">
+                        <img src="images/contact-icon4.svg" alt="contact-icon">
+                        <span>EOLabs LLC - 305, Griffith Corporate Centre, Beachmont, 1510, Kingstown, Saint Vincent and the Grenadines </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="reg-providers-lines row first-line">
+            <div class="col-xl-3 mb-3 mb-xl-0">
+                <span class="reg-providers-title">REGULATIONS:</span>
+            </div>
+            <div class="col-xl-9">
+                <div class="providers d-flex flex-wrap  flex-sm-row justify-content-between align-items-start align-items-sm-center">
+
+                    <div class="reg-img providers__item--provider providers__item">
+                        <img src="images/mfsa.png" alt="icon">
+                    </div>
+                    <div class="reg-img providers__item--provider providers__item">
+                        <img src="images/mifid.png" alt="icon">
+                    </div>
+                    <div class="reg-img providers__item--provider providers__item">
+                        <img src="images/bafin.png" alt="icon">
+                    </div>
+                    <div class="reg-img providers__item--provider providers__item">
+                        <img src="images/acpr.png" alt="icon">
+                    </div>
+                    <div class="reg-img providers__item--provider providers__item">
+                        <img src="images/consob2.png" alt="icon">
+                    </div>
+                    <div class="reg-img providers__item--provider providers__item">
+                        <img src="images/cnmv.png" alt="icon">
+                    </div>
+                    <div class="reg-img providers__item--provider providers__item">
+                        <img src="images/finanstilsynet.png" alt="icon">
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="reg-providers-lines row  pt-3 pb-3">
+            <div class="col-xl-3 mb-3 mb-xl-0 d-flex align-items-center">
+                <span class="reg-providers-title text-uppercase ">Payment methods:</span>
+            </div>
+            <div class="col-xl-9">
+                <div class="providers d-flex flex-wrap  flex-sm-row justify-content-start align-items-start align-items-sm-center">
+                    <div class="reg-img  providers__item">
+                        <img src="images/fees3.png" alt="icon" style="max-width: 420px; width: 100%;">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="reg-providers-lines row ">
+            <div class="col-xl-3 mb-3 mb-xl-0">
+                <span class="reg-providers-title">LIQUIDITY PROVIDERS:</span>
+            </div>
+            <div class="col-xl-9">
+                <div class="providers d-flex flex-wrap  flex-sm-row justify-content-between align-items-start align-items-sm-center">
+                    <div class="reg-img providers__item--provider providers__item">
+                        <img src="images/provider-icon1.svg" alt="icon">
+                    </div>
+                    <div class="reg-img providers__item--provider providers__item">
+                        <img src="images/provider-icon2.svg" alt="icon">
+                    </div>
+                    <div class="reg-img providers__item--provider providers__item">
+                        <img src="images/provider-icon3.svg" alt="icon">
+
+                    </div>
+                    <div class="reg-img providers__item--provider providers__item">
+                        <img src="images/provider-icon4.svg" alt="icon">
+                    </div>
+                    <div class="reg-img providers__item--provider providers__item">
+                        <img src="images/provider-icon5.svg" alt="icon">
+                    </div>
+                    <div class="reg-img providers__item--provider providers__item">
+                        <img src="images/provider-icon6.svg" alt="icon">
+                    </div>
+                    <div class="reg-img providers__item--provider providers__item">
+                        <img src="images/provider-icon7.svg" alt="icon">
+                    </div>
+                    <div class="reg-img providers__item--provider providers__item">
+                        <img src="images/provider-icon8.svg" alt="icon">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="reg-providers-lines row ">
+            <div class="col-xl-3 mb-3 mb-xl-0">
+                <span class="reg-providers-title">CORPORATE GOVERNANCE &amp; BANKING:</span>
+            </div>
+            <div class="col-xl-9">
+                <div class="providers d-flex flex-wrap  flex-sm-row justify-content-start align-items-start align-items-sm-center">
+                    <div class="reg-img  providers__item mr-2 mr-sm-4">
+                        <img src="images/provider-icon9.svg" alt="icon">
+                    </div>
+                    <div class="reg-img  providers__item mr-2 mr-sm-4">
+                        <img src="images/provider-icon10.svg" alt="icon">
+                    </div>
+                    <div class="reg-img  providers__item mr-2 mr-sm-4">
+                        <img src="images/provider-icon11.svg" alt="icon">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+
+            <div class="footer-nav-wrap mb-5">
+                <nav class="footer-nav">
+                    <ul class="footer-nav-inner-wrap">
+                        <li class="sub">
+                            <a href="#" data-toggle="collapse" data-target="#submenu11" aria-expanded="false">Markets<i class="fa fa-angle-down"></i></a>
+                            <div class="sub-menu" id="submenu11">
+                                <div class="drop-menu-wrap">
+                                    <ul class="drop-menu">
+                                        <li><a href="./as/fx/index.html">Forex</a></li>
+                                        <li><a href="./as/crypto/index.html">Cryptocurrencies</a></li>
+                                        <li><a href="./as/stocks/index.html">Stocks</a></li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="sub">
+                            <a href="#" data-toggle="collapse" data-target="#submenu33">Trading platforms <i class="fa fa-angle-down"></i></a>
+                            <div class="sub-menu" id="submenu33">
+                                <div class="drop-menu-wrap">
+                                    <ul class="drop-menu">
+                                        <li><a href="#" class="text-uppercase">FX MT5 desktop</a></li>
+                                        <li><a href="#" class="text-uppercase">FX MT5 mobile</a></li>
+                                        <li><a href="#" class="text-uppercase">FX MT5 web</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="sub">
+                            <a href="#" data-toggle="collapse" data-target="#submenu55">Academy <i class="fa fa-angle-down"></i></a>
+                            <div class="sub-menu" id="submenu55">
+                                <div class="drop-menu-wrap">
+                                    <ul class="drop-menu">
+                                        <li><a href="https://en.wikipedia.org/wiki/Foreign_exchange_market">Forex
+                                                Exchange</a></li>
+                                        <li><a href="https://en.wikipedia.org/wiki/Foreign_exchange_market">Forex
+                                                trade</a></li>
+                                        <li><a href="https://en.wikipedia.org/wiki/Binary_option">CFD &amp; Forex
+                                                Trade</a></li>
+                                        <li><a href="https://en.wikipedia.org/wiki/Forex_signal">Signal Guides</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="sub">
+                            <a href="#" data-toggle="collapse" data-target="#submenu66">About Company<i class="fa fa-angle-down"></i></a>
+                            <div class="sub-menu" id="submenu66">
+                                <div class="drop-menu-wrap">
+                                    <ul class="drop-menu">
+                                        <li><a href="./about/index.html">About us</a></li>
+                                        <li><a href="./contact/index.html">Contact us</a></li>
+                                        <li><a href="./policy/index.html">Privacy policy</a></li>
+                                        <li><a href="./terms/index.html">Terms and conditions</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="copyright-block ">
+                <p>   X-Broker is regulated Financial Services Authority (License Number 339435)</p>
+                <p>RISK WARNING: Trading in Forex and Contracts for Difference (CFDs), which are leveraged products,
+                    is highly speculative and involves substantial risk of loss. It is possible to lose all your
+                    capital. Your capital is not guaranteed and may go down as well as up. Therefore, Forex and CFDs
+                    may not be suitable for all investors. Only invest with money you can afford to lose. So please
+                    ensure that you fully understand the risks involved. Seek independent advice if necessary.</p>
+                <p>CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage.
+                    Over the past 12 months 74% of   X-Broker  Limited’s retail investor accounts lose money when
+                    trading CFDs with   X-Broker  Limited. You should consider whether you understand how CFDs work
+                    and whether you can afford to take the high risk of losing your money.</p>
+                <p> All Rights Reserved. <a href="./terms/index.html" class="blue-link">Terms and Conditions</a> |
+                    <a href="" class="blue-link">Risk Disclosure</a> * Prices displayed on the
+                    website may be affected by changes in currency exchange rate and price movements thereby
+                    affecting your investment return therefrom.   X-Broker                     is registered, EOLabs LLC - 305, Griffith Corporate Centre, Beachmont, 1510, Kingstown, Saint Vincent and the Grenadines  | Company Registration Number: C/19836 MFSA
+                    License Number: 339435                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Button up-->
+<a id="button-up"><svg data-markup-inline="" alt="" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="349.629px" height="349.629px" viewBox="0 0 349.629 349.629" xml:space="preserve">
+        <polygon points="174.827,73.433 0,253.42 23.434,276.19 174.827,120.318 326.216,276.196 349.629,253.42   ">
+        </polygon>
+    </svg></a>
+
+
+<style>
+    body {
+        top: 0px !important;
+    }
+
+    .translate-con {
+        border: 1px solid blue;
+        width: 160px;
+        overflow: hidden;
+        padding: 6px 10px;
+    }
+
+    .skiptranslate {
+        display: none;
+    }
+
+    .translate-con .skiptranslate {
+        display: block !important;
+    }
+
+
+    .translate-con #google_translate_element {
+        width: 100%;
+    }
+
+    .translate-con select {
+        background-color: transparent;
+        border: none;
+    }
+</style>
+
+
+
+
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+        }, 'google_translate_element');
+    }
+</script>
+
+<script type="text/javascript" src="js/elementa0d8.js"></script>
+
+<script src="js/foundation.minf5ddf5dd.js"></script>
+<script src="js/app.minf5ddf5dd.js"></script>
+<!-- <script src="res/mainf5dd.js?fsnnwku90uzwclq8"></script> -->
+<script src="js/jquery-ui.minf5ddf5dd.js"></script>
+
+
+
+<script src="js/framework.combined-min.js"></script>
+<link rel="stylesheet" property="stylesheet" href="css/framework.extras-min.css">
+<div id="notification" class="notification">
+	<div class="notification-block">
+		<div class="notification-img">
+			<!-- Your image or icon -->
+			<i class="fa fa-usd" aria-hidden="true"></i>
+			<!-- / Your image or icon -->
+		</div>
+		<div class="notification-text-block">
+			<div class="notification-title">
+				<!-- Notification Title -->
+				Latest Earnings
+				<!-- / Notification Title -->
+			</div>
+			<div class="notification-text"></div>
+		</div>
+	</div>
+</div>
+<!-- <script type="text/javascript" src="noti/jquery.js"></script> -->
+<script type="text/javascript" src="js/fake.js"></script>
+
+<!-- Fake Notifications invoke -->
+<script>
+	$(document).ready(function() {
+		$('#notification').Notification({
+			// Notification varibles
+			// Varible1: ["Dirk", "Johnny", "Edward", "Jason", "Nicholas", "Scott", "Raymond", "Watkin ", "Alejandro", "Vina", "Tony", "Ahmed", "Tariq", "priya", "ROHIT", "Manoj", 'Parth', "Jackson", "Noah", "Aiden", "Darren", "Isabella", "Aria", "John", "Greyson", "Peter", "Louisa May", "Norman", "Roger", "Alfred", "Mohammed", "William",
+			// 	"Lucas", "Amelia", "Mason", "Mathew", "Richard", "Chris", "Mia", "Oliver"
+			// ],
+			// Varible2: ["USA", "USA", "USA", "USA", "USA", "USA", "UAE", "ITALY", "FLORIDA", "MEXICO", "INDIA", "INDIA", "INDIA", "INDIA", "INDIA", "INDIA", "INDIA", "INDIA", "INDIA", "CHINA", "CAMBODIA", "UNITED KINGDOM", "UNITED KINGDOM", "UNITED KINGDOM", "UNITED KINGDOM", "UNITED KINGDOM", "UNITED KINGDOM", "GERMANY", "AUSTRALIA", "BANGLADESH", "SWEDEN", "PAKISTAN", "MALDIVES", "SEYCHELLES",
+			// 	"BOLIVIA", "SOUTH AFRICA", "ZAMBIA", "ZIMBABWE", "LEBANESE", "SAUDI ARABIA", "CHILE", "PEUTO RICO"
+			// ],
+
+			Varible1: ["USDT", "$", "USD", ],
+
+
+			Varible2: ["Someone from Sweden", "Someone from Peru", "Someone from Indonesian", "Someone from Ghana", "Someone from South Africa", "Someone from U.k", "Someone from India", "Someone from USA", "Someone from USA", "Someone from scotland󠁧󠁢󠁳󠁣󠁴󠁿 ", "Someone from Hungary", "Someone from Mexico", "Someone from italy", "Someone from portugal", "Someone from Hungary", "Someone from USA", "Someone from Wales", "Someone from USA", "Someone from Canada", "Someone from Australia", "Someone from USA", "Someone from  France", "Someone from spain", "Someone from USA"],
+			// Amount: ['\$ 35,670', '15,600', '\$ 8,500', '\$ 6,450', '\$ 10,650', '\$ 55,000', '\$ 25,790', '\$ 250,700', '\$ 405,685', '\$ 67,800', '\$ 45,000', '\$ 34,000', '\$ 105,000', '\$ 56,000', '\$ 25,600', '2.5BTC', '10.5BTC', '5BTC', '0.0075683BTC', '\$ 35,000', '3.023BTC', '\$ 55,000', '10BTC', '1.0054BTC', '3BTC'],
+
+
+			Amount: [10019, 132500, 15550, 26660, 24449, 13332, 33334, 14202],
+			Content: '[Varible2] has just Earned <b>[Amount] [Varible1]</b>.',
+			// Timer
+			Show: ['stable', 5, 10],
+			Close: 5,
+			Time: [0, 23],
+			// Notification style 
+			LocationTop: [true, '20%'],
+			LocationBottom: [false, '10%'],
+			LocationRight: [false, '10%'],
+			LocationLeft: [true, '10px'],
+			Background: '#000000',
+			BorderRadius: 5,
+			BorderWidth: 0,
+			BorderColor: '#000000',
+			TextColor: 'white',
+			IconColor: '#ffffff',
+			// Notification Animated   
+			AnimationEffectOpen: 'slideInUp',
+			AnimationEffectClose: 'slideOutDown',
+			// Number of notifications
+			Number: 40,
+			// Notification link
+			Link: [true, 'index.html', '']
+
+		});
+
+
+	});
+</script>
+<script>
+    $(document).ready(function() {
+
+        $('.single-item').slick({
+            dots: true,
+            infinite: true,
+            speed: 800,
+            fade: true,
+            autoplay: true,
+            slidesToShow: 1,
+            cssEase: 'linear',
+            // this is to make the slick responsive 
+            responsive: [{
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1
+                }
+            }]
+
+        });
+    });
+</script>
+
+<script src="//code.tidio.co/qy7x4l4utaufbbupgtpi7i3ltcedfi6q.js" async></script>
+
+</body></html>

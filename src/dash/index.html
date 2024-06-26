@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg"
+    data-sidebar-image="none" data-preloader="disable">
+
+<head>
+    <link rel="stylesheet" href="css/vw8ZftLVUgKN.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <meta charset="utf-8">
+    <title>Crypto Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Cryptocurrency" name="description">
+    <meta content="DNCODER" name="author">
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="9JuPbIx1qlIY.ico">
+
+    <link href="css/gs3pwYLQJ8zF.css" rel="stylesheet">
+
+    <!-- Layout config Js -->
+    <script src="js/2neXR8i4N4cR.js"></script>
+    <!-- Bootstrap Css -->
+    <link href="css/aP1qEI8iynmb.css" rel="stylesheet" type="text/css">
+    <!-- Icons Css -->
+    <link href="css/U8QoSzy8ksHP.css" rel="stylesheet" type="text/css">
+    <!-- App Css-->
+    <link href="css/KU3MoBtUETHd.css" rel="stylesheet" type="text/css">
+    <!-- custom Css-->
+    <link href="css/Lx0pckBVRDAC.css" rel="stylesheet" type="text/css">
+
+    <script src="js/YYz6IX3OH2Zl.js"></script>
+
+
+    <link rel="stylesheet" href="npm/notyf@3/notyf.min.css">
+
+
+    <script type="module">
+
+
+
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+        import { getFirestore, doc, setDoc, getDoc, query, onSnapshot, collection, orderBy } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
+        import { getAuth, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
+
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDg1xZtIrcfxbx7JYB_0V-x_XGHo2Zz680",
+            authDomain: "stockeliteoptions.firebaseapp.com",
+            projectId: "stockeliteoptions",
+            storageBucket: "stockeliteoptions.appspot.com",
+            messagingSenderId: "128197292169",
+            appId: "1:128197292169:web:f33515363a83b302719658"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const auth = getAuth(app);
+
+
+
+
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                if (user.email === 'info@stockeliteoptions.online') {
+
+                    window.location.href = "../admin/dash.html";
+                    // ...
+                } else {
+
+
+                    // GETTING THE DATA FROM FIREBASE
+                    const q = query(collection(db, "allactivites", user.email, "activites"), orderBy("Cdate", "desc"))
+                    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+
+                        querySnapshot.forEach((doc) => {
+
+                            const USDollar = new Intl.NumberFormat('en-US', {
+                                style: 'currency',
+                                currency: 'USD',
+                            })
+                            const FI = `
+              <tr >
+                <td width="25%">${doc.data().crypto} </td>
+                <td width="25%">$${USDollar.format(doc.data().amount).substring(1)} </td> 
+                <td width="25%">${new Date(doc.data().date).toDateString()} </td>
+              
+                <td ><h6  style="color:${doc.data().status == 'Completed' ? "green" : "orange"};">${doc.data().status} </h6></td>
+              
+               
+             </tr> `
+
+                            document.getElementById("cvcx").insertAdjacentHTML('beforeend', FI);
+                        });
+                    })
+
+
+                    $(document).ready(function () {
+                        const USDollar = new Intl.NumberFormat('en-US', {
+                            style: 'currency',
+                            currency: 'USD',
+                        })
+
+                        getDoc(doc(db, "users", user.email)).then(docSnap => {
+                            if (docSnap.data().active == 'Active') {
+                                document.getElementById("uss").innerHTML = docSnap.data().username;
+                                document.getElementById("weuss").innerHTML = `Welcome ${docSnap.data().username} !`;
+                                document.getElementById("xxpol").innerHTML = `${USDollar.format(docSnap.data().accountBalance).substring(1)}`;
+                                document.getElementById("profb").innerHTML = `${USDollar.format(docSnap.data().recentdeposit).substring(1)}`;
+                                document.getElementById("recentwithdraw").innerHTML = `${USDollar.format(docSnap.data().recentwithdraw).substring(1)}`;
+                                document.getElementById("totaldeposit").innerHTML = `${USDollar.format(docSnap.data().totaldeposit).substring(1)}`; 
+                                document.getElementById("totalwithdraw").innerHTML = `${USDollar.format(docSnap.data().totalwithdraw).substring(1)}`; 
+                                document.getElementById("pendingdeposit").innerHTML = `${USDollar.format(docSnap.data().pendingdeposit).substring(1)}`; 
+                                document.getElementById("pendingwithdraw").innerHTML = `${USDollar.format(docSnap.data().pendingwithdraw).substring(1)}`; 
+                                document.getElementById("accountlevel").innerHTML = `${docSnap.data().accountlevel}`; 
+                                document.getElementById("active").innerHTML = `${docSnap.data().active}`; 
+                                document.getElementById("pmler").src = !docSnap.data().image ? "./images/user.jpg" : docSnap.data().image;
+
+                            } else {
+                                alert(`Sorry to inform you that your account is restricted, for more information please contact our team`);
+                                signOut(auth).then(() => {
+                                    window.location.replace("../index.html");
+                                }).catch((error) => {
+                                    notyf.error(error);
+                                });
+                            }
+                        });
+
+                    });
+
+
+                }
+
+            } else {
+                    signOut(auth).then(() => {
+                    window.location.replace("../index.html");
+                  }).catch((error) => {
+                    notyf.error(error);
+                  });
+            }
+
+        });
+
+
+
+
+
+
+        document.getElementById('logout').addEventListener('click', () => {
+            signOut(auth).then(() => {
+                window.location.replace("../index.html");
+            }).catch((error) => {
+                notyf.error(error);
+            });
+
+        });
+
+    </script>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+
+    <script>
+        var notyf = new Notyf({
+            duration: 2000,
+            position: {
+                x: 'right',
+                y: 'top',
+            },
+        });
+
+    </script>
+
+    <!-- Begin page -->
+    <div id="layout-wrapper">
+
+        <header id="page-topbar">
+            <div class="layout-width">
+                <div class="navbar-header">
+                    <div class="d-flex">
+                        <!-- LOGO -->
+                        <div class="navbar-brand-box horizontal-logo">
+                            <a href="" class="logo logo-dark">
+                                <span class="logo-sm">
+                                    <img src="images/cFeR9XaGYbT1.png" alt="" height="22">
+                                </span>
+                                <span class="logo-lg">
+                                    <img src="images/d4IWzVM5OcKt.png" alt="" height="17">
+                                </span>
+                            </a>
+
+                            <a href="" class="logo logo-light">
+                                <span class="logo-sm">
+                                    <img src="images/cFeR9XaGYbT1.png" alt="" height="22">
+                                </span>
+                                <span class="logo-lg">
+                                    <img src="images/lWeywixfczrJ.png" alt="" height="40">
+                                </span>
+                            </a>
+                        </div>
+
+                        <button type="button"
+                            class="btn btn-sm px-3 fs-16 header-item vertical-menu-btn topnav-hamburger"
+                            id="topnav-hamburger-icon">
+                            <span class="hamburger-icon">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </span>
+                        </button>
+
+                        <!-- App Search-->
+
+                    </div>
+                    <div id="google_translate_element"> </div>
+                    <div class="d-flex align-items-center">
+
+                        <div class="ms-1 header-item d-sm-flex">
+                            <button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle"
+                                data-toggle="fullscreen">
+                                <i class="fa-solid fa-expand"></i>
+                            </button>
+                        </div>
+
+                        <div class="ms-1 header-item d-sm-flex">
+                            <button type="button"
+                                class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle light-dark-mode">
+                                <i class="fa-regular fa-moon"></i>
+                            </button>
+                        </div>
+
+
+
+                        <div class="dropdown ms-sm-3 header-item topbar-user">
+                            <button type="button" class="btn" id="page-header-user-dropdown" data-bs-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <span class="d-flex align-items-center">
+                                    <img class="rounded-circle header-profile-user" id="pmler" src="images/user.jpg"
+                                        alt="Header Avatar">
+                                    <span class="text-start ms-xl-2">
+                                        <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text"
+                                            id="uss"></span>
+                                        <span class="d-none d-xl-block ms-1 fs-12 user-name-sub-text">Account
+                                            Holder</span>
+                                    </span>
+                                </span>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <!-- item-->
+                                <h6 class="dropdown-header" id="weuss"></h6>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- removeNotificationModal -->
+        <div id="removeNotificationModal" class="modal fade zoomIn" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                            id="NotificationModalbtn-close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mt-2 text-center">
+                            <lord-icon src="https://cdn.lordicon.com/gsqxdxog.json" trigger="loop"
+                                colors="primary:#f7b84b,secondary:#f06548" style="width:100px;height:100px"></lord-icon>
+                            <div class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
+                                <h4>Are you sure ?</h4>
+                                <p class="text-muted mx-4 mb-0">Are you sure you want to remove this Notification ?</p>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
+                            <button type="button" class="btn w-sm btn-light" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn w-sm btn-danger" id="delete-notification">Yes, Delete
+                                It!</button>
+                        </div>
+                    </div>
+
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+        <!-- ========== App Menu ========== -->
+        <div class="app-menu navbar-menu">
+            <!-- LOGO -->
+            <div class="navbar-brand-box">
+                <!-- Dark Logo-->
+                <a class="logo logo-dark">
+                    <span class="logo-sm">
+                        <img src="images/cFeR9XaGYbT1.png" alt="" height="22">
+                    </span>
+                    <span class="logo-lg">
+                        <img src="images/d4IWzVM5OcKt.png" alt="" height="17">
+                    </span>
+                </a>
+                <!-- Light Logo-->
+                <a class="logo logo-light">
+                    <span class="logo-sm">
+                        <img src="images/cFeR9XaGYbT1.png" alt="" height="22">
+                    </span>
+                    <span class="logo-lg">
+                        <img src="images/lWeywixfczrJ.png" alt="" height="40">
+                    </span>
+                </a>
+                <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover"
+                    id="vertical-hover">
+                    <i class="ri-record-circle-line"></i>
+                </button>
+            </div>
+
+            <div id="scrollbar">
+                <div class="container-fluid">
+
+                    <div id="two-column-menu">
+                    </div>
+                    <ul class="navbar-nav" id="navbar-nav">
+                        <li class="menu-title"><span data-key="t-menu">Menu</span></li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="">
+                                <i class="fa-solid fa-gauge"></i>
+                                <span data-key="t-dashboards">Market</span>
+                            </a>
+                        </li> <!-- end Dashboard Menu -->
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="./deposit/index.html">
+                                <i class="fa-brands fa-btc"></i> <span data-key="t-dashboards">Deposit</span>
+                            </a>
+                        </li> <!-- end Deposit Menu -->
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="withdraw/index.html">
+                                <i class="fa-solid fa-money-bill-transfer"></i> <span
+                                    data-key="t-dashboards">Withdraw</span>
+                            </a>
+                        </li> <!-- end Deposit Menu -->
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="history/index.html">
+                                <i class="fa-solid fa-clock"></i> <span data-key="t-dashboards">Transactions</span>
+                            </a>
+                        </li> <!-- end Transaction Menu -->
+
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="./tradehistory/index.html">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-hourglass-bottom" viewBox="0 0 16 16">
+                                    <path
+                                        d="M2 1.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-1v1a4.5 4.5 0 0 1-2.557 4.06c-.29.139-.443.377-.443.59v.7c0 .213.154.451.443.59A4.5 4.5 0 0 1 12.5 13v1h1a.5.5 0 0 1 0 1h-11a.5.5 0 1 1 0-1h1v-1a4.5 4.5 0 0 1 2.557-4.06c.29-.139.443-.377.443-.59v-.7c0-.213-.154-.451-.443-.59A4.5 4.5 0 0 1 3.5 3V2h-1a.5.5 0 0 1-.5-.5m2.5.5v1a3.5 3.5 0 0 0 1.989 3.158c.533.256 1.011.791 1.011 1.491v.702s.18.149.5.149.5-.15.5-.15v-.7c0-.701.478-1.236 1.011-1.492A3.5 3.5 0 0 0 11.5 3V2z" />
+                                </svg>
+                                <span data-key="t-dashboards">Trade History</span>
+                            </a>
+                        </li> <!-- end Transaction Menu -->
+
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="./password/index.html">
+                                <i class="fa-brands fa-slack"></i> <span data-key="t-dashboards">Change Password</span>
+                            </a>
+                        </li> <!-- end Transaction Menu -->
+
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="profile/index.html">
+                                <i class="fa-regular fa-address-card"></i> <span data-key="t-dashboards">Profile</span>
+                            </a>
+
+
+                            <!-- end Transaction Menu -->
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="faq/index.html">
+                                <i class="fa-solid fa-person-circle-question"></i> <span
+                                    data-key="t-dashboards">FAQs</span>
+                            </a>
+                        </li> <!-- end Transaction Menu -->
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="">
+                                <i class="fa-solid fa-lock"></i> <span data-key="t-dashboards">Lock Screen</span>
+                            </a>
+                        </li> <!-- end Transaction Menu -->
+                        <li id="logout" class="nav-item">
+                            <a class="nav-link menu-link" href="">
+                                <i class="fa-solid fa-arrow-right-from-bracket"></i> <span
+                                    data-key="t-dashboards">Logout</span>
+                            </a>
+                        </li> <!-- end Transaction Menu -->
+
+
+
+
+                    </ul>
+                </div>
+                <!-- Sidebar -->
+            </div>
+
+            <div class="sidebar-background"></div>
+        </div>
+        <!-- Left Sidebar End -->
+        <!-- Vertical Overlay-->
+        <div class="vertical-overlay"></div>
+
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
+        <div class="main-content">
+            <div class="page-content">
+                <div class="container-fluid">
+
+                    <!-- start page title -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                                <h4 class="mb-sm-0">Home</h4>
+
+                                <div class="page-title-right">
+                                    <ol class="breadcrumb m-0">
+                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboards</a></li>
+                                        <li class="breadcrumb-item active">Home</li>
+                                    </ol>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end page title -->
+                    <!-- TradingView Widget BEGIN -->
+                    <nav id="ticker-tape">
+                        <!-- TradingView Widget BEGIN -->
+                        <div class="tradingview-widget-container">
+                            <div class="tradingview-widget-container__widget"></div>
+                            <script type="text/javascript"
+                                src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+                                    {
+                                        "symbols": [
+                                            {
+                                                "description": "",
+                                                "proName": "NASDAQ:TSLA"
+                                            },
+                                            {
+                                                "description": "",
+                                                "proName": "NASDAQ:AAPL"
+                                            },
+                                            {
+                                                "description": "",
+                                                "proName": "NASDAQ:NVDA"
+                                            },
+                                            {
+                                                "description": "",
+                                                "proName": "NASDAQ:MSFT"
+                                            },
+                                            {
+                                                "description": "",
+                                                "proName": "NASDAQ:AMZN"
+                                            },
+                                            {
+                                                "description": "",
+                                                "proName": "NASDAQ:GOOGL"
+                                            },
+                                            {
+                                                "description": "",
+                                                "proName": "NASDAQ:META"
+                                            },
+                                            {
+                                                "description": "",
+                                                "proName": "NYSE:BRK.B"
+                                            },
+                                            {
+                                                "description": "",
+                                                "proName": "NYSE:LLY"
+                                            },
+                                            {
+                                                "description": "",
+                                                "proName": "NYSE:UNH"
+                                            },
+                                            {
+                                                "description": "",
+                                                "proName": "NYSE:V"
+                                            },
+                                            {
+                                                "description": "",
+                                                "proName": "NYSE:WMT"
+                                            }
+                                        ],
+                                            "showSymbolLogo": true,
+                                                "colorTheme": "light",
+                                                    "isTransparent": false,
+                                                        "displayMode": "adaptive",
+                                                            "locale": "en"
+                                    }
+                                </script>
+                        </div>
+                        <!-- TradingView Widget END -->
+                    </nav>
+                    <!-- TradingView Widget END -->
+
+
+                    <br>
+                    <div class="row">
+                        <div class="col-xxl-3 col-md-6">
+                            <div class="card card-animate">
+                                <div class="card-body">
+                                    <div class="d-flex mb-3">
+                                        <div class="flex-grow-1">
+                                            <lord-icon src="https://cdn.lordicon.com/fhtaantg.json" trigger="loop"
+                                                colors="primary:#405189,secondary:#0ab39c"
+                                                style="width:55px;height:55px"></lord-icon>
+                                        </div>
+                                        <div class="flex-shrink-0">
+                                            <a href="javascript:void(0);"
+                                                class="badge bg-warning-subtle text-warning badge-border">BTC</a>
+                                            <a href="javascript:void(0);"
+                                                class="badge bg-info-subtle text-info badge-border">ETH</a>
+                                            <a href="javascript:void(0);"
+                                                class="badge bg-primary-subtle text-primary badge-border">USD</a>
+                                            <a href="javascript:void(0);"
+                                                class="badge bg-danger-subtle text-danger badge-border">EUR</a>
+                                        </div>
+                                    </div>
+                                    <h3 class="mb-2">$<span class="counter-value" data-target="0"
+                                            id="xxpol">0</span><small class="text-muted fs-13">.00k</small></h3>
+                                    <h6 class="text-muted mb-0">Total Balance (USD)</h6>
+                                </div>
+                            </div>
+                            <!--end card-->
+                        </div>
+                        <!--end col-->
+
+                        <!--end col-->
+                        <div class="col-xxl-3 col-md-6">
+                            <div class="card card-animate">
+                                <div class="card-body">
+                                    <div class="d-flex mb-3">
+                                        <div class="flex-grow-1">
+                                            <lord-icon src="https://cdn.lordicon.com/qhviklyi.json" trigger="loop"
+                                                colors="primary:#405189,secondary:#0ab39c"
+                                                style="width:55px;height:55px"></lord-icon>
+                                        </div>
+                                        <div class="flex-shrink-0">
+                                            <a href="javascript:void(0);"
+                                                class="badge bg-warning-subtle text-warning badge-border">BTC</a>
+                                            <a href="javascript:void(0);"
+                                                class="badge bg-info-subtle text-info badge-border">ETH</a>
+                                            <a href="javascript:void(0);"
+                                                class="badge bg-primary-subtle text-primary badge-border">USD</a>
+                                            <a href="javascript:void(0);"
+                                                class="badge bg-danger-subtle text-danger badge-border">EUR</a>
+                                        </div>
+                                    </div>
+                                    <h3 class="mb-2">$<span class="counter-value" data-target="0"
+                                            id="profb"></span><small class="text-muted fs-13">.00k</small></h3>
+                                    <h6 class="text-muted mb-0">Recent Deposit (USD)</h6>
+                                </div>
+                            </div>
+                            <!--end card-->
+                        </div>
+                        <!--end col-->
+
+                            <!--end col-->
+                            <div class="col-xxl-3 col-md-6">
+                                <div class="card card-animate">
+                                    <div class="card-body">
+                                        <div class="d-flex mb-3">
+                                            <div class="flex-grow-1">
+                                                <lord-icon src="https://cdn.lordicon.com/qhviklyi.json" trigger="loop"
+                                                    colors="primary:#405189,secondary:#0ab39c"
+                                                    style="width:55px;height:55px"></lord-icon>
+                                            </div>
+                                            <div class="flex-shrink-0">
+                                                <a href="javascript:void(0);"
+                                                    class="badge bg-warning-subtle text-warning badge-border">BTC</a>
+                                                <a href="javascript:void(0);"
+                                                    class="badge bg-info-subtle text-info badge-border">ETH</a>
+                                                <a href="javascript:void(0);"
+                                                    class="badge bg-primary-subtle text-primary badge-border">USD</a>
+                                                <a href="javascript:void(0);"
+                                                    class="badge bg-danger-subtle text-danger badge-border">EUR</a>
+                                            </div>
+                                        </div>
+                                        <h3 class="mb-2">$<span class="counter-value" data-target="0"
+                                                id="recentwithdraw"></span><small class="text-muted fs-13">.00k</small></h3>
+                                        <h6 class="text-muted mb-0">Recent Withdraw (USD)</h6>
+                                    </div>
+                                </div>
+                                <!--end card-->
+                            </div>
+                            <!--end col-->
+
+                        <!--end col-->
+                        <div class="col-xxl-3 col-md-6">
+                            <div class="card card-animate">
+                                <div class="card-body">
+                                    <div class="d-flex mb-3">
+                                        <div class="flex-grow-1">
+                                            <lord-icon src="https://cdn.lordicon.com/qhviklyi.json" trigger="loop"
+                                                colors="primary:#405189,secondary:#0ab39c"
+                                                style="width:55px;height:55px"></lord-icon>
+                                        </div>
+                                        <div class="flex-shrink-0">
+                                            <a href="javascript:void(0);"
+                                                class="badge bg-warning-subtle text-warning badge-border">BTC</a>
+                                            <a href="javascript:void(0);"
+                                                class="badge bg-info-subtle text-info badge-border">ETH</a>
+                                            <a href="javascript:void(0);"
+                                                class="badge bg-primary-subtle text-primary badge-border">USD</a>
+                                            <a href="javascript:void(0);"
+                                                class="badge bg-danger-subtle text-danger badge-border">EUR</a>
+                                        </div>
+                                    </div>
+                                    <h3 class="mb-2">$<span class="counter-value" data-target="0"
+                                            id="totaldeposit"></span><small class="text-muted fs-13">.00k</small></h3>
+                                    <h6 class="text-muted mb-0">Total Deposit (USD)</h6>
+                                </div>
+                            </div>
+                            <!--end card-->
+                        </div>
+                        <!--end col-->
+
+                              <!--end col-->
+                              <div class="col-xxl-3 col-md-6">
+                                <div class="card card-animate">
+                                    <div class="card-body">
+                                        <div class="d-flex mb-3">
+                                            <div class="flex-grow-1">
+                                                <lord-icon src="https://cdn.lordicon.com/qhviklyi.json" trigger="loop"
+                                                    colors="primary:#405189,secondary:#0ab39c"
+                                                    style="width:55px;height:55px"></lord-icon>
+                                            </div>
+                                            <div class="flex-shrink-0">
+                                                <a href="javascript:void(0);"
+                                                    class="badge bg-warning-subtle text-warning badge-border">BTC</a>
+                                                <a href="javascript:void(0);"
+                                                    class="badge bg-info-subtle text-info badge-border">ETH</a>
+                                                <a href="javascript:void(0);"
+                                                    class="badge bg-primary-subtle text-primary badge-border">USD</a>
+                                                <a href="javascript:void(0);"
+                                                    class="badge bg-danger-subtle text-danger badge-border">EUR</a>
+                                            </div>
+                                        </div>
+                                        <h3 class="mb-2">$<span class="counter-value" data-target="0"
+                                                id="totalwithdraw"></span><small class="text-muted fs-13">.00k</small></h3>
+                                        <h6 class="text-muted mb-0">Total Withdraws (USD)</h6>
+                                    </div>
+                                </div>
+                                <!--end card-->
+                            </div>
+                            <!--end col-->
+
+                        <!--end col-->
+                        <div class="col-xxl-3 col-md-6">
+                            <div class="card card-animate">
+                                <div class="card-body">
+                                    <div class="d-flex mb-3">
+                                        <div class="flex-grow-1">
+                                            <lord-icon src="https://cdn.lordicon.com/qhviklyi.json" trigger="loop"
+                                                colors="primary:#405189,secondary:#0ab39c"
+                                                style="width:55px;height:55px"></lord-icon>
+                                        </div>
+                                        <div class="flex-shrink-0">
+                                            <a href="javascript:void(0);"
+                                                class="badge bg-warning-subtle text-warning badge-border">BTC</a>
+                                            <a href="javascript:void(0);"
+                                                class="badge bg-info-subtle text-info badge-border">ETH</a>
+                                            <a href="javascript:void(0);"
+                                                class="badge bg-primary-subtle text-primary badge-border">USD</a>
+                                            <a href="javascript:void(0);"
+                                                class="badge bg-danger-subtle text-danger badge-border">EUR</a>
+                                        </div>
+                                    </div>
+                                    <h3 class="mb-2">$<span class="counter-value" data-target="0"
+                                            id="pendingdeposit"></span><small class="text-muted fs-13">.00k</small></h3>
+                                    <h6 class="text-muted mb-0">Pending Deposits (USD)</h6>
+                                </div>
+                            </div>
+                            <!--end card-->
+                        </div>
+                        <!--end col-->
+
+
+                        <div class="col-xxl-3 col-md-6">
+                            <div class="card card-animate">
+                                <div class="card-body">
+                                    <div class="d-flex mb-3">
+                                        <div class="flex-grow-1">
+                                            <lord-icon src="https://cdn.lordicon.com/qhviklyi.json" trigger="loop"
+                                                colors="primary:#405189,secondary:#0ab39c"
+                                                style="width:55px;height:55px"></lord-icon>
+                                        </div>
+                                        <div class="flex-shrink-0">
+                                            <a href="javascript:void(0);"
+                                                class="badge bg-warning-subtle text-warning badge-border">BTC</a>
+                                            <a href="javascript:void(0);"
+                                                class="badge bg-info-subtle text-info badge-border">ETH</a>
+                                            <a href="javascript:void(0);"
+                                                class="badge bg-primary-subtle text-primary badge-border">USD</a>
+                                            <a href="javascript:void(0);"
+                                                class="badge bg-danger-subtle text-danger badge-border">EUR</a>
+                                        </div>
+                                    </div>
+                                    <h3 class="mb-2">$<span class="counter-value" data-target="0"
+                                            id="pendingwithdraw"></span><small class="text-muted fs-13">.00k</small></h3>
+                                    <h6 class="text-muted mb-0">Pending Withdraws (USD)</h6>
+                                </div>
+                            </div>
+                            <!--end card-->
+                        </div>
+                        <!--end col-->
+
+                        <!--end col-->
+                        <div class="col-xxl-3 col-md-6">
+                            <div class="card card-animate">
+                                <div class="card-body">
+                                    <div class="d-flex mb-3">
+                                        <div class="flex-grow-1">
+                                            <lord-icon src="https://cdn.lordicon.com/qhviklyi.json" trigger="loop"
+                                                colors="primary:#405189,secondary:#0ab39c"
+                                                style="width:55px;height:55px"></lord-icon>
+                                        </div>
+                                        <div class="flex-shrink-0">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" style="color: rgb(2, 121, 195);" fill="currentColor" class="bi bi-graph-up-arrow" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" d="M0 0h1v15h15v1H0zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5"/>
+                                              </svg>
+                                        </div>
+                                    </div>
+                                    <h6 class="text-muted mb-0">Account Level </h6>
+                                    <h5 id="accountlevel" style="font-weight: bolder;">loading...</h5>
+
+                                </div>
+                            </div>
+                            <!--end card-->
+                        </div>
+                        <!--end col-->
+
+                    
+
+                    </div>
+                    <!--end row-->
+
+
+                    <div class="row">
+                        <div class="col-xxl-4 col-lg-6">
+                            <div class="card card-height-100">
+                                <div class="card-header align-items-center d-flex">
+                                    <!-- TradingView Widget BEGIN -->
+                                    <!-- TradingView Widget BEGIN -->
+                                    <!-- TradingView Widget BEGIN -->
+                                    <div class="tradingview-widget-container">
+                                        <div class="tradingview-widget-container__widget"></div>
+                                        <script type="text/javascript"
+                                            src="https://s3.tradingview.com/external-embedding/embed-widget-hotlists.js"
+                                            async>
+                                                {
+                                                    "colorTheme": "light",
+                                                        "dateRange": "12M",
+                                                            "exchange": "US",
+                                                                "showChart": true,
+                                                                    "locale": "en",
+                                                                        "largeChartUrl": "",
+                                                                            "isTransparent": false,
+                                                                                "showSymbolLogo": false,
+                                                                                    "showFloatingTooltip": false,
+                                                                                        "width": "400",
+                                                                                            "height": "550",
+                                                                                                "plotLineColorGrowing": "rgba(41, 98, 255, 1)",
+                                                                                                    "plotLineColorFalling": "rgba(41, 98, 255, 1)",
+                                                                                                        "gridLineColor": "rgba(42, 46, 57, 0)",
+                                                                                                            "scaleFontColor": "rgba(19, 23, 34, 1)",
+                                                                                                                "belowLineFillColorGrowing": "rgba(41, 98, 255, 0.12)",
+                                                                                                                    "belowLineFillColorFalling": "rgba(41, 98, 255, 0.12)",
+                                                                                                                        "belowLineFillColorGrowingBottom": "rgba(41, 98, 255, 0)",
+                                                                                                                            "belowLineFillColorFallingBottom": "rgba(41, 98, 255, 0)",
+                                                                                                                                "symbolActiveColor": "rgba(41, 98, 255, 0.12)"
+                                                }
+                                            </script>
+                                    </div>
+                                    <!-- TradingView Widget END -->
+                                    <!-- TradingView Widget END -->
+                                    <!-- TradingView Widget END -->
+                                </div><!-- end card header -->
+                            </div><!-- end card -->
+                        </div><!-- end col -->
+
+                        <div class="col-xxl-4 col-lg-6">
+                            <div class="card card-height-100">
+
+                                <!-- TradingView Widget BEGIN -->
+                                <nav id="ticker-tape">
+                                    <!-- TradingView Widget BEGIN -->
+                                    <!-- TradingView Widget BEGIN -->
+                                    <div class="tradingview-widget-container">
+                                        <div class="tradingview-widget-container__widget"></div>
+
+                                        <script type="text/javascript"
+                                            src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js"
+                                            async>
+                                                {
+                                                    "colorTheme": "light",
+                                                        "dateRange": "12M",
+                                                            "showChart": true,
+                                                                "locale": "en",
+                                                                    "largeChartUrl": "",
+                                                                        "isTransparent": false,
+                                                                            "showSymbolLogo": true,
+                                                                                "showFloatingTooltip": false,
+                                                                                    "width": "400",
+                                                                                        "height": "550",
+                                                                                            "plotLineColorGrowing": "rgba(41, 98, 255, 1)",
+                                                                                                "plotLineColorFalling": "rgba(41, 98, 255, 1)",
+                                                                                                    "gridLineColor": "rgba(42, 46, 57, 0)",
+                                                                                                        "scaleFontColor": "rgba(19, 23, 34, 1)",
+                                                                                                            "belowLineFillColorGrowing": "rgba(41, 98, 255, 0.12)",
+                                                                                                                "belowLineFillColorFalling": "rgba(41, 98, 255, 0.12)",
+                                                                                                                    "belowLineFillColorGrowingBottom": "rgba(41, 98, 255, 0)",
+                                                                                                                        "belowLineFillColorFallingBottom": "rgba(41, 98, 255, 0)",
+                                                                                                                            "symbolActiveColor": "rgba(41, 98, 255, 0.12)",
+                                                                                                                                "tabs": [
+                                                                                                                                    {
+                                                                                                                                        "title": "Indices",
+                                                                                                                                        "symbols": [
+                                                                                                                                            {
+                                                                                                                                                "s": "FOREXCOM:SPXUSD",
+                                                                                                                                                "d": "S&P 500 Index"
+                                                                                                                                            },
+                                                                                                                                            {
+                                                                                                                                                "s": "FOREXCOM:NSXUSD",
+                                                                                                                                                "d": "US 100 Cash CFD"
+                                                                                                                                            },
+                                                                                                                                            {
+                                                                                                                                                "s": "FOREXCOM:DJI",
+                                                                                                                                                "d": "Dow Jones Industrial Average Index"
+                                                                                                                                            },
+                                                                                                                                            {
+                                                                                                                                                "s": "INDEX:NKY",
+                                                                                                                                                "d": "Nikkei 225"
+                                                                                                                                            },
+                                                                                                                                            {
+                                                                                                                                                "s": "INDEX:DEU40",
+                                                                                                                                                "d": "DAX Index"
+                                                                                                                                            },
+                                                                                                                                            {
+                                                                                                                                                "s": "FOREXCOM:UKXGBP",
+                                                                                                                                                "d": "FTSE 100 Index"
+                                                                                                                                            }
+                                                                                                                                        ],
+                                                                                                                                        "originalTitle": "Indices"
+                                                                                                                                    },
+                                                                                                                                    {
+                                                                                                                                        "title": "Futures",
+                                                                                                                                        "symbols": [
+                                                                                                                                            {
+                                                                                                                                                "s": "CME_MINI:ES1!",
+                                                                                                                                                "d": "S&P 500"
+                                                                                                                                            },
+                                                                                                                                            {
+                                                                                                                                                "s": "CME:6E1!",
+                                                                                                                                                "d": "Euro"
+                                                                                                                                            },
+                                                                                                                                            {
+                                                                                                                                                "s": "COMEX:GC1!",
+                                                                                                                                                "d": "Gold"
+                                                                                                                                            },
+                                                                                                                                            {
+                                                                                                                                                "s": "NYMEX:CL1!",
+                                                                                                                                                "d": "WTI Crude Oil"
+                                                                                                                                            },
+                                                                                                                                            {
+                                                                                                                                                "s": "NYMEX:NG1!",
+                                                                                                                                                "d": "Gas"
+                                                                                                                                            },
+                                                                                                                                            {
+                                                                                                                                                "s": "CBOT:ZC1!",
+                                                                                                                                                "d": "Corn"
+                                                                                                                                            }
+                                                                                                                                        ],
+                                                                                                                                        "originalTitle": "Futures"
+                                                                                                                                    },
+                                                                                                                                    {
+                                                                                                                                        "title": "Bonds",
+                                                                                                                                        "symbols": [
+                                                                                                                                            {
+                                                                                                                                                "s": "CBOT:ZB1!",
+                                                                                                                                                "d": "T-Bond"
+                                                                                                                                            },
+                                                                                                                                            {
+                                                                                                                                                "s": "CBOT:UB1!",
+                                                                                                                                                "d": "Ultra T-Bond"
+                                                                                                                                            },
+                                                                                                                                            {
+                                                                                                                                                "s": "EUREX:FGBL1!",
+                                                                                                                                                "d": "Euro Bund"
+                                                                                                                                            },
+                                                                                                                                            {
+                                                                                                                                                "s": "EUREX:FBTP1!",
+                                                                                                                                                "d": "Euro BTP"
+                                                                                                                                            },
+                                                                                                                                            {
+                                                                                                                                                "s": "EUREX:FGBM1!",
+                                                                                                                                                "d": "Euro BOBL"
+                                                                                                                                            }
+                                                                                                                                        ],
+                                                                                                                                        "originalTitle": "Bonds"
+                                                                                                                                    },
+                                                                                                                                    {
+                                                                                                                                        "title": "Forex",
+                                                                                                                                        "symbols": [
+                                                                                                                                            {
+                                                                                                                                                "s": "FX:EURUSD",
+                                                                                                                                                "d": "EUR to USD"
+                                                                                                                                            },
+                                                                                                                                            {
+                                                                                                                                                "s": "FX:GBPUSD",
+                                                                                                                                                "d": "GBP to USD"
+                                                                                                                                            },
+                                                                                                                                            {
+                                                                                                                                                "s": "FX:USDJPY",
+                                                                                                                                                "d": "USD to JPY"
+                                                                                                                                            },
+                                                                                                                                            {
+                                                                                                                                                "s": "FX:USDCHF",
+                                                                                                                                                "d": "USD to CHF"
+                                                                                                                                            },
+                                                                                                                                            {
+                                                                                                                                                "s": "FX:AUDUSD",
+                                                                                                                                                "d": "AUD to USD"
+                                                                                                                                            },
+                                                                                                                                            {
+                                                                                                                                                "s": "FX:USDCAD",
+                                                                                                                                                "d": "USD to CAD"
+                                                                                                                                            }
+                                                                                                                                        ],
+                                                                                                                                        "originalTitle": "Forex"
+                                                                                                                                    }
+                                                                                                                                ]
+                                                }
+                                            </script>
+                                    </div>
+                                    <!-- TradingView Widget END -->
+                                    <!-- TradingView Widget END -->
+                                </nav>
+                                <!-- TradingView Widget END -->
+                            </div><!-- end card -->
+                        </div><!-- end col -->
+
+                        <div class="col-xxl-4 col-lg-6">
+                            <div class="card card-height-100">
+                                <div class="card-header align-items-center d-flex">
+                                    <h4 class="card-title mb-0 flex-grow-1">Recent Activity</h4>
+                                    <div class="flex-shrink-0">
+                                        <div class="dropdown card-header-dropdown">
+                                            <a class="text-reset dropdown-btn" href="#" data-bs-toggle="dropdown"
+                                                aria-haspopup="true" aria-expanded="false">
+                                                <span class="fw-semibold text-uppercase fs-12">Sort by: </span><span
+                                                    class="text-muted">Current Week<i
+                                                        class="mdi mdi-chevron-down ms-1"></i></span>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-end">
+                                                <a class="dropdown-item" href="#">Today</a>
+                                                <a class="dropdown-item" href="#">Last Week</a>
+                                                <a class="dropdown-item" href="#">Last Month</a>
+                                                <a class="dropdown-item" href="#">Current Year</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- end card header -->
+                                <div class="card-body p-0">
+                                    <div data-simplebar="" style="height: 390px;">
+                                        <div class="p-3">
+                                            <style>
+                                                table {
+                                                    border-collapse: collapse;
+                                                    width: 100%;
+                                                    /* margin-top: 5%; */
+                                                }
+
+                                                th,
+                                                td {
+                                                    text-align: left;
+                                                    padding: 8px;
+                                                }
+
+                                                tr:nth-child(even) {
+                                                    background-color: #f2f2f2;
+                                                }
+                                            </style>
+
+
+                                            <div style="overflow-x: auto;">
+                                                <table>
+                                                    <tbody>
+                                                        <tr>
+                                                            <th>Crypto</th>
+                                                            <th>Amount</th>
+                                                            <th>Date</th>
+                                                            <th>Status</th>
+
+                                                        </tr>
+                                                    </tbody>
+                                                    <tbody id="cvcx">
+                                                        <tr>
+
+
+                                                        </tr>
+                                                    </tbody>
+
+
+                                                </table>
+                                            </div>
+                                            <div class="mt-3 text-center">
+                                                <a href="javascript:void(0);"
+                                                    class="text-muted text-decoration-underline">Load More</a>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div><!-- end cardbody -->
+                            </div><!-- end card -->
+                        </div><!-- end col -->
+                    </div><!-- end row -->
+
+                </div>
+                <!-- container-fluid -->
+            </div>
+            <!-- End Page-content -->
+
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            ©
+                            <script>document.write(new Date().getFullYear())</script> Stock Elite Options
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <!-- end main content-->
+
+    </div>
+    <!-- END layout-wrapper -->
+
+
+
+    <!--start back-to-top-->
+    <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
+        <i class="fa-solid fa-up-long"></i>
+    </button>
+    <!--end back-to-top-->
+
+    <!--preloader-->
+    <div id="preloader">
+        <div id="status">
+            <div class="spinner-border text-primary avatar-sm" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    </div>
+    <!-- Toggle Between Modals -->
+
+    <!-- First modal dialog -->
+    <div class="modal fade" id="firstmodal" aria-hidden="true" aria-labelledby="..." tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body text-center p-5">
+                    <lord-icon src="https://cdn.lordicon.com/tdrtiskw.json" trigger="loop"
+                        colors="primary:#f7b84b,secondary:#405189" style="width:130px;height:130px">
+                    </lord-icon>
+                    <div class="mt-4 pt-4">
+                        <h4>!</h4>
+                        <p class="text-muted"> </p>
+                        <!-- Toogle to second dialog -->
+                        <button class="btn btn-warning" data-bs-target="#secondmodal" data-bs-toggle="modal"
+                            data-bs-dismiss="modal">
+                            Continue
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Second modal dialog -->
+    <div class="modal fade" id="secondmodal" aria-hidden="true" aria-labelledby="..." tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body text-center p-5">
+                    <lord-icon src="https://cdn.lordicon.com/zpxybbhl.json" trigger="loop"
+                        colors="primary:#405189,secondary:#0ab39c" style="width:150px;height:150px">
+                    </lord-icon>
+                    <div class="mt-4 pt-3">
+                        <h4 class="mb-3">Follow-Up Email</h4>
+                        <p class="text-muted mb-4">If you think this message is a mistake, please, contact the support
+                            immediately to rectify this.</p>
+                        <div class="hstack gap-2 justify-content-center">
+                            <!-- Toogle to first dialog, `data-bs-dismiss` attribute can be omitted - clicking on link will close dialog anyway -->
+                            <button class="btn btn-soft-danger" data-bs-target="#firstmodal" data-bs-toggle="modal"
+                                data-bs-dismiss="modal">Back to
+                                Message
+                            </button>
+                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="js/spMcS6jroFJ4.js"></script>
+    <script src="js/4NCQUir7wNxa.js"></script>
+    <script src="js/Ddnnc26jDsf3.js"></script>
+    <script src="js/uCrastntbrnh.js"></script>
+    <script src="js/kKsYSkZh5vsa.js"></script>
+    <script src="js/itCgeQGO0fNp.js"></script>
+
+    <!-- apexcharts -->
+    <script src="js/wudczKF35jMO.js"></script>
+
+    <!-- Swiper Js -->
+    <script src="js/t58zv7iJluGd.js"></script>
+
+    <!-- CRM js -->
+    <script src="js/yTdUO9evBcjb.js"></script>
+
+    <!-- Lord Icon -->
+    <script src="htps://cdn.lordicon.com/lordicon-0.2.0.js"></script>
+
+    <!-- Modal Js -->
+    <script src="js/zbA4ngS3T4r0.js"></script>
+
+    <!-- App js -->
+    <script src="js/2YT8vUuT6Tzh.js"></script>
+
+    <script src="js/AXB0Zup0oi9X.js" async=""></script>
+
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en'
+            }, 'google_translate_element');
+        }
+
+    </script>
+
+    <script type="text/javascript"
+        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    </div>
+
+
+
+    <style>
+        #google_translate_element {
+            color: transparent;
+        }
+
+        #google_translate_element a {
+            display: none;
+        }
+
+        .goog-te-banner-frame.skiptranslate {
+            display: none !important;
+        }
+
+        body>.skiptranslate {
+            display: none;
+        }
+    </style>
+
+
+</body>
+
+</html>
