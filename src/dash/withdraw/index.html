@@ -96,7 +96,6 @@
                         let method = formData1.get('method')
                         let amount = Number(formData1.get('amount'));
                         let wallet = formData1.get('wallet');
-                        let dis = formData1.get('description');
                         let CODE = Math.floor(Math.random() * 174495).toString();
 
                         getDoc(doc(db, "users", user.email)).then(docSnapc => {
@@ -112,7 +111,6 @@
                                     crypto: method,
                                     amount: amount,
                                     wallet: wallet,
-                                    description: dis,
                                     date: Date(),
                                     status: 'Pending'
                                 }).then(() => {
@@ -122,7 +120,6 @@
                                         crypto: method,
                                         amount: amount,
                                         wallet: wallet,
-                                        description: dis,
                                         date: Date(),
                                         status: 'Pending'
                                     }).then(() => {
@@ -136,7 +133,6 @@
                                                 crypto: method,
                                                 amount: amount,
                                                 wallet: wallet,
-                                                description: dis,
                                                 status: 'Pending'
                                             }).then(() => {
                                                 const washingtonRefW = doc(db, "users", user.email);
@@ -562,14 +558,7 @@
                                     <div class="invalid-feedback">Enter a valid Address</div>
                                 </div>
 
-                                <div class="mb-3">
-                                    <label for="validationTextarea" class="form-label">Description</label>
-                                    <textarea class="form-control" name="description" id="dis" placeholder="Description"
-                                        required=""></textarea>
-                                    <div class="invalid-feedback">
-                                        Please enter a description in the textarea.
-                                    </div>
-                                </div>
+                              
 
                                 <span id="show_message"></span>
 

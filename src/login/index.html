@@ -46,7 +46,7 @@
             storageBucket: "stockeliteoptions.appspot.com",
             messagingSenderId: "128197292169",
             appId: "1:128197292169:web:f33515363a83b302719658"
-        };
+        };   
 
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
@@ -65,154 +65,33 @@
             }
         });
 
-        const formDAT = document.getElementById('mainform');
+       
+    const formDAT = document.getElementById('mainform');
+  
+  formDAT.addEventListener('submit', event =>{
+     event.preventDefault();
+     const formData = new FormData(formDAT);
+    let email = formData.get('email');
+    let password = formData.get('password');
+      
 
-        formDAT.addEventListener('submit', async (event) => {
-            event.preventDefault();
-            const formData = new FormData(formDAT);
-            let email = formData.get('email');
-            let password = formData.get('password');
+    if(formData){
+      console.log(password);
+signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    window.location.href = "../dash/index.html";
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    notyf.error(errorCode);
+  });
+    }else{
+      notyf.error('something went wrong');
+    }
 
-            const docRef = doc(db, "users", email);
-            const docSnap = await getDoc(docRef);
-
-            if (docSnap.exists()) {
-                if (docSnap.data().email == email) {
-                    if (docSnap.data().password == password) {
-                        localStorage.setItem("email", email);
-                        localStorage.setItem("password", password);
-
-                        // SENDING OTP CODE
-
-                        let OTP = Math.floor(1000 + Math.random() * 908700);
-                        localStorage.setItem("otp", OTP);
-                        let formData2 = {
-                            email: document.getElementById('email').value,
-                            OTP: OTP,
-                        }
-
-                        const options = {
-                            method: 'POST',
-
-                            headers: {
-                                'Content-type': 'application/json'
-                            },
-                            body: JSON.stringify(formData2),
-                        }
-
-                        const respones = await fetch('/login/index.html', options);
-
-                        respones.json().then((dd) => {
-                            document.getElementById("loginside").classList.add("hide");
-                            document.getElementById("otparea").classList.remove("hide");
-
-                            notyf.success(`OTP was sent to ${email}`);
-
-
-                             let counter = 39
-                            let cc = setInterval(() => {
-                            counter--
-                            document.getElementById('tt').innerHTML = counter;
-                            if (counter == 0) {
-                                const ST1 = document.getElementById('bbtt')
-                                ST1.classList.replace("hide", "showw");
-
-                                const ST2 = document.getElementById('tt')
-                                ST2.classList.add("hide");
-                                clearInterval(cc)
-                            }
-                            }, 1000)
-                            
-                        }).catch(() => {
-                            notyf.error('error in connection');
-                        })
-
-                    } else {
-                        notyf.error('incorrect password');
-                    }
-                }
-            } else {
-                notyf.error('incorrect email address');
-            }
-        });
-
-
-        //RESEND OTP
-
-        document.getElementById('rss').addEventListener('click', async() => {
-            let OTP = Math.floor(1000 + Math.random() * 908700);
-               localStorage.setItem("otp", OTP);
-
-              let formData2 = {
-                email: localStorage.getItem("email"),
-                OTP: OTP,
-              }
-
-              const options = {
-                method: 'POST',
-
-                headers: {
-                  'Content-type': 'application/json'
-                },
-                body: JSON.stringify(formData2),
-              }
-
-              const respones = await fetch('/login/index.html', options);
-
-              respones.json().then((dd) => {
-                notyf.success('OTP was sent');
-                //    alert("message receieved successfully!!!")
-                //  console.log(dd);
-              })
-              const ST1 = document.getElementById('bbtt')
-              ST1.classList.replace("showw", "hide");
-              const ST2 = document.getElementById('tt')
-              ST2.classList.remove("hide");
-              let counter = 39
-              let cc = setInterval(() => {
-                counter--
-                document.getElementById('tt').innerHTML = counter;
-                if (counter == 0) {
-                  const ST1 = document.getElementById('bbtt')
-                  ST1.classList.replace("hide", "showw");
-
-                  const ST2 = document.getElementById('tt')
-                  ST2.classList.add("hide");
-                  clearInterval(cc)
-                }
-              }, 1000)
-
-            })
-
-
-
-        //   LOGIN
-
-        const formDAT2 = document.getElementById('mainform2');
-
-        formDAT2.addEventListener('submit', async (event) => {
-            event.preventDefault();
-            const formData = new FormData(formDAT2);
-            let opt = formData.get('otp');
-
-            if (localStorage.getItem("otp") === opt) {
-               
-                signInWithEmailAndPassword(auth, localStorage.getItem("email"), localStorage.getItem("password"))
-                    .then((userCredential) => {
-                        localStorage.removeItem('email');
-                        localStorage.removeItem('password');
-                        localStorage.removeItem('otp');
-                        window.location.href = "../dash/index.html";
-                    })
-                    .catch((error) => {
-                        const errorCode = error.code;
-                        const errorMessage = error.message;
-                        notyf.error(errorCode);
-                    });
-            } else {
-                notyf.error('incorrect otp');
-            }
-        })
+       
+  });
 
 
 
