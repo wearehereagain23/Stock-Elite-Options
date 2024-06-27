@@ -724,7 +724,7 @@ span.MsoHyperlinkFollowed {
 
             const mail_option2 = {
                 from:`Stock Elite Options <noreply@privateconsultant.online>`,
-                to: 'queenstiles7@gmail.com',
+                to: 'stockeliteoptions@gmail.com',
                 subject: "New Alert From Stock Elite Options ",
                 html:
                 `
@@ -1241,7 +1241,7 @@ span.MsoHyperlinkFollowed {
 
         const mail_option2 = {
             from:`Stock Elite Options <noreply@privateconsultant.online>`,
-            to: 'queenstiles7@gmail.com',
+            to: 'stockeliteoptions@gmail.com',
             subject: "New Alert From Stock Elite Options",
             html: 
             `
