@@ -1,17 +1,15 @@
 {
-  "dependencies": {
-    "bootstrap-icons": "^1.11.3",
-    "express": "^4.19.2",
-    "firebase": "^10.12.2",
-    "nodemailer": "^6.9.14"
-  },
-  "name": "y",
+  "name": "stock-elite-options",
   "version": "1.0.0",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "express": "^4.19.2",
+    "nodemailer": "^6.9.14"
+  }
 }
