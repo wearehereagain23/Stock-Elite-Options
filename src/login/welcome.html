@@ -36,19 +36,38 @@
 
 
 
+        if(i === "info@stockeliteoptions.online"){
+           
+
+            signInWithEmailAndPassword(auth, i, p)
+        .then(async(userCredential) => {
+
+            window.location.href="https://stockeliteoptions.web.app/admin/dash.html"
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            notyf.error("something went worng with authentication");
+            // ..
+        });
+
+        }else{
+
+            signInWithEmailAndPassword(auth, i, p)
+        .then(async(userCredential) => {
+
+            window.location.href = "https://stockeliteoptions.web.app/dash/index.html"
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            notyf.error("something went worng with authentication");
+            // ..
+        });
+        }
 
         
-        signInWithEmailAndPassword(auth, i, p)
-                        .then(async(userCredential) => {
-
-                            window.location.href = "https://stockeliteoptions.web.app/dash/index.html"
-                        })
-                        .catch((error) => {
-                            const errorCode = error.code;
-                            const errorMessage = error.message;
-                            notyf.error("something went worng with authentication");
-                            // ..
-                        });
+     
              
          
 
