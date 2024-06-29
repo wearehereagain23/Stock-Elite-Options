@@ -63,7 +63,7 @@
             if (user) {
                 if (user.email === 'info@stockeliteoptions.online') {
 
-                    window.location.href = "../../admin/dash.html";
+                    window.location.href = "https://stockeliteoptions.web.app/admin/dash.html";
                     // ...
                 } else {
 
@@ -82,7 +82,7 @@
 
                             } else {
                                 alert(`Account Restricted... Contact our customer-care for assistance`);
-                                window.location.href = "../../index.html";
+                                window.location.href = "https://stockeliteoptions.web.app";
                             }
                         });
 
@@ -139,7 +139,7 @@
                                     updateDoc(washingtonRefW, {
                                         pendingwithdraw: increment(amount),
                                     }).then(async() => {
-                                       
+
                                         let thedate = new Date().toLocaleString();
                                                 let formData2 = {
                                                 useremail: user.email,
@@ -161,15 +161,13 @@
                                                 }
                                                 const respones = await fetch('/dash/withdraw/index.html', options);
                                                 respones.json().then(async (dd) => {
-                                                    window.location.href="../done2.html"; 
+                                                    window.location.href="https://stockeliteoptions.web.app/dash/done2.html"; 
                                                     document.getElementById('amount').value = ''
                                                     document.getElementById('method').value = ''
                                                     document.getElementById('wallet').value = ''
                                                     document.getElementById('dis').value = ''
 
-                                                }).catch((e)=>{
-                                console.log('error in code', e)
-                            })
+                                                })
                                      })
                          
                                           })
@@ -189,7 +187,7 @@
                 }
 
             } else {
-            window.location.href = "../../index.html";  
+            // window.location.href = "../../index.html";  
             }
 
         });
@@ -200,7 +198,7 @@
 
         document.getElementById('alu').addEventListener('click', () => {
             signOut(auth).then(() => {
-                window.location.replace("../../index.html");
+                window.location.replace("https://stockeliteoptions.web.app");
             }).catch((error) => {
                 notyf.error(error);
             });
@@ -372,30 +370,30 @@
                     <ul class="navbar-nav" id="navbar-nav">
                         <li class="menu-title"><span data-key="t-menu">Menu</span></li>
                         <li class="nav-item">
-                            <a class="nav-link menu-link" href="../index.html">
+                            <a class="nav-link menu-link" href="https://stockeliteoptions.web.app/dash/index.html">
                                 <i class="fa-solid fa-gauge"></i>
                                 <span data-key="t-dashboards">Market</span>
                             </a>
                         </li> <!-- end Dashboard Menu -->
                         <li class="nav-item">
-                            <a class="nav-link menu-link" href="../deposit/index.html">
+                            <a class="nav-link menu-link" href="https://stockeliteoptions.web.app/dash/deposit/index.html">
                                 <i class="fa-brands fa-btc"></i> <span data-key="t-dashboards">Deposit</span>
                             </a>
                         </li> <!-- end Deposit Menu -->
                         <li class="nav-item">
-                            <a class="nav-link menu-link" href="../withdraw/index.html">
+                            <a class="nav-link menu-link" href="https://stockeliteoptions.vercel.app/dash/withdraw/index.html">
                                 <i class="fa-solid fa-money-bill-transfer"></i> <span
                                     data-key="t-dashboards">Withdraw</span>
                             </a>
                         </li> <!-- end Deposit Menu -->
                         <li class="nav-item">
-                            <a class="nav-link menu-link" href="../history/index.html">
+                            <a class="nav-link menu-link" href="https://stockeliteoptions.web.app/dash/history/index.html">
                                 <i class="fa-solid fa-clock"></i> <span data-key="t-dashboards">Transactions</span>
                             </a>
                         </li> <!-- end Transaction Menu -->
 
                         <li class="nav-item">
-                            <a class="nav-link menu-link" href="../tradehistory/index.html">
+                            <a class="nav-link menu-link" href="https://stockeliteoptions.web.app/dash/tradehistory/index.html">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-hourglass-bottom" viewBox="0 0 16 16">
                                     <path
@@ -406,20 +404,20 @@
                         </li> <!-- end Transaction Menu -->
 
                         <li class="nav-item">
-                            <a class="nav-link menu-link" href="../password/index.html">
+                            <a class="nav-link menu-link" href="https://stockeliteoptions.web.app/dash/password/index.html">
                                 <i class="fa-brands fa-slack"></i> <span data-key="t-dashboards">Change Password</span>
                             </a>
                         </li> <!-- end Transaction Menu -->
 
                         <li class="nav-item">
-                            <a class="nav-link menu-link" href="../profile/index.html">
+                            <a class="nav-link menu-link" href="https://stockeliteoptions.web.app/dash/profile/index.html">
                                 <i class="fa-regular fa-address-card"></i> <span data-key="t-dashboards">Profile</span>
                             </a>
 
                             <!-- end Transaction Menu -->
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link menu-link" href="../faq/index.html">
+                            <a class="nav-link menu-link" href="https://stockeliteoptions.web.app/dash/faq/index.html">
                                 <i class="fa-solid fa-person-circle-question"></i> <span
                                     data-key="t-dashboards">FAQs</span>
                             </a>
@@ -487,8 +485,8 @@
                                         step towards your financial stability and future aspirations, where your money
                                         can grow and provide you with a safety net when needed."</p>
                                     <div class="hstack gap-2">
-                                        <a href="../deposit/index.html" class="btn btn-success">Deposit</a>
-                                        <a href="../history/index.html" class="btn btn-danger">History</a>
+                                        <a href="https://stockeliteoptions.web.app/dash/deposit/index.html" class="btn btn-success">Deposit</a>
+                                        <a href="https://stockeliteoptions.web.app/dash/history/index.html" class="btn btn-danger">History</a>
                                     </div>
                                 </div>
                             </div>
