@@ -1,0 +1,26 @@
+[debug] [2024-06-29T10:24:35.216Z] ----------------------------------------------------------------------
+[debug] [2024-06-29T10:24:35.220Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2024-06-29T10:24:35.221Z] CLI Version:   13.12.0
+[debug] [2024-06-29T10:24:35.222Z] Platform:      darwin
+[debug] [2024-06-29T10:24:35.223Z] Node Version:  v20.12.2
+[debug] [2024-06-29T10:24:35.224Z] Time:          Sat Jun 29 2024 03:24:35 GMT-0700 (Pacific Daylight Time)
+[debug] [2024-06-29T10:24:35.225Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-06-29T10:24:35.377Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-06-29T10:24:35.377Z] > authorizing via signed-in user (newcodix@gmail.com)
+[debug] [2024-06-29T10:24:35.378Z] [iam] checking project stockeliteoptions for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2024-06-29T10:24:35.380Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/stockeliteoptions:testIamPermissions [none]
+[debug] [2024-06-29T10:24:35.380Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/stockeliteoptions:testIamPermissions x-goog-quota-user=projects/stockeliteoptions
+[debug] [2024-06-29T10:24:35.381Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/stockeliteoptions:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-06-29T10:24:37.154Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/stockeliteoptions:testIamPermissions 200
+[debug] [2024-06-29T10:24:37.155Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/stockeliteoptions:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-06-29T10:24:37.156Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/stockeliteoptions [none]
+[debug] [2024-06-29T10:24:37.853Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/stockeliteoptions 200
+[debug] [2024-06-29T10:24:37.853Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/stockeliteoptions {"projectId":"stockeliteoptions","projectNumber":"128197292169","displayName":"stockeliteoptions","name":"projects/stockeliteoptions","resources":{"hostingSite":"stockeliteoptions","storageBucket":"stockeliteoptions.appspot.com","locationId":"us-central"},"state":"ACTIVE","etag":"1_34c4ba22-f02d-4bad-8c51-3d66cdabde5f"}
+[info] 
+[info] === Deploying to 'stockeliteoptions'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2024-06-29T10:24:37.866Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/stockeliteoptions/versions [none]
+[debug] [2024-06-29T10:24:37.867Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/stockeliteoptions/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2024-06-29T10:24:40.214Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/stockeliteoptions/versions 200

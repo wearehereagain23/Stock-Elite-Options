@@ -2141,7 +2141,7 @@ span.MsoHyperlinkFollowed {
 
 //REGISTRATION WELCOME MESSAGE
 
-app.post('/register/index.html', (request, response)=>{
+app.post('/register/welcome.html', (request, response)=>{
    
 
     let info = request.body
