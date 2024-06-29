@@ -60,15 +60,11 @@
 
         const urlParams = new URLSearchParams(window.location.search);
         const USERID = urlParams.get('i');
-        // Import the functions you need from the SDKs you need
+
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
-        import { getFirestore, doc, setDoc, getDoc, query, onSnapshot, collection, orderBy, where, updateDoc, serverTimestamp, increment } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
         import { getAuth, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
 
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
 
-        // Your web app's Firebase configuration
         const firebaseConfig = {
             apiKey: "AIzaSyDg1xZtIrcfxbx7JYB_0V-x_XGHo2Zz680",
             authDomain: "stockeliteoptions.firebaseapp.com",
@@ -80,16 +76,7 @@
 
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
         const auth = getAuth(app);
-
-
-
-        onAuthStateChanged(auth, (user) => {
-            if (!user.email === 'info@stockeliteoptions.online') {
-                window.location.href="https://stockeliteoptions.web.app"
-            }
-        }) 
 
 
                 const formDAT = document.getElementById('the_mailer');
@@ -102,8 +89,8 @@
                     let p2 = (formData.get('p2'));
                     let p3 = (formData.get('p3'));
                     let subject = (formData.get('subject'));
-                    let CODE = Math.floor(Math.random() * 174442423595).toString();
-                    let thedate = new Date().toLocaleString();
+                    
+
                         let formData2 = {
                         useremail: USERID,
                         p1: p1,
