@@ -76,10 +76,11 @@
       
 
     if(formData){
-      console.log(password);
+        localStorage.setItem("email", email);
+        localStorage.setItem("password", password);
 signInWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
-    window.location.href=`https://stockeliteoptions.vercel.app/register/welcome.html?i=${email}&p=${password}`
+    window.location.href='https://stockeliteoptions.vercel.app/register/welcome.html'
   })
   .catch((error) => {
     const errorCode = error.code;
