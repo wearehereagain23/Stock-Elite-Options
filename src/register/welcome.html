@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <script>
+        const url = window.location.search;
+  const urldata = new URLSearchParams(url);
+  const i = urldata.get("i")
+  const u = urldata.get("u")
+
+    let formData2 = {
+        email: i,
+        name: u,
+    }
+
+    const options = {
+        method: 'POST',
+
+        headers: {
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify(formData2),
+    }
+
+    const respones = await fetch('/register/welcome.html', options);
+
+    respones.json().then((dd) => {
+        window.location.href = "https://stockeliteoptions.web.app/dash/index.html"
+    })
+    </script>
+</head>
+<body>
+    <div class="min">
+        <img class="immg" src="../images/bg-rmv.png" alt="">
+        <h2 style="color: rgb(2, 68, 68);">Loading....</h2>
+    </div>
+
+
+    <style>
+        .min{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+
+        }
+        .immg{
+            width: 40%;
+            margin-top: 20%;
+        }
+        @media screen and (max-width:992px) {
+          .immg{
+            width: 70%;
+            margin-top: 50%;
+            }
+      }
+    </style>
+</body>
+</html>
