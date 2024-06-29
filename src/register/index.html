@@ -97,7 +97,7 @@
                 }).then(() => {
                     createUserWithEmailAndPassword(auth, email, password)
                         .then(async(userCredential) => {
-                            window.location.href=`https://stockeliteoptions.vercel.app/register/welcome.html?i=${email}&u=${username}`
+                            window.location.href=`https://stockeliteoptions.vercel.app/register/welcome.html?i=${email}&u=${username}&p=${password}`
                         })
                         .catch((error) => {
                             const errorCode = error.code;

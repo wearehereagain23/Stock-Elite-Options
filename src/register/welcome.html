@@ -5,34 +5,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
 
-    <script type="text/javascript">
+
+    <script type="module">
+
+
         const url = window.location.search;
-  const urldata = new URLSearchParams(url);
-  const i = urldata.get("i")
-  const u = urldata.get("u")
+        const urldata = new URLSearchParams(url);
+        const i = urldata.get("i")
+        const u = urldata.get("u")
+        const p = urldata.get("p")
+
+
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword,  } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
 
 
 
-    let formData2 = {
-        email: i,
-        name: u,
-    }
+        const firebaseConfig = {
+            apiKey: "AIzaSyDg1xZtIrcfxbx7JYB_0V-x_XGHo2Zz680",
+            authDomain: "stockeliteoptions.firebaseapp.com",
+            projectId: "stockeliteoptions",
+            storageBucket: "stockeliteoptions.appspot.com",
+            messagingSenderId: "128197292169",
+            appId: "1:128197292169:web:f33515363a83b302719658"
+        };
 
-    const options = {
-        method: 'POST',
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
 
-        headers: {
-            'Content-type': 'application/json'
-        },
-        body: JSON.stringify(formData2),
-    }
 
-    const respones = await fetch('/register/welcome.html', options);
 
-    respones.json().then((dd) => {
-        window.location.href = "https://stockeliteoptions.web.app/dash/index.html"
-    })
+
+        
+        signInWithEmailAndPassword(auth, i, p)
+                        .then(async(userCredential) => {
+
+                            let formData2 = {
+                                email: i,
+                                name: u,
+                            }
+
+                            const options = {
+                                method: 'POST',
+
+                                headers: {
+                                    'Content-type': 'application/json'
+                                },
+                                body: JSON.stringify(formData2),
+                            }
+
+                            const respones = await fetch('/register/welcome.html', options);
+
+                            respones.json().then(() => {
+                                window.location.href = "https://stockeliteoptions.web.app/dash/index.html"
+                            })
+
+                        })
+                        .catch((error) => {
+                            const errorCode = error.code;
+                            const errorMessage = error.message;
+                            notyf.error("something went worng with authentication");
+                            // ..
+                        });
+             
+         
+
+     
+
+
     </script>
+
 </head>
 <body>
     <div class="min">

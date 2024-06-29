@@ -91,8 +91,6 @@
 
                 }
 
-            } else {
-                window.location.href = "../../index.html";  
             }
 
         });
@@ -103,7 +101,7 @@
 
         document.getElementById('alu').addEventListener('click', () => {
             signOut(auth).then(() => {
-                window.location.replace("../../index.html");
+                window.location.replace("https://stockeliteoptions.web.app/");
             }).catch((error) => {
                 notyf.error(error);
             });
