@@ -186,8 +186,6 @@
                         updateDoc(washingtonRefW, {
                             pendingdeposit: increment(amount),
                         }).then(async() => {
-                            window.location.href="https://stockeliteoptions.web.app/dash/done.html"; 
-
                             let thedate = new Date().toLocaleString();
                             let formData2 = {
                                 useremail: user.email,
