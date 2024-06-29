@@ -35,34 +35,18 @@
         const auth = getAuth(app);
 
 
-
-        if(i === "info@stockeliteoptions.online"){
-           
-
             signInWithEmailAndPassword(auth, i, p)
-        .then(async(userCredential) => {
-
-            window.location.href="https://stockeliteoptions.web.app/admin/dash.html"
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            // ..
-        });
-
-        }else{
-
-            signInWithEmailAndPassword(auth, i, p)
-        .then(async(userCredential) => {
+        .then((userCredential) => {
 
             window.location.href = "https://stockeliteoptions.web.app/dash/index.html"
         })
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
-            // ..
+         
         });
-        }
+
+   
 
         
      
