@@ -85,10 +85,11 @@ onAuthStateChanged(auth, (user) => {
             if(user.email === 'info@stockeliteoptions.online'){
     
                   // GETTING THE DATA FROM FIREBASE
+                  
 
-                  const citiesRef = collection(db, "users");
-                  const q = query(citiesRef);
+                  const q = query(collection(db, "users"), orderBy("Cdate", "desc"))
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
+       
         querySnapshot.forEach((doc) => {
            console.log('this is from data', doc.data().active )
             const FI = `
@@ -104,6 +105,7 @@ onAuthStateChanged(auth, (user) => {
              
               document.getElementById("cvcx").insertAdjacentHTML('beforeend', FI); 
         })         
+                
       });
 
             

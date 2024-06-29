@@ -86,9 +86,9 @@ onAuthStateChanged(auth, (user) => {
     
                   // GETTING THE DATA FROM FIREBASE
 
-                  const citiesRef = collection(db, "users");
-                  const q = query(citiesRef);
+                  const q = query(collection(db, "users"), orderBy("Cdate", "desc"))
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
+       
         querySnapshot.forEach((doc) => {
          
             const FI = `
