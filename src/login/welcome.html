@@ -32,7 +32,9 @@
 
 
             
-            signInWithEmailAndPassword(auth, e, p)
+       document.getElementById('opp').addEventListener('click', ()=>{
+
+        signInWithEmailAndPassword(auth, e, p)
         .then((userCredential) => {
          localStorage.removeItem("email", email);
          localStorage.removeItem("password", password);
@@ -43,6 +45,8 @@
             const errorMessage = error.message;
          
         });  
+       })
+      
     
        
         
@@ -59,8 +63,8 @@
 <body>
     <div class="min">
         <img class="immg" src="../images/bg-rmv.png" alt="">
-        <h2 style="color: rgb(2, 68, 68);">Loading....</h2>
-        <!-- <button id="opp">Open</button> -->
+       
+        <button style="color: rgb(2, 68, 68);" id="opp">Open</button>
     </div>
 
 
